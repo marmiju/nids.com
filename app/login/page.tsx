@@ -1,7 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { Router } from "next/router";
+import dotenv from 'dotenv'
+dotenv.config()
 
 export default function Login() {
     const [email, setemail] = useState<string>("");
@@ -14,7 +15,7 @@ export default function Login() {
         setError("");
         localStorage.setItem("mytime", Date.now().toString());
         try {
-            const response = await fetch(`http://localhost:3306/api/login`, {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_END_POINT}/api/login`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email, password }),

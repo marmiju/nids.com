@@ -12,6 +12,11 @@ export default function Dashboard() {
     return (
         <div>
             <h1>Dasgboard</h1>
+            <button
+                onClick={() => localStorage.removeItem('token')}
+            >
+                Log Out
+            </button>
         </div>
     );
 }
