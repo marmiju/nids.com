@@ -1,8 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #FDFBEE;
+  --foreground: #015551;
+}
+
+.text-text {
+  @apply bg-[#015551]
+}
+
+.text-primary {
+  @apply bg-[#FE4F2D]
+}
+
+.brown {
+  @apply bg-[#FDFBEE]
 }
 
 @theme inline {
@@ -14,8 +26,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #ffff;
+    --foreground: #FDFBEE;
   }
 }
 
@@ -23,4 +35,9 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* register */
+.input-css {
+  @apply bg-[#FDFBEE] p-2 rounded border border-gray-300 mb-2 text-gray-800
 }

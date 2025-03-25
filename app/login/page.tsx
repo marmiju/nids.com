@@ -15,11 +15,12 @@ export default function Login() {
         setError("");
         localStorage.setItem("mytime", Date.now().toString());
         try {
-            const response = await fetch(`${process.env.NEXT_PUBLIC_END_POINT}/api/login`, {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_END_POINT}/login`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email, password }),
             });
+            console.log(response)
 
             if (!response.ok) {
                 const errorData = await response.json();
@@ -36,8 +37,8 @@ export default function Login() {
         }
     };
     return (
-        <div className="flex min-h-screen items-center justify-center bg-gray-100">
-            <div className="bg-white p-8 shadow-lg rounded-lg w-96">
+        <div className="flex min-h-screen items-center justify-center">
+            <div className=" p-8 shadow-lg rounded-lg w-96">
                 <h2 className="text-2xl font-bold text-center mb-4">Login</h2>
                 {error && <p className="text-red-500 text-center">{error}</p>}
                 <form onSubmit={handleLogin}>
