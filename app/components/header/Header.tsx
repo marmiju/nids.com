@@ -20,32 +20,31 @@ const header = () => {
             <Mobile />
             {/* for desktop or tablate */}
             <Desktop />
-            <div className=" grid justify-end  text-3xl gap-4">
-
-                <div>
-                    {
-                        islogged ? <MdManageAccounts /> : <MdOutlineAccountCircle />
-                    }
+            <div className="relative flex justify-end text-3xl gap-4">
+                {/* Profile Icon */}
+                <div
+                    className="hover:cursor-pointer"
+                    onClick={() => setIsOpen(!isopen)}
+                >
+                    {islogged ? <MdManageAccounts /> : <MdOutlineAccountCircle />}
                 </div>
-                <div className=' text-sm font-medium gap-0.5 rounded grid border border-gray-100 '>
 
-                    {
-                        islogged ? <>
-                            <Link className='bg-gray-100 p-1 ' href={'profile'}>U'r_Profile</Link>
-                            <div className='bg-gray-100 p-1 ' >Log_Out</div>
+                {/* Dropdown Menu */}
+                <div className={`absolute right-0 text-sm font-medium gap-0.5 rounded  mt-10 shadow border border-white  overflow-hidden  ${isopen ? 'grid' : '-mr-64'} transition-all  duration-200 `}>
+                    {islogged ? (
+                        <>
+                            <Link className="backdrop-blur-md hover:bg-white  p-1 block" href={'profile'}>U'r_Profile</Link>
+                            <div className=" backdrop-blur-md hover:bg-white p-1 block">Log Out</div>
                         </>
-                            : <>
-                                <Link className='bg-gray-100 p-1 ' href={'login'}>Log in</Link>
-                                <Link className='bg-gray-100 p-1 ' href={'register'}>Register</Link>
-                            </>
-                    }
-
-
-
+                    ) : (
+                        <>
+                            <Link className="backdrop-blur-md hover:bg-white p-1 block" href={'login'}>Log in</Link>
+                            <Link className="backdrop-blur-md hover:bg-white p-1 block" href={'register'}>Register</Link>
+                        </>
+                    )}
                 </div>
-
-
             </div>
+
 
 
         </div>
