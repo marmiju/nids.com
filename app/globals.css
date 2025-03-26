@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+
+
 :root {
   --background: #FDFBEE;
   --foreground: #001817;
@@ -9,7 +11,7 @@
   @apply bg-[#015551]
 }
 
-.text-primary {
+.color-orange {
   @apply bg-[#FE4F2D]
 }
 
