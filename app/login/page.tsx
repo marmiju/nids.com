@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import dotenv from 'dotenv'
+import Link from "next/link";
 dotenv.config()
 
 export default function Login() {
@@ -69,6 +70,7 @@ export default function Login() {
                         Login
                     </button>
                 </form>
+                <h1 className='text-center mt-6 text-gray-600'>Oops! dan't have account don't Worry  <Link href={'register'} className='text-orange-700 rounded underline hover:cursor-pointer p-4'>Create New</Link></h1>
             </div>
         </div>
     );

@@ -23,7 +23,7 @@ const header = () => {
             <div className="relative flex justify-end text-3xl gap-4">
                 {/* Profile  */}
                 <div
-                    className="hover:cursor-pointer pr-2"
+                    className="hover:cursor-pointer pr-2 flex justify-center  shadow-2xl"
                     onClick={() => setIsOpen(!isopen)}
                 >
                     {islogged ? <MdManageAccounts /> : <MdOutlineAccountCircle />}

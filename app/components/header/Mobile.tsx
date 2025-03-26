@@ -26,6 +26,7 @@ export const Mobile: React.FC<navprop> = ({ navs }) => {
                         {
                             navs.map((data, i) => {
                                 return <Link
+                                    key={i}
                                     className={`${data.path == path ? 'bg-gray-800 color-orange   text-white   text-sm ' : ''} p-1 px-4 `}
                                     href={data.path}>⨀  {data.name}</Link>
                             })

@@ -13,6 +13,7 @@ const poppins = Poppins({
 
 
 export const metadata: Metadata = {
+
   title: "NIDS",
   description: "Nids Rangpur",
 };
@@ -24,6 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+
       <body
         className={`antialiased ${poppins.className}`}
       >
