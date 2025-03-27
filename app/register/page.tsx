@@ -1,11 +1,13 @@
 'use client'
 import { useAuth } from '@/utils/auth'
 import Link from 'next/link'
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import dotenv from 'dotenv'
+import toast, { Toaster } from 'react-hot-toast'
 dotenv.config()
 
 export default function RegisterPage() {
+    const modalRef = useRef<HTMLElement>(null)
     const isloged = useAuth(); // is auth
 
     // State variables
@@ -18,7 +20,10 @@ export default function RegisterPage() {
     const [error, setError] = useState("");
 
 
+
     const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+
+
         event.preventDefault();
         setError("");
 
@@ -33,17 +38,34 @@ export default function RegisterPage() {
         }
 
 
-        const finalpasscode = password.split("").map(e => e.charCodeAt(0) + 9);
-        const savingpass = finalpasscode.map(e => String.fromCharCode(e)).join("");
+        const user = { name, username, email, phone, password }
+        console.log(user)
 
-        // console.log("Encrypted Password:", savingpass);
+        // handle register
+        const handleRegister = async () => {
+            try {
+                const response = await fetch(`${process.env.NEXT_PUBLIC_END_POINT}/register`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(user)
+                })
 
-        // const resultcode = savingpass.split("").map(e => e.charCodeAt(0) - 9)
-        // const resultpass = resultcode.map(e => String.fromCharCode(e)).join("")
-        // console.log(resultpass)
+                const data = await response.json();
+                console.log("Response:", data);
 
-
-
+                if (response.ok) {
+                    toast.success('Register Successfully');
+                } else {
+                    toast.error(` ${data.message}`);
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                toast.error("Something went wrong");
+            }
+        };
+        handleRegister()
     };
 
     return (
@@ -101,8 +123,13 @@ export default function RegisterPage() {
                         Already have an account?
                         <Link href={'/login'} className='text-[#015551] rounded underline hover:cursor-pointer p-2'>Log in</Link>
                     </h1>
+                    <div><Toaster reverseOrder={true} position='bottom-right' /></div>
                 </form>
+
             )}
+
+
+
         </div>
     );
 }
