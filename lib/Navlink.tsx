@@ -19,6 +19,7 @@ export const Navlink = () => {
         { path: '/event', name: 'Event' },
         { path: '/about', name: 'About' },
         { path: '/student', name: 'Student' },
+        { path: '/notice', name: 'Notice' },
     ]
     return link
 

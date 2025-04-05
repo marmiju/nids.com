@@ -11,8 +11,9 @@
   @apply bg-[#015551]
 }
 
+/* [#FE4F2D] */
 .color-orange {
-  @apply bg-[#FE4F2D]
+  @apply bg-red-500
 }
 
 .brown {

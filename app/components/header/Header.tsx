@@ -44,9 +44,6 @@ const header = () => {
                     )}
                 </div>
             </div>
-
-
-
         </div>
     )
 }
