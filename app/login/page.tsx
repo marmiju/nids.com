@@ -28,12 +28,12 @@ export default function Login() {
             }
             const { token } = await response.json();
             localStorage.setItem("token", token);
-            router.replace('/dashboard')
+            router.replace('/profile')
+            router.refresh()
 
 
         } catch (error: any) {
             setError(error.message);
-        } finally {
         }
     };
     return (

@@ -15,7 +15,7 @@ export const HeroData = () => {
         title: 'NIDS - Northbengal Institute of Developement  Studies',
         slogan: 'Empowering Minds, Shaping the Future',
         link: 'facebook.com',
-        img: 'https://i.ibb.co/Z64hDbgD/Untitled-design-4.png'
+        img: 'https://i.ibb.co/7JT5CLpZ/Untitled-design-5.png'
     }
     return data
 }

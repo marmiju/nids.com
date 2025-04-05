@@ -18,12 +18,12 @@ export default function RegisterPage() {
     const [password, setPassword] = useState("");
     const [cpassword, setCpassword] = useState("");
     const [error, setError] = useState("");
+    const [role, setRole] = useState("guest")
+    const [semester, setSemester] = useState('1st semester')
 
 
 
     const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-
-
         event.preventDefault();
         setError("");
 
@@ -38,7 +38,7 @@ export default function RegisterPage() {
         }
 
 
-        const user = { name, username, email, phone, password }
+        const user = { name, username, email, phone, password, role, semester }
         console.log(user)
 
         // handle register
@@ -106,15 +106,42 @@ export default function RegisterPage() {
                                 required
                                 className={`input-css p-2 rounded border focus:outline-none transition-all duration-300
                                 `}
-                                placeholder="*******"
+                                placeholder="sgth#%&15236"
                             />
                             {error && <p className="text-red-500 text-end">{error}</p>}
                         </div>
-
                         <div className='grid'>
                             <label>Confirm Password</label>
                             <input type='password' onChange={e => setCpassword(e.target.value)} required className='input-css' placeholder='*******' />
                         </div>
+                        {/* dropdown button */}
+                        <div className='flex justify-between'>
+                            <div className=' m-2'>
+
+                                <select
+                                    className="p-2 bg-gray-600 bg-opacity-20 backdrop-blur-md  border-white border-opacity-30 rounded-md shadow-md text-white"
+                                    onChange={((e) => { setRole(e.target.value) })}>
+                                    <option>guest</option>
+                                    <option>student</option>
+                                    <option>teacher</option>
+                                </select>
+                            </div>
+                            <div className=' m-2'>
+                                <select className="p-2 bg-gray-600 bg-opacity-20 backdrop-blur-md  border-white border-opacity-30 rounded-md shadow-md text-white"
+                                    onChange={((e) => { setSemester(e.target.value) })}>
+                                    <option>1st semester</option>
+                                    <option>2nd semester</option>
+                                    <option>3rd semester</option>
+                                    <option>4th semester</option>
+                                    <option>5th semester</option>
+                                    <option>6th semester</option>
+                                    <option>7th semester</option>
+                                    <option>8th semester</option>
+                                </select>
+
+                            </div>
+                        </div>
+
                     </div>
                     <div className='flex justify-center font-bold bg-black hover:bg-[#015551] rounded p-3 shadow text-[#FDFBEE] my-2 hover:cursor-pointer'>
                         <button type='submit' className='hover:cursor-pointer w-full'>Register</button>

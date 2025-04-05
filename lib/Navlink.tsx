@@ -15,7 +15,7 @@ export const Navlink = () => {
 
     const link = [
         { path: '/', name: 'home' },
-        { path: '/admission', name: 'Addmission' },
+        { path: 'http://app11.nu.edu.bd/', name: 'Addmission' },
         { path: '/event', name: 'Event' },
         { path: '/about', name: 'About' },
         { path: '/student', name: 'Student' },

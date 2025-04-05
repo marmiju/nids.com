@@ -20,6 +20,7 @@ export const Desktop: React.FC<navprop> = ({ navs }) => {
                         navs.map((data, i) => {
                             return <Link
                                 key={i}
+                                target={data.name == 'Addmission' ? '_blank' : '_self'}
                                 className={`${data.path == path ? 'bg-gray-800 color-orange text-white p-1 px-4 rounded-full text-sm ' : ''}`}
                                 href={data.path}>
                                 {data.name}

@@ -1,5 +1,4 @@
 "use client";
-import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 interface User {
@@ -8,12 +7,19 @@ interface User {
 }
 
 export default function Dashboard() {
+    const router = useRouter();
+
+    const Logout = () => {
+        localStorage.removeItem('token')
+        router.replace('/')
+    }
 
     return (
         <div>
             <h1>Dasgboard</h1>
             <button
-                onClick={() => localStorage.removeItem('token')}
+                className="cursor-pointer"
+                onClick={Logout}
             >
                 Log Out
             </button>
