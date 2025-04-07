@@ -1,9 +1,10 @@
 @import "tailwindcss";
+@plugin "daisyui";
 
 
 
 :root {
-  --background: #fffefb;
+  --background: #fffdfc;
   --foreground: #001817;
 }
 
@@ -13,26 +14,18 @@
 
 /* [#FE4F2D] */
 .color-orange {
-  @apply bg-red-500
+  @apply bg-[#FE4F2D]
 }
 
 .brown {
-  @apply bg-[#FDFBEE]
+  @apply bg-[#fff8ca]
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #ffff;
-    --foreground: #FDFBEE;
-  }
-}
 
 body {
   background: var(--background);
@@ -42,5 +35,5 @@ body {
 
 /* register */
 .input-css {
-  @apply bg-[#FDFBEE] p-2 rounded border border-gray-300 mb-2 text-gray-800
+  @apply bg-[#FDFBEE] p-2 rounded border border-gray-800 mb-2 text-gray-800
 }

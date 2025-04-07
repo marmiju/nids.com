@@ -75,7 +75,7 @@ export default function RegisterPage() {
                     Thanks! <br />You are already logged in.
                 </div>
             ) : (
-                <form onSubmit={onSubmit} className='bg-[#fffef4] p-10 shadow border-gray-300 border rounded-2xl '>
+                <form onSubmit={onSubmit} className='bg-[#faf9f2] p-10 shadow border-gray-300 border rounded-2xl '>
                     <h1 className='text-center text-2xl font-bold'>Register Now</h1>
                     <div>
                         <div className='grid md:flex gap-4'>
@@ -119,7 +119,7 @@ export default function RegisterPage() {
                             <div className=' m-2'>
 
                                 <select
-                                    className="p-2 bg-gray-600 bg-opacity-20 backdrop-blur-md  border-white border-opacity-30 rounded-md shadow-md text-white"
+                                    className="px-2 py-0.5   text-black bg-opacity-0 backdrop-blur-md  border-gray-300 border  rounded-md shadow-md "
                                     onChange={((e) => { setRole(e.target.value) })}>
                                     <option>guest</option>
                                     <option>student</option>
@@ -127,7 +127,7 @@ export default function RegisterPage() {
                                 </select>
                             </div>
                             <div className=' m-2'>
-                                <select className="p-2 bg-gray-600 bg-opacity-20 backdrop-blur-md  border-white border-opacity-30 rounded-md shadow-md text-white"
+                                <select className="px-2 py-0.5   text-black bg-opacity-0 backdrop-blur-md  border-gray-300 border  rounded-md shadow-md"
                                     onChange={((e) => { setSemester(e.target.value) })}>
                                     <option>1st semester</option>
                                     <option>2nd semester</option>

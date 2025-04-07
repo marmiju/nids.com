@@ -14,7 +14,7 @@ const header = () => {
     const islogged = useAuth()
     const navlink = Navlink()
     return (
-        <div className=' m-6 flex justify-between max-w-[1200px] mx-auto '>
+        <div className=' m-6 flex justify-between max-w-[1200px] mx-auto text-black'>
             {/* for Mobile */}
             <Mobile navs={navlink} />
 

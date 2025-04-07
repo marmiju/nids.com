@@ -58,7 +58,7 @@ export default function Login() {
                             type="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                            className="w-full p-2 border rounded mt-1"
+                            className="w-full p-2 border rounded mt-1 "
                             required
                         />
                     </div>

@@ -14,7 +14,12 @@ export default function getNotices(): noticetype {
     const notice = [
         {
             title: 'Holiday of Eid-ul-Fitr',
-            desc: 'Works of NIDS College officially off for Eid-ul-Fitr from 24 March to 5 April. On 6 April, everything will continue as usualWorks of NIDS College officially off for Eid-ul-Fitr from 24 March to 5 April. On 6 April, everything will continue as usualWorks of NIDS College officially off for Eid-ul-Fitr from 24 March to 5 April. On 6 April, everything will continue as usualWorks of NIDS College officially off for Eid-ul-Fitr from 24 March to 5 April. On 6 April, everything will continue as usualWorks of NIDS College officially off for Eid-ul-Fitr from 24 March to 5 April. On 6 April, everything will continue as usualWorks of NIDS College officially off for Eid-ul-Fitr from 24 March to 5 April. On 6 April, everything will continue as usual',
+            desc: `Works of NIDS College officially
+             off for Eid-ul-Fitr from 24 March to 5 April. On 6 April,  everything will continue as usualWorks of NIDS College officially off 
+             for Eid-ul-Fitr from 24 March to 5 April. On 6 April, everything will  continue as usualWorks of NIDS College officially off for Eid-ul-Fitr 
+             
+             
+             from 24 March to 5 April. On 6 April, everything will continue as usualWorks of NIDS College officially off for Eid-ul-Fitr from 24 March to 5 April. On 6 April, everything will continue as usualWorks of NIDS College officially off for Eid-ul-Fitr from 24 March to 5 April. On 6 April, everything will continue as usualWorks of NIDS College officially off for Eid-ul-Fitr from 24 March to 5 April. On 6 April, everything will continue as usual`,
             date: new Date('2025-04-05')
         },
         {
