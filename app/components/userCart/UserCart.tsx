@@ -2,6 +2,7 @@ import { usertype } from '@/lib/users/Users'
 import Image from 'next/image';
 import React from 'react'
 import avatar from '@/public/avatar.png'
+import { TbBackground } from 'react-icons/tb';
 
 
 interface UserCartProps {
@@ -10,20 +11,27 @@ interface UserCartProps {
 
 export const UserCart: React.FC<UserCartProps> = ({ data }) => {
   let ranking;
+  let color;
   if (data.contestPoints <= 200) {
     ranking = 'bronze'
+    color = '#FF1111'
   } else if (data.contestPoints <= 500) {
     ranking = 'Silver'
+    color = '#FF8811'
   }
   else if (data.contestPoints <= 1200) {
     ranking = 'Gold'
+    color = '#DCFF11'
   }
   else if (data.contestPoints <= 2000) {
     ranking = 'diamond'
+    color = '#01FFAF'
   } else if (data.contestPoints <= 5000) {
     ranking = 'Master'
+    color = '#016BFF'
   } else {
     ranking = 'Legend'
+    color = '#60BEFE'
   }
 
 
@@ -39,7 +47,7 @@ export const UserCart: React.FC<UserCartProps> = ({ data }) => {
         <div className='w-full'>
           <div className='flex justify-between  text-sm'>
             <p>@{data.username}</p>
-            <p className={` rounded-2xl text-sm px-2 text-white ${data.contestPoints < 500 ? 'bg-red-500' : 'bg-green-600'}`}>{
+            <p style={{ backgroundColor: color }} className={` rounded-2xl text-sm px-2 $`}>{
               data.role === 'student' ? ranking : data.rank
             }
             </p>
