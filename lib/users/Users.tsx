@@ -17,13 +17,17 @@ export type usertype = {
     createdAt?: string
 }
 
+export type userprop = {
+    data: usersType
+}
+
 export const Users = async () => {
     const response = await fetch(`${process.env.NEXT_PUBLIC_END_POINT}/users`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify({ role: "client" }),
+        body: JSON.stringify({ role: "student" }),
     });
 
     if (!response.ok) {
@@ -31,5 +35,5 @@ export const Users = async () => {
     }
 
     const data = await response.json()
-    return data.result;
+    return data.result
 }

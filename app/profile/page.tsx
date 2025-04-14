@@ -20,7 +20,6 @@ export default function Dashboard() {
             >
                 Log Out
             </button>
-
             {/* Modal */}
             {showModal && (
                 <div className="fixed inset-0 bg-transparent border bg-opacity-40 backdrop-blur-sm flex items-center justify-center z-50">
