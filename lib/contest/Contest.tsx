@@ -17,6 +17,7 @@ export interface Contest {
     description: string;
     hosted_by: string | null;
     created_at: string;
+    end_time: string;
     problems: Problem[];
 }
 export interface Props {
@@ -24,12 +25,12 @@ export interface Props {
 }
 
 
-export const Contest = async () => {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_END_POINT}/contest`)
-    if (!response.ok) {
-        throw new Error('Something went wrong');
-    }
+// export const Contest = async () => {
+//     const response = await fetch(`${process.env.NEXT_PUBLIC_END_POINT}/contest`)
+//     if (!response.ok) {
+//         throw new Error('Something went wrong');
+//     }
 
-    const data = response.json()
-    return data
-}
+//     const data = response.json()
+//     return data
+// }

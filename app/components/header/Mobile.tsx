@@ -16,7 +16,7 @@ export const Mobile: React.FC<navprop> = ({ navs }) => {
         setIsOpen(!isOpen)
     }
     return (
-        <div className='md:hidden'>
+        <div className='md:hidden z-50'>
             <div className=' flex justify-between text-4xl m-2 '>
                 <div onClick={handledrawer}>
                     {

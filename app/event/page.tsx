@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { Props, Contest as ContestType } from '@/lib/contest/Contest';
+import { Contest } from '../components/contest/Contest';
 
 const Page = () => {
     const [contestData, setContestData] = useState<Props | null>(null);
@@ -27,18 +28,16 @@ const Page = () => {
     if (!contestData) return <p className="text-center mt-20">Loading...</p>;
 
     return (
-        <div className="max-w-[1280px] mx-auto p-4 space-y-5">
+        <div className="max-w-[1280px] mx-auto p-4 ">
             <p>All Contest</p>
-            <div className='flex w-full  p-2 rounded-sm drop-shadow-sm  bg-gray-50'>
-                <p className='w-[10%]'>id</p>
-                <p className='w-[20%]'> Status</p>
+            <div className='flex w-full text-center mb-4 p-2 rounded-sm drop-shadow-sm  bg-gray-50'>
+                <p className='w-[15%]'>id</p>
+                <p className='w-[25%]'> Status</p>
+                <p className='w-[20%]'> Problems</p>
                 <p className='w-[40%]'>end_time</p>
             </div>
             {contestData.contests.map((contest) => {
-                return <div className='flex'>
-                    <p>{contest.id}</p>
-                    <p>{new Date(contest.created_at).toLocaleString('us-en', { timeZone: 'Asia/Dhaka' })}</p>
-                </div>
+                return <Contest end_time={contest.end_time} created_at={contest.created_at} description={contest.description} hosted_by={contest.hosted_by} id={contest.id} title={contest.title} problems={contest.problems} />
             }
 
             )}
