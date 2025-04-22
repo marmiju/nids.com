@@ -7,7 +7,7 @@ import StudentSearch from '../components/serchBar/StudentSearch'
 
 const Page = () => {
     const [userData, setUserData] = useState<usersType>([])
-    const [searchTerm, setSearchTerm] = useState('')
+    const [searchTerm, setSearchTerm] = useState('student')
 
     useEffect(() => {
         const fetchUsers = async () => {
@@ -22,7 +22,9 @@ const Page = () => {
         user.username.toLowerCase().includes(searchTerm.toLowerCase()) ||
         user.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
         user.phone.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        user.semester.toLowerCase().includes(searchTerm.toLowerCase())
+        user.semester.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        user.role.toLowerCase().includes(searchTerm.toLowerCase())
+
     )
 
     return (

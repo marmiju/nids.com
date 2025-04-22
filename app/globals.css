@@ -12,6 +12,12 @@
   @apply bg-[#015551]
 }
 
+body {
+  @apply bg-[url('/bg.png')] bg-black
+}
+
+
+
 /* [#FE4F2D] */
 .color-orange {
   @apply bg-[#FE4F2D]
@@ -36,4 +42,8 @@ body {
 /* register */
 .input-css {
   @apply bg-[#FDFBEE] p-2 rounded border border-gray-800 mb-2 text-gray-800
+}
+
+.contes {
+  width: 30%;
 }

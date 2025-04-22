@@ -47,10 +47,12 @@ export const UserCart: React.FC<UserCartProps> = ({ data }) => {
         <div className='w-full'>
           <div className='flex justify-between  text-sm'>
             <p>@{data.username}</p>
-            <p style={{ backgroundColor: color }} className={` rounded-2xl text-sm px-2 $`}>{
-              data.role === 'student' ? ranking : data.rank
+            {
+              data.role == 'student' ? <p style={{ backgroundColor: color }} className={` rounded-2xl text-sm px-2 $`}>{
+                data.role === 'student' ? ranking : data.rank
+              }
+              </p> : <p></p>
             }
-            </p>
           </div>
           <p className='text-lg font-medium text-black'>{data.name}</p>
           <h1>{data.semester}</h1>

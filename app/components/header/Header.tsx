@@ -14,7 +14,7 @@ const header = () => {
     const islogged = useAuth()
     const navlink = Navlink()
     return (
-        <div className=' m-6 flex justify-between max-w-[1200px] mx-auto text-black'>
+        <div className=' p-6 flex justify-end max-w-[1200px] mx-auto text-black'>
             {/* for Mobile */}
             <Mobile navs={navlink} />
 
@@ -33,7 +33,7 @@ const header = () => {
                 <div className={`absolute m-4  right-0 text-sm font-medium gap-2 rounded   mt-10 shadow-xl border-gray-300 py-2  border  bg-white  overflow-hidden  ${isopen ? 'grid' : 'hidden'} `}>
                     {islogged ? (
                         <>
-                            <Link className="backdrop-blur-md   px-4 block" href={'profile'}>U'r_Profile</Link>
+                            <Link className="backdrop-blur-md  text-black px-4 block" href={'profile'}>U'r_Profile</Link>
                             <div className=" hover:cursor-pointer text-red-900 px-4 p-1 block">Log Out</div>
                         </>
                     ) : (

@@ -16,7 +16,7 @@ export default function Home() {
   }
 
   return (
-    <div className=" w-full  text-center  ">
+    <div className="w-full  text-center  ">
 
       <div className="text-gray-200"
         style={{ backgroundImage: `url(${herodata.img})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
