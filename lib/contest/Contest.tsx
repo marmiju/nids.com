@@ -25,12 +25,20 @@ export interface Props {
 }
 
 
-// export const Contest = async () => {
-//     const response = await fetch(`${process.env.NEXT_PUBLIC_END_POINT}/contest`)
-//     if (!response.ok) {
-//         throw new Error('Something went wrong');
-//     }
+export const OneContest = async (id: string | number) => {
+    try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_END_POINT}/onecontest`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ id }),
+        });
 
-//     const data = response.json()
-//     return data
-// }
+        const data = await res.json();
+        console.log(data);
+        return data[0];
+    } catch (error) {
+        console.error('Failed to fetch contest:', error);
+    }
+};
