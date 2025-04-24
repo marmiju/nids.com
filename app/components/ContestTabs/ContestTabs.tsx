@@ -7,10 +7,15 @@ import { Contest } from '@/lib/contest/Contest';
 interface Props {
     contest: Contest;
 }
+// const languages = ['python', 'c', 'cpp', 'java', 'javascript', 'php'];
+// const version = ['3.10.0', '10.2.0', '10.2.0', '15.0.2', '15.10.0', '8.2.3'];
 
 export const ContestTabs: React.FC<Props> = ({ contest }) => {
     const [activeTab, setActiveTab] = useState(0);
     const [codes, setCodes] = useState<{ [key: number]: string }>({});
+    const now = new Date()
+    const end = new Date(contest.end_time)
+    const isExpired = end.getTime() < now.getTime()
 
     const handleCodeChange = (index: number, newCode: string) => {
         setCodes(prev => ({ ...prev, [index]: newCode }));
@@ -21,6 +26,7 @@ export const ContestTabs: React.FC<Props> = ({ contest }) => {
             <div className="text-center mb-4">
                 <h1 className="text-2xl font-semibold">{contest.title}</h1>
                 <p>{contest.description}</p>
+                <p className={`${isExpired ? 'text-red-700' : 'text-green-700'}`}> Ending Time: {new Date(contest.end_time).toLocaleString('us-en', { timeZone: 'Asia/Dhaka' })} </p>
                 <p className="text-gray-400 text-sm">Gain 20 points per solved problem</p>
             </div>
 
@@ -31,6 +37,7 @@ export const ContestTabs: React.FC<Props> = ({ contest }) => {
                         onClick={() => setActiveTab(index)}
                         className={`transition-colors duration-300 py-1 px-2 rounded 
                             ${activeTab === index ? 'bg-black text-white' : 'bg-gray-300 text-black'}
+                            hover:cursor-pointer
                         `}
                     >
                         {`P_${index + 1}`}
@@ -42,6 +49,7 @@ export const ContestTabs: React.FC<Props> = ({ contest }) => {
                 problem={contest.problems[activeTab]}
                 code={codes[activeTab] || ""}
                 onCodeChange={(newCode) => handleCodeChange(activeTab, newCode)}
+                expired = {isExpired}
             />
         </div>
     );

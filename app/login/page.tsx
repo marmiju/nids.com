@@ -14,7 +14,7 @@ export default function Login() {
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
         setError("");
-        localStorage.setItem("mytime", Date.now().toString());
+       
         try {
             const response = await fetch(`${process.env.NEXT_PUBLIC_END_POINT}/login`, {
                 method: "POST",
