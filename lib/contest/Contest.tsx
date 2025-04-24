@@ -8,7 +8,9 @@ export interface Problem {
     contest_id: number;
     title: string;
     description: string;
-    testcases: TestCase[];
+    input:string,
+    output:string
+    
 }
 
 export interface Contest {
@@ -36,7 +38,7 @@ export const OneContest = async (id: string | number) => {
         });
 
         const data = await res.json();
-        console.log(data);
+        // console.log(data);
         return data[0];
     } catch (error) {
         console.error('Failed to fetch contest:', error);

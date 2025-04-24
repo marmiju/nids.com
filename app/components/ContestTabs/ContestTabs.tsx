@@ -13,6 +13,10 @@ interface Props {
 export const ContestTabs: React.FC<Props> = ({ contest }) => {
     const [activeTab, setActiveTab] = useState(0);
     const [codes, setCodes] = useState<{ [key: number]: string }>({});
+    const [outputs, setOutputs] = useState<{ [key: number]: string }>({});
+    const [errors, setErrors] = useState<{ [key: number]: string }>({});
+
+
     const now = new Date()
     const end = new Date(contest.end_time)
     const isExpired = end.getTime() < now.getTime()
@@ -20,6 +24,14 @@ export const ContestTabs: React.FC<Props> = ({ contest }) => {
     const handleCodeChange = (index: number, newCode: string) => {
         setCodes(prev => ({ ...prev, [index]: newCode }));
     };
+    // =========
+    const handleOutput = (index: number, output: string) => {
+  setOutputs(prev => ({ ...prev, [index]: output }));
+};
+
+const handleError = (index: number, error: string) => {
+  setErrors(prev => ({ ...prev, [index]: error }));
+};
 
     return (
         <div className="max-w-[1280px] mx-auto">
@@ -46,11 +58,16 @@ export const ContestTabs: React.FC<Props> = ({ contest }) => {
             </div>
 
             <Problem
-                problem={contest.problems[activeTab]}
-                code={codes[activeTab] || ""}
-                onCodeChange={(newCode) => handleCodeChange(activeTab, newCode)}
-                expired = {isExpired}
-            />
+  problem={contest.problems[activeTab]}
+  code={codes[activeTab] || ""}
+  onCodeChange={(newCode) => handleCodeChange(activeTab, newCode)}
+  expired={isExpired}
+  output={outputs[activeTab]}
+  error={errors[activeTab]}
+  onOutputChange={(output) => handleOutput(activeTab, output)}
+  onErrorChange={(err) => handleError(activeTab, err)}
+/>
+
         </div>
     );
 };

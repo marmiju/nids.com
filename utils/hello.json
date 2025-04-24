@@ -37,6 +37,44 @@
                     }
                 ]
             }
+        },
+        {
+            "contest1": {
+                "title": "weekly contest 02",
+                "description": "this is second contest...",
+                "problems": [
+                    {
+                        "title": "add two number",
+                        "description": "given two number a and b return sum  a,b",
+                        "test-cases": [
+                            {
+                                "input": "2 + 3",
+                                "expected": "5"
+                            },
+                            {
+                                "input": "5 + 4",
+                                "expected": "9"
+                            },
+                            {
+                                "input": "6 + 4",
+                                "expected": "10"
+                            },
+                            {
+                                "input": "10 + 3",
+                                "expected": "13"
+                            },
+                            {
+                                "input": "15 + 4",
+                                "expected": "19"
+                            },
+                            {
+                                "input": "16 + 4",
+                                "expected": "20"
+                            }
+                        ]
+                    }
+                ]
+            }
         }
     ]
 }
