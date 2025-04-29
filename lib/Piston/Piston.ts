@@ -2,7 +2,7 @@ export interface Root {
   run?: Run
   language: string
   version: string
-  file? : any
+  files? : any
 }
 
 export interface Run {
@@ -14,7 +14,7 @@ export interface Run {
 }
 
 
-export async function runOnPiston(req:Root): Promise<Run> {
+export async function runOnPiston(req:any): Promise<any> {
   const res = await fetch("https://emkc.org/api/v2/piston/execute", {
     method: "POST",
     headers: { "Content-Type": "application/json" },

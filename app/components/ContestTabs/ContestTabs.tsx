@@ -26,7 +26,8 @@ export const ContestTabs: React.FC<Props> = ({ contest }) => {
     };
     // =========
     const handleOutput = (index: number, output: string) => {
-  setOutputs(prev => ({ ...prev, [index]: output }));
+    setOutputs(prev => ({ ...prev, [index]: output }));
+    console.log(output)
 };
 
 const handleError = (index: number, error: string) => {
@@ -52,7 +53,7 @@ const handleError = (index: number, error: string) => {
                             hover:cursor-pointer
                         `}
                     >
-                        {`P_${index + 1}`}
+                        {`Problem_${index + 1}`}
                     </button>
                 ))}
             </div>
@@ -62,11 +63,12 @@ const handleError = (index: number, error: string) => {
   code={codes[activeTab] || ""}
   onCodeChange={(newCode) => handleCodeChange(activeTab, newCode)}
   expired={isExpired}
+  onChangeOutput={(newoutput)=> handleOutput(activeTab,newoutput)}
+  onChngeError={(newerro)=> handleError(activeTab,newerro)}
+  outerror={errors[activeTab]}
   output={outputs[activeTab]}
-  error={errors[activeTab]}
-  onOutputChange={(output) => handleOutput(activeTab, output)}
-  onErrorChange={(err) => handleError(activeTab, err)}
-/>
+
+  />
 
         </div>
     );

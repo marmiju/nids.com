@@ -1,199 +1,263 @@
-'use client'
+"use client";
 
-import { Problem as ProblemType } from '@/lib/contest/Contest';
-import { runOnPiston } from '@/lib/Piston/Piston';
-import { Editor } from '@monaco-editor/react';
-import { error } from 'console';
-import Link from 'next/link';
-import React, { useEffect, useRef, useState } from 'react';
+import { Problem as ProblemType } from "@/lib/contest/Contest";
+import { runOnPiston } from "@/lib/Piston/Piston";
+import { runtimeMap } from "@/lib/compiler/runTimeLag/run_lan";
+import { Editor } from "@monaco-editor/react";
+import { error } from "console";
+import { errorMonitor } from "events";
+import Link from "next/link";
+import React, { useEffect, useRef, useState } from "react";
+import { CodeSnipet } from "@/lib/compiler/lanSnipet/LanSnipet";
 
 interface Props {
   problem: ProblemType;
   code: string;
   onCodeChange: (code: string) => void;
   expired: boolean;
+  onChangeOutput: (output: string) => void;
+  onChngeError: (error: string) => void;
+  output: string;
+  outerror: string;
   // output?: string;
-
-  
 }
 
-
-const runtimeMap: { [lang: string]: string, } = {
-  python: '3.10.0',
-  c:      '10.2.0',
-  cpp:    '10.2.0',
-  java:   '15.0.2',
-  javascript: '15.10.0',
-  php:    '8.2.3',
-};
-
-
-
-export const Problem: React.FC<Props> = ({ problem, code, onCodeChange, expired }) => {
+export const Problem: React.FC<Props> = ({
+  problem,
+  code,
+  onCodeChange,
+  expired,
+  onChangeOutput,
+  onChngeError,
+  output,
+  outerror,
+}) => {
   const [isRunning, setIsRunning] = useState(false);
-  const [isLog, setisLog]   = useState<boolean>(true);
-  const [language, setLanguage] = useState<string>('python');
-  const [version, setVersion]   = useState(runtimeMap['python']);
- const [outputText, setOutputText] = useState<string>('result');
- const [error,setError] = useState<string>('')
+  const [isLog, setisLog] = useState<boolean>(true);
+  const [language, setLanguage] = useState<string>("python");
+  const [version, setVersion] = useState(runtimeMap["python"]);
+  const [SnipedCode, setSnipetCode] = useState(CodeSnipet[language]);
+  const [expectedOutput, setExpectedOutput] = useState<string>("");
+  const [isAccepted, setIsAccepted] = useState<boolean | null>(null);
 
+  let expected;
 
-  // console.log(problem)
+  const [color, setcolor] = useState<string>();
 
   // on mount check login
   useEffect(() => {
-    setisLog(!!localStorage.getItem('token'));
+    setisLog(!!localStorage.getItem("token"));
   }, []);
 
   // when language changes, update version
   useEffect(() => {
     setVersion(runtimeMap[language]);
+    setSnipetCode(CodeSnipet[language]);
   }, [language]);
 
   const handleEditorChange = (value: string | undefined) => {
     if (value !== undefined) onCodeChange(value);
   };
 
- const handlecodeChenge =(e:React.ChangeEvent<HTMLSelectElement>)=>{
-     const value = e.target.value
-     setLanguage(value)
- }
+  const handlecodeChenge = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const value = e.target.value;
+    setLanguage(value);
+    setSnipetCode(CodeSnipet[language]);
+  };
 
   const runCode = async () => {
     setIsRunning(true);
-    setError('')
+    onChngeError("");
+    setExpectedOutput("");
+    setIsAccepted(null);
+
+    try {
+      console.log(problem.input);
+      const response = await runOnPiston({
+        language: language,
+        version: version,
+        files: [{ name: `main.${language}`, content: code }],
+        stdin: problem.input.replace(/\\n/g, "\n") || "",
+      });
+
+      if (response.run.stderr) {
+        // console.log(response.run.stderr);
+        console.log(response.run.stderr);
+        onChngeError(response.run.stderr);
+      }
+      onChangeOutput(response.run.stdout);
+      console.log(
+        "Expected " + problem.output,
+        "output:" + response.run.stdout
+      );
+    } catch (err) {
+      setIsRunning(false);
+      console.log(err); // this sets the error message
+    }
+
+    setIsRunning(false);
+  };
+  useEffect(() => {});
+
+  const Submit = async () => {
+    setIsRunning(true);
+    onChngeError("");
 
     try {
       const response = await runOnPiston({
         language: language,
         version: version,
         files: [{ name: `main.${language}`, content: code }],
-        stdin: problem.input || ''
+        stdin: problem.input.replace(/\\n/g, "\n") || "",
       });
-     
-      if(response.run.stderr){
-        // console.log(response.run.stderr);
-        console.log(response.run.stderr)
-        setError(response.run.stderr)
+
+      if (response.run.stderr) {
+        onChngeError(response.run.stderr);
       }
-      setOutputText(response.run.stdout)
-    } catch (error) {
-      setIsRunning(false)
-      throw new Error('Something Went Wrong!')
+
+      const receivedOutput = response.run.stdout.replace(/\r/g, ""); // normalize line endings
+      const expected = problem.output.replace(/\\n/g, "\n").replace(/\r/g, "");
+
+      onChangeOutput(receivedOutput);
+      setExpectedOutput(expected);
+      setIsAccepted(receivedOutput.trim() === expected.trim());
+    } catch (err) {
+      console.log(err);
     }
 
     setIsRunning(false);
   };
-//   const runCode = async () => {
-//   setIsRunning(true);
-
-//   try {
-//     const response = await runOnPiston({
-//       language,
-//       version,
-//       files: [{ name: `main.${language}`, content: code }],
-//       stdin: problem.input || ''
-//     });
-
-//     if (response.run.stderr) {
-//       console.log(response.run.stderr);
-//       onErrorChange?.(response.run.stderr);
-//     } else {
-//       onErrorChange?.('');
-//     }
-
-//     onOutputChange?.(response.run.stdout);
-//   } catch (error) {
-//     onErrorChange?.('Something went wrong!');
-//   }
-
-//   setIsRunning(false);
-// };
 
   return (
     <div>
-      
-
       <div className="p-4 rounded mb-4 grid grid-cols-1 lg:grid-cols-2">
         {/* Problem statement */}
         <div>
           <h2 className="text-xl font-semibold">{problem.title}</h2>
-          
-            <p className="text-gray-700 bg-gray-100 mr-2 p-2">
-              {problem.description}
-            </p>
-            <div className=' mr-2 text-gray-800 my-10 space-y-4'>
-              Input:
-              <p className='bg-gray-900 p-2 text-gray-200 rounded'>{problem.input}</p>
-              Output:
-              <p className='bg-gray-900 p-2 text-gray-200 rounded'>{problem.output}</p>
-              Your output:
-              <p className='bg-gray-900 p-2 text-gray-200 rounded'>
-  {error ? error : outputText}
-</p>
-            </div>
+
+          <p className="text-gray-700 bg-gray-100 mr-2 p-2">
+            {problem.description}
+          </p>
+          <div className={` mr-2 text-${color} my-10 space-y-4 `}>
+            Input:
+            <pre className="bg-gray-900 p-2 text-gray-200 rounded whitespace-pre-wrap">
+              {problem.input.replace(/\\n/g, "\n")}
+            </pre>
+            Expected Output:
+            <pre
+              className={`bg-gray-900 p-2 mb-2  rounded ${
+                isAccepted === null
+                  ? "text-gray-200"
+                  : isAccepted
+                  ? "text-green-500"
+                  : "text-red-500"
+              }`}
+            >
+              {problem.output.replace(/\\n/g, "\n")}
+            </pre>
+            {output && (
+              <div
+                className={`${
+                  isAccepted === null
+                    ? "text-gray-800"
+                    : isAccepted
+                    ? "text-green-500"
+                    : "text-red-500"
+                }`}
+              >
+                Your Output:
+                <pre
+                  className={`bg-gray-900 p-2 rounded whitespace-pre-wrap ${
+                    isAccepted === null
+                      ? "text-gray-200"
+                      : isAccepted
+                      ? "text-green-500"
+                      : "text-red-500"
+                  }`}
+                >
+                  {outerror ? outerror : output.replace(/\\n/g, "\n")}
+                </pre>
+              </div>
+            )}
+          </div>
         </div>
 
         {/* Editor & controls */}
         <div className="bg-[#1f1f1f] p-2 space-y-2 rounded-xl">
-          {expired 
-        ? <p className="bg-red-600 text-center text-white p-4">
-            Oops! Contest Ended😔<br/>
-            <span className="text-gray-300">You can't Run Code</span>
-          </p>
-        : isRunning 
-          ? 'Loading...' 
-          : isLog 
-            ? (
-              <div className="flex justify-center gap-1">
-                <button 
-                  onClick={runCode} 
-                  className="shadow-sm transition-colors duration-500 hover:bg-red-500 bg-gray-600 text-white p-2 px-4 rounded-sm"
+          {expired ? (
+            <p className="bg-red-600 text-center text-white p-4">
+              Oops! Contest Ended😔
+              <br />
+              <span className="text-gray-300">You can't Run Code</span>
+            </p>
+          ) : isRunning ? (
+            <p className="text-white text-center">↻ Exucuting...</p>
+          ) : isLog ? (
+            <div className="flex justify-center gap-1">
+              <button
+                onClick={runCode}
+                className="shadow-sm transition-colors duration-500 hover:bg-red-500 bg-gray-600 text-white p-2 px-4 rounded-sm"
+              >
+                ▷ Run
+              </button>
+              <button
+                onClick={Submit}
+                className="shadow-sm hover:bg-red-500 transition-colors duration-500 bg-green-200 p-2 px-4 rounded-sm"
+              >
+                ⇮ Submit
+              </button>
+              {}
+              {isAccepted !== null && (
+                <p
+                  className={`${
+                    isAccepted ? "bg-green-500" : "bg-red-500"
+                  } text-white p-2`}
                 >
-                  ▷ Run
-                </button>
-                <button className="shadow-sm hover:bg-red-500 transition-colors duration-500 bg-green-200 p-2 px-4 rounded-sm">
-                  ⇮ Submit
-                </button>
-              </div>
-            )
-            : (
-              <div className="w-full flex justify-center">
-                <Link href="/login" className="text-center bg-yellow-400 w-full p-2">
-                  Oops! You're Not Logged In!<br/>
-                  Please Log In First
-                </Link>
-              </div>
-            )
-      }
-          <div className="flex items-center gap-2">
+                  {isAccepted ? "Accepted" : "Rejected"}
+                </p>
+              )}
+            </div>
+          ) : (
+            <div className="w-full flex justify-center">
+              <Link
+                href="/login"
+                className="text-center bg-yellow-400 w-full p-2"
+              >
+                Oops! You're Not Logged In!
+                <br />
+                Please Log In First
+              </Link>
+            </div>
+          )}
+          <div
+            className={`flex items-center gap-2 ${
+              isAccepted ? "text-green-500" : "text-red-600"
+            }`}
+          >
             <select
               className="text-white text-sm bg-[#1f1f1f] p-1 rounded"
               value={language}
               onChange={handlecodeChenge}
             >
-              {Object.keys(runtimeMap).map(lang => (
+              {Object.keys(runtimeMap).map((lang) => (
                 <option key={lang} value={lang}>
                   {lang}
                 </option>
               ))}
             </select>
 
-            <span className="text-gray-400 text-sm">
-              v{version}
-            </span>
+            <span className="text-gray-400 text-sm">v{version}</span>
           </div>
 
           <Editor
+            defaultValue={CodeSnipet[language]}
             height="60vh"
             theme="vs-dark"
             language={language}
             onChange={handleEditorChange}
             value={code}
           />
-          
         </div>
-        
       </div>
     </div>
   );
