@@ -1,12 +1,23 @@
-import React from 'react'
+import { AboutData, AboutUs } from "@/lib/about/AboutData";
+import React from "react";
 
 const page = () => {
-    return (
-        <div className='max-w-[1200px] mx-auto '>
-            <div className='w-full color-orange h-96 grid justify-center items-center text-4xl rounded-2xl text-white font-semibold'>
-                <h1 className='text-center text-xl'>About Nids</h1>
-            </div>
+  const aboutData: AboutUs = AboutData;
+
+  return (
+    <div className="w-full">
+      <div
+        style={{ backgroundImage: `url(${aboutData.image})` }}
+        className={`grid  w-full h-screen bg-cover justify-center items-center text-white `}
+      >
+        <div className={`text-center max-w-[800px] space-y-4`}>
+          <h1 className="text-center  font-bold text-lg md:text-2xl lg:text-4xl">
+            {aboutData.title}
+          </h1>
+          <p>{aboutData.desc}</p>
         </div>
-    )
-}
-export default page
+      </div>
+    </div>
+  );
+};
+export default page;

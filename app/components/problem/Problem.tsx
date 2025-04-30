@@ -184,6 +184,17 @@ export const Problem: React.FC<Props> = ({
 
         {/* Editor & controls */}
         <div className="bg-[#1f1f1f] p-2 space-y-2 rounded-xl">
+          <div className="">
+            {isAccepted !== null && (
+              <p
+                className={` rounded-md ${
+                  isAccepted ? "bg-green-500" : "bg-red-500"
+                } text-white p-2`}
+              >
+                {isAccepted ? "Accepted" : "Rejected"}
+              </p>
+            )}
+          </div>
           {expired ? (
             <p className="bg-red-600 text-center text-white p-4">
               Oops! Contest Ended😔
@@ -207,15 +218,6 @@ export const Problem: React.FC<Props> = ({
                 ⇮ Submit
               </button>
               {}
-              {isAccepted !== null && (
-                <p
-                  className={`${
-                    isAccepted ? "bg-green-500" : "bg-red-500"
-                  } text-white p-2`}
-                >
-                  {isAccepted ? "Accepted" : "Rejected"}
-                </p>
-              )}
             </div>
           ) : (
             <div className="w-full flex justify-center">
