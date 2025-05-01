@@ -140,8 +140,15 @@ export const Problem: React.FC<Props> = ({
           </p>
           <div className={` mr-2 text-${color} my-10 space-y-4 `}>
             Input:
-            <pre className="bg-gray-900 p-2 text-gray-200 rounded whitespace-pre-wrap">
-              {problem.input.replace(/\\n/g, "\n")}
+            <pre className="bg-gray-900 p-2 mb-2 rounded text-gray-200">
+              3 <br></br>
+              {
+                problem.input
+                  .replace(/\\n/g, "\n") // Convert escaped newlines to real newlines
+                  .split("\n") // Split lines
+                  .slice(1, 4) // Show only first 3 lines
+                  .join("\n") // Join back for display
+              }
             </pre>
             Expected Output:
             <pre
@@ -153,7 +160,11 @@ export const Problem: React.FC<Props> = ({
                   : "text-red-500"
               }`}
             >
-              {problem.output.replace(/\\n/g, "\n")}
+              {problem.output
+                .replace(/\\n/g, "\n")
+                .split("\n")
+                .slice(0, 3)
+                .join("\n")}
             </pre>
             {output && (
               <div
@@ -175,7 +186,13 @@ export const Problem: React.FC<Props> = ({
                       : "text-red-500"
                   }`}
                 >
-                  {outerror ? outerror : output.replace(/\\n/g, "\n")}
+                  {outerror
+                    ? outerror
+                    : output
+                        .replace(/\\n/g, "\n")
+                        .split("\n") // Split lines
+                        .slice(0, 3) // Show only first 3 lines
+                        .join("\n")}
                 </pre>
               </div>
             )}
