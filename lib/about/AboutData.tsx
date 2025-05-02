@@ -16,6 +16,10 @@ export interface Achivements {
   position?: string;
   image?: string;
 }
+export interface goal {
+  title: string;
+  desc: string;
+}
 
 export interface AboutUs {
   title: string;
@@ -23,6 +27,7 @@ export interface AboutUs {
   image: string;
   programs: programs;
   achivements: Achivements[];
+  goal: goal[];
 }
 
 export const AboutData: AboutUs = {
@@ -31,6 +36,7 @@ export const AboutData: AboutUs = {
   desc: "Welcome to NIDS, a center of academic excellence, innovation, and holistic development. Since our establishment in 2000, we have remained committed to empowering students through quality education, values-based learning, and real-world exposure.",
   programs: {
     title: "Programs We Offer",
+    desc: "programs description",
     program: [
       {
         title: "Bachelor of Business Administration (BBA)",
@@ -51,6 +57,16 @@ export const AboutData: AboutUs = {
       desc: "Achivement Description 01",
       position: "1st",
       image: "https://i.ibb.co/7JT5CLpZ/Untitled-design-5.png",
+    },
+  ],
+  goal: [
+    {
+      title: "vission",
+      desc: "To be the leading force in sustainable innovation, creating a world where technology and nature thrive together.",
+    },
+    {
+      title: "mission",
+      desc: "To be the leading force in sustainable innovation, creating a world where technology and nature thrive together.To be the leading force in sustainable innovation, creating a world where technology and nature thrive together.To be the leading force in sustainable innovation, creating a world where technology and nature thrive together.To be the leading force in sustainable innovation, creating a world where technology and nature thrive together.To be the leading force in sustainable innovation, creating a world where technology and nature thrive together.",
     },
   ],
 };

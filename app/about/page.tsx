@@ -1,12 +1,14 @@
 import { AboutData, AboutUs } from "@/lib/about/AboutData";
 import React from "react";
+import Programs from "../components/Programs/Programs";
+import VisMis from "../components/vis_mis/VisMis";
 
 const page = () => {
   const aboutData: AboutUs = AboutData;
 
   return (
-    <div className="w-full">
-      //hero
+    <div className="w-full ease-linear">
+      {/* //hero */}
       <div
         style={{ backgroundImage: `url(${aboutData.image})` }}
         className={`grid  w-full h-screen bg-cover justify-center items-center text-white `}
@@ -18,7 +20,12 @@ const page = () => {
           <p>{aboutData.desc}</p>
         </div>
       </div>
-      //
+      {/* //end hero */}
+      <div className="max-w-[1200px] mx-auto">
+      <Programs programs={aboutData.programs}/>
+      <VisMis goal={aboutData.goal}></VisMis>
+      </div>
+
       
     </div>
   );

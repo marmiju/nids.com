@@ -4,11 +4,11 @@ import { Problem as ProblemType } from "@/lib/contest/Contest";
 import { runOnPiston } from "@/lib/Piston/Piston";
 import { runtimeMap } from "@/lib/compiler/runTimeLag/run_lan";
 import { Editor } from "@monaco-editor/react";
-import { error } from "console";
-import { errorMonitor } from "events";
 import Link from "next/link";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CodeSnipet } from "@/lib/compiler/lanSnipet/LanSnipet";
+import { submission } from "@/lib/Function/Submit";
+import { Contest } from "../contest/Contest";
 
 interface Props {
   problem: ProblemType;
@@ -19,6 +19,7 @@ interface Props {
   onChngeError: (error: string) => void;
   output: string;
   outerror: string;
+  contest_id: number;
   // output?: string;
 }
 
@@ -31,6 +32,7 @@ export const Problem: React.FC<Props> = ({
   onChngeError,
   output,
   outerror,
+  contest_id,
 }) => {
   const [isRunning, setIsRunning] = useState(false);
   const [isLog, setisLog] = useState<boolean>(true);
@@ -121,6 +123,9 @@ export const Problem: React.FC<Props> = ({
       onChangeOutput(receivedOutput);
       setExpectedOutput(expected);
       setIsAccepted(receivedOutput.trim() === expected.trim());
+
+      //
+      submission({ contest_id, problem_id: problem.id, isAccepted });
     } catch (err) {
       console.log(err);
     }
