@@ -123,9 +123,15 @@ export const Problem: React.FC<Props> = ({
       onChangeOutput(receivedOutput);
       setExpectedOutput(expected);
       setIsAccepted(receivedOutput.trim() === expected.trim());
+      console.log(isAccepted);
+      const status = receivedOutput.trim() === expected.trim();
 
-      //
-      submission({ contest_id, problem_id: problem.id, isAccepted });
+      //submission
+      submission({
+        contest_id,
+        problem_id: problem.id,
+        isAccepted: status,
+      });
     } catch (err) {
       console.log(err);
     }

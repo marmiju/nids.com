@@ -8,7 +8,7 @@ interface sub_pros {
 
 export async function submission({ contest_id, problem_id, isAccepted }: sub_pros) {
     const token = localStorage.getItem('token')
-    console.log("token:   "+token)
+    console.log("token:   "+token+isAccepted)
     
     await fetch(`${process.env.NEXT_PUBLIC_END_POINT}/submit`, {
         method: 'POST',
