@@ -1,12 +1,13 @@
 import { AboutData, AboutUs } from "@/lib/about/AboutData";
 import React from "react";
 import Programs from "../components/Programs/Programs";
+import VisMis from "../components/vis_mis/VisMis";
 
 const page = () => {
   const aboutData: AboutUs = AboutData;
 
   return (
-    <div className="w-full">
+    <div className="w-full ease-linear">
       {/* //hero */}
       <div
         style={{ backgroundImage: `url(${aboutData.image})` }}
@@ -20,7 +21,11 @@ const page = () => {
         </div>
       </div>
       {/* //end hero */}
+      <div className="max-w-[1200px] mx-auto">
       <Programs programs={aboutData.programs}/>
+      <VisMis goal={aboutData.goal}></VisMis>
+      </div>
+
       
     </div>
   );

@@ -1,4 +1,3 @@
-import { title } from "process";
 
 export interface program {
   title: string;
@@ -18,6 +17,10 @@ export interface Achivements {
   position?: string;
   image?: string;
 }
+export interface goal {
+  title:string,
+  desc:string,
+}
 
 export interface AboutUs {
   title: string;
@@ -25,6 +28,7 @@ export interface AboutUs {
   image: string;
   programs: programs;
   achivements: Achivements[];
+  goal:goal[]
 }
 
 export const AboutData: AboutUs = {
@@ -56,4 +60,14 @@ export const AboutData: AboutUs = {
       image: "https://i.ibb.co/7JT5CLpZ/Untitled-design-5.png",
     },
   ],
+  goal:[
+    {
+      title:'vission',
+      desc:'To be the leading force in sustainable innovation, creating a world where technology and nature thrive together.'
+    },
+    {
+      title:'mission',
+      desc:'To be the leading force in sustainable innovation, creating a world where technology and nature thrive together.To be the leading force in sustainable innovation, creating a world where technology and nature thrive together.To be the leading force in sustainable innovation, creating a world where technology and nature thrive together.To be the leading force in sustainable innovation, creating a world where technology and nature thrive together.To be the leading force in sustainable innovation, creating a world where technology and nature thrive together.'
+    }
+  ]
 };
