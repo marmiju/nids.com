@@ -33,6 +33,7 @@ export const AboutData: AboutUs = {
   desc: "Welcome to NIDS, a center of academic excellence, innovation, and holistic development. Since our establishment in 2000, we have remained committed to empowering students through quality education, values-based learning, and real-world exposure.",
   programs: {
     title: "Programs We Offer",
+    desc:"programs description",
     program: [
       {
         title: "Bachelor of Business Administration (BBA)",

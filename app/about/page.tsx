@@ -1,12 +1,13 @@
 import { AboutData, AboutUs } from "@/lib/about/AboutData";
 import React from "react";
+import Programs from "../components/Programs/Programs";
 
 const page = () => {
   const aboutData: AboutUs = AboutData;
 
   return (
     <div className="w-full">
-      //hero
+      {/* //hero */}
       <div
         style={{ backgroundImage: `url(${aboutData.image})` }}
         className={`grid  w-full h-screen bg-cover justify-center items-center text-white `}
@@ -18,7 +19,8 @@ const page = () => {
           <p>{aboutData.desc}</p>
         </div>
       </div>
-      //
+      {/* //end hero */}
+      <Programs programs={aboutData.programs}/>
       
     </div>
   );
