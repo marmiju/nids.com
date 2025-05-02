@@ -6,6 +6,7 @@ const page = () => {
 
   return (
     <div className="w-full">
+      //hero
       <div
         style={{ backgroundImage: `url(${aboutData.image})` }}
         className={`grid  w-full h-screen bg-cover justify-center items-center text-white `}
@@ -17,6 +18,8 @@ const page = () => {
           <p>{aboutData.desc}</p>
         </div>
       </div>
+      //
+      
     </div>
   );
 };
