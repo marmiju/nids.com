@@ -1,3 +1,5 @@
+import { title } from "process";
+
 export interface program {
   title: string;
   desc: string;
@@ -8,12 +10,20 @@ export interface programs {
   desc?: string;
   program: program[];
 }
+// Achivements
+export interface Achivements {
+  title: string;
+  desc: string;
+  position?: string;
+  image?: string;
+}
 
 export interface AboutUs {
   title: string;
   desc: string;
   image: string;
   programs: programs;
+  achivement?: Achivements[];
 }
 
 export const AboutData = {
@@ -35,4 +45,12 @@ export const AboutData = {
       },
     ],
   },
+  achivements: [
+    {
+      title: "achivement 01",
+      desc: "Achivement Description 01",
+      position: "1st",
+      image: "https://i.ibb.co/7JT5CLpZ/Untitled-design-5.png",
+    },
+  ],
 };
