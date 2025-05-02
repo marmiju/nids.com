@@ -1,5 +1,3 @@
-import { title } from "process";
-
 export interface program {
   title: string;
   desc: string;
