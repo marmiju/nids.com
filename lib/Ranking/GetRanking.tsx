@@ -1,20 +1,18 @@
 import { Ranking } from "@/app/components/ranking/Ranking";
 import React, { useEffect, useState } from "react";
 
-interface ran_props {
+export interface ran_props {
   contest_id: number;
 }
 
-export interface type_ranks {
+export interface Type_Ranks {
   total_point: string;
   username: string;
   user_id: number;
   total_submissions: number;
 }
-// { contest_id }: ran_props
 
-export const GetRanking = async () => {
-  const contest_id = 14;
+export const GetRanking = async ({ contest_id }: ran_props) => {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_END_POINT}/contestRanking`,
     {

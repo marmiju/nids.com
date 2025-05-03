@@ -18,7 +18,7 @@ export default async function ContestEvent({
   return (
     <div>
       <ContestTabs contest={contest} />
-      <Ranking></Ranking>
+      <Ranking contest_id={contest.id}></Ranking>
     </div>
   );
 }

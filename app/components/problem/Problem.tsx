@@ -41,8 +41,10 @@ export const Problem: React.FC<Props> = ({
   const [SnipedCode, setSnipetCode] = useState(CodeSnipet[language]);
   const [expectedOutput, setExpectedOutput] = useState<string>("");
   const [isAccepted, setIsAccepted] = useState<boolean | null>(null);
+  const [solvedproblem, setsolvedproblem] = useState([]);
 
   let expected;
+  function handlesolvedproblem() {}
 
   const [color, setcolor] = useState<string>();
 

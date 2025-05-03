@@ -1,51 +1,75 @@
-'use client'
-import Link from 'next/link'
-import React, { useState } from 'react'
+"use client";
+import Link from "next/link";
+import React, { useEffect, useState } from "react";
 
-import { Mobile } from './Mobile';
-import { MdManageAccounts, MdOutlineAccountCircle } from 'react-icons/md';
-import { useAuth } from '@/utils/auth';
-import { Desktop } from './Desktop';
-import { Navlink } from '@/lib/Navlink';
-
+import { Mobile } from "./Mobile";
+import { MdManageAccounts, MdOutlineAccountCircle } from "react-icons/md";
+import { useAuth } from "@/utils/auth";
+import { Desktop } from "./Desktop";
+import { Navlink } from "@/lib/Navlink";
+import { useRouter } from "next/navigation";
 
 const header = () => {
-    const [isopen, setIsOpen] = useState(false)
-    const islogged = useAuth()
-    const navlink = Navlink()
-    return (
-        <div className=' z-50 p-6 flex justify-end max-w-[1200px] mx-auto text-black'>
-            {/* for Mobile */}
-            <Mobile navs={navlink} />
+  const [isopen, setIsOpen] = useState(false);
+  const router = useRouter();
+  const islogged = useAuth();
+  const navlink = Navlink();
+  const [path, setpath] = useState("");
 
-            {/* for desktop or tablate */}
-            <Desktop navs={navlink} />
-            <div className="relative flex justify-end text-3xl gap-4">
-                {/* Profile  */}
-                <div
-                    className="hover:cursor-pointer pr-2 flex justify-center  shadow-2xl"
-                    onClick={() => setIsOpen(!isopen)}
-                >
-                    {islogged ? <MdManageAccounts /> : <MdOutlineAccountCircle />}
-                </div>
+  return (
+    <div className=" z-50 p-6 flex justify-end max-w-[1200px] mx-auto text-black">
+      {/* for Mobile */}
+      <Mobile navs={navlink} />
 
-                {/* Dropdown Menu */}
-                <div className={`absolute m-4  right-0 text-sm font-medium gap-2 rounded   mt-10 shadow-xl border-gray-300 py-2  border  bg-white  overflow-hidden  ${isopen ? 'grid' : 'hidden'} `}>
-                    {islogged ? (
-                        <>
-                            <Link className="backdrop-blur-md  text-black px-4 block" href={'profile'}>U'r_Profile</Link>
-                            <div className=" hover:cursor-pointer text-red-900 px-4 p-1 block">Log Out</div>
-                        </>
-                    ) : (
-                        <>
-                            <Link className="backdrop-blur-md hover:cursor-pointer px-4 p-1 block" href={'login'}>Log in</Link>
-                            <Link className="backdrop-blur-md hover:cursor-pointer px-4 p-1 block" href={'register'}>Register</Link>
-                        </>
-                    )}
-                </div>
-            </div>
+      {/* for desktop or tablate */}
+      <Desktop navs={navlink} />
+      <div className={`relative flex justify-end text-3xl gap-4 `}>
+        {/* Profile  */}
+        <div
+          className={`hover:cursor-pointer pr-2 flex justify-center  shadow-2xl `}
+          onClick={() => setIsOpen(!isopen)}
+        >
+          {islogged ? <MdManageAccounts /> : <MdOutlineAccountCircle />}
         </div>
-    )
-}
 
-export default header
+        {/* Dropdown Menu */}
+        <div
+          className={`absolute mx-4  right-0 text-sm font-medium gap-2 rounded   mt-10 shadow-xl border-gray-300   border  bg-white  overflow-hidden  ${
+            isopen ? "grid" : "hidden"
+          } `}
+        >
+          {islogged ? (
+            <div>
+              <button
+                onClick={() => router.replace("/profile")}
+                className="backdrop-blur-md hover:cursor-pointer py-2 text-white bg-black px-4 block"
+              >
+                U'r_Profile
+              </button>
+              <div className=" hover:cursor-pointer bg-red-700 py-2 text-white px-4  block">
+                Log Out
+              </div>
+            </div>
+          ) : (
+            <>
+              <Link
+                className="backdrop-blur-md hover:cursor-pointer px-4 p-1 block"
+                href={"login"}
+              >
+                Log in
+              </Link>
+              <Link
+                className="backdrop-blur-md hover:cursor-pointer px-4 p-1 block"
+                href={"register"}
+              >
+                Register
+              </Link>
+            </>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default header;
