@@ -20,7 +20,7 @@ export const Ranking = () => {
     <div>
       <h2>Contest Ranking</h2>
       <table
-        border={1}
+        border={10}
         cellPadding="10"
         style={{ borderCollapse: "collapse", width: "100%" }}
       >
@@ -35,10 +35,10 @@ export const Ranking = () => {
         <tbody>
           {ranking.map((user, index) => (
             <tr key={user.user_id}>
-              <td>{index + 1}</td>
-              <td>{user.username}</td>
-              <td>{user.total_point}</td>
-              <td>{user.total_submissions}</td>
+              <td className="text-center">{index + 1}</td>
+              <td className="text-center">{user.username}</td>
+              <td className="text-center">{user.total_point}</td>
+              <td className="text-center">{user.total_submissions}</td>
             </tr>
           ))}
         </tbody>
