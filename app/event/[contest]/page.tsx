@@ -1,16 +1,24 @@
-
-
-import { useState } from 'react';
+import { useState } from "react";
 import { Problem } from "@/app/components/problem/Problem";
 import { Contest, OneContest } from "@/lib/contest/Contest";
-import { ContestTabs } from '@/app/components/ContestTabs/ContestTabs';
-import { Loading } from '@/app/components/Loading/Loading';
+import { ContestTabs } from "@/app/components/ContestTabs/ContestTabs";
+import { Loading } from "@/app/components/Loading/Loading";
+import { Ranking } from "@/app/components/ranking/Ranking";
 
-export default async function ContestEvent({ params }: { params: { contest: number } }) {
-    const contestId = params.contest;
-    const contest: Contest = await OneContest(contestId);
+export default async function ContestEvent({
+  params,
+}: {
+  params: { contest: number };
+}) {
+  const contestId = params.contest;
+  const contest: Contest = await OneContest(contestId);
 
-    if (!contest) return <Loading />;
+  if (!contest) return <Loading />;
 
-    return <ContestTabs contest={contest} />;
+  return (
+    <div>
+      <ContestTabs contest={contest} />
+      <Ranking></Ranking>
+    </div>
+  );
 }

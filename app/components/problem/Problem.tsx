@@ -144,6 +144,7 @@ export const Problem: React.FC<Props> = ({
       <div className="p-4 rounded mb-4 grid grid-cols-1 lg:grid-cols-2">
         {/* Problem statement */}
         <div>
+          <h2 className="text-md font-light">Id: {problem.id}</h2>
           <h2 className="text-xl font-semibold">{problem.title}</h2>
 
           <p className="text-gray-700 bg-gray-100 mr-2 p-2">
