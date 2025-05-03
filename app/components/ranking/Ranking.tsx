@@ -15,11 +15,11 @@ export const Ranking = ({ contest_id }: Rank_Props) => {
   }, []);
 
   return (
-    <div className="max-w-[1200px] mx-auto text-center my-10">
+    <div className="max-w-[1280px] mx-auto text-center my-10">
       {ranking && ranking.length > 0 ? (
         <>
           <h2 className="text-xl text-black bg-gray-200 rounded-t-xl font-semibold p-2 ">
-            Contest Ranking
+            Leader Board
           </h2>
           <div className="flex bg-gray-500 text-md font-medium  text-white py-2">
             <p className="w-[10%] overflow-ellipsis">Rank</p>

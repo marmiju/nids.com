@@ -143,10 +143,12 @@ export const Problem: React.FC<Props> = ({
 
   return (
     <div>
-      <div className="p-4 rounded mb-4 grid grid-cols-1 lg:grid-cols-2">
+      <div className="pt-2 rounded mb-4 grid grid-cols-1 lg:grid-cols-2 gap-2">
         {/* Problem statement */}
-        <div>
-          <h2 className="text-md font-light">Id: {problem.id}</h2>
+        <div className="bg-white shadow-sm p-2 rounded-2xl border border-gray-100">
+          <h2 className="text-md font-light w-[70px] text-center border rounded-full border-gray-200 shadow px-2">
+            Id: {problem.id}
+          </h2>
           <h2 className="text-xl font-semibold">{problem.title}</h2>
 
           <p className="text-gray-700 bg-gray-100 mr-2 p-2">

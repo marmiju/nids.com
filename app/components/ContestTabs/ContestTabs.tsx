@@ -35,27 +35,28 @@ export const ContestTabs: React.FC<Props> = ({ contest }) => {
 
   return (
     <div className="max-w-[1280px] mx-auto">
-      <div className="text-center mb-4">
-        <h1 className="text-2xl font-semibold">{contest.id}</h1>
-        <p>{contest.description}</p>
-        <p className={`${isExpired ? "text-red-700" : "text-green-700"}`}>
-          {" "}
-          Ending Time:{" "}
-          {new Date(contest.end_time).toLocaleString("us-en", {
-            timeZone: "Asia/Dhaka",
-          })}{" "}
-        </p>
-        <p className="text-gray-400 text-sm">
-          Gain 20 points per solved problem
-        </p>
-      </div>
+      <div className=" bg-white shadow px-2 py-4 rounded-2xl">
+        <div className="text-center mb-4">
+          <h1 className="text-2xl font-semibold">{contest.title}</h1>
+          <p>{contest.description}</p>
+          <p className={`${isExpired ? "text-red-700" : "text-green-700"}`}>
+            {" "}
+            Ending Time:{" "}
+            {new Date(contest.end_time).toLocaleString("us-en", {
+              timeZone: "Asia/Dhaka",
+            })}{" "}
+          </p>
+          <p className="text-gray-400 text-sm">
+            Gain 20 points per solved problem
+          </p>
+        </div>
 
-      <div className="flex gap-2 mb-4 justify-center">
-        {contest.problems.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setActiveTab(index)}
-            className={`transition-colors duration-300 py-1 px-2 rounded 
+        <div className="flex gap-2 mb-4 justify-center">
+          {contest.problems.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setActiveTab(index)}
+              className={`transition-colors duration-300 py-1 px-2 rounded 
                             ${
                               activeTab === index
                                 ? "bg-black text-white"
@@ -63,10 +64,11 @@ export const ContestTabs: React.FC<Props> = ({ contest }) => {
                             }
                             hover:cursor-pointer
                         `}
-          >
-            {`Problem_${index + 1}`}
-          </button>
-        ))}
+            >
+              {`Problem_${index + 1}`}
+            </button>
+          ))}
+        </div>
       </div>
 
       <Problem
