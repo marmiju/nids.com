@@ -4,7 +4,6 @@ interface rankprops {
   data: Type_Ranks;
   index: number;
   lenofrank: number;
-  accepted_problem_ids?: string;
 }
 
 export const RanksTable: React.FC<rankprops> = ({ data, index, lenofrank }) => {
@@ -26,7 +25,7 @@ export const RanksTable: React.FC<rankprops> = ({ data, index, lenofrank }) => {
              : "bg-gray-700 text-white"
          }`}
     >
-      <p className={`w-[15%] `}>{` ${
+      <p className={`w-[10%] `}>{` ${
         index == 0
           ? "👑"
           : index == 1
@@ -35,11 +34,14 @@ export const RanksTable: React.FC<rankprops> = ({ data, index, lenofrank }) => {
           ? "3rd"
           : index + 1 + "th"
       } `}</p>
-      <p className="w-[15%]">{data.user_id}</p>
-      <p className="w-[30%]">{data.username}</p>
-      <p className="w-[20%]">{data.total_point}</p>
-      <p className="w-[20%]">{data.acceptance_rate}%</p>
-      <p className="w-[20%]">{data.total_problems}</p>
+
+      <p className="w-[10%]">{data.user_id}</p>
+      <p className="w-[20%]">{data.username}</p>
+      <p className="w-[10%]">{data.total_point}</p>
+      <p className="w-[10%]">{data.acceptance_rate}%</p>
+      <p className="w-[10%]">{data.total_problems}</p>
+      <p className="w-[20%]">{data.accepted_problem_ids}</p>
+      <p className="w-[10%]">{data.total_submissions}</p>
     </div>
   );
 };

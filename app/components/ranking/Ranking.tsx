@@ -18,23 +18,25 @@ export const Ranking = ({ contest_id }: Rank_Props) => {
     <div className="max-w-[1200px] mx-auto text-center my-10">
       {ranking && ranking.length > 0 ? (
         <>
-          <h2 className="text-xl text-white bg-gray-700 rounded-t-xl font-semibold p-2">
+          <h2 className="text-xl text-black bg-gray-200 rounded-t-xl font-semibold p-2 ">
             Contest Ranking
           </h2>
-          <div className="flex bg-gray-500 text-md font-medium  text-white p-2">
-            <p className="w-[15%] ">Rank</p>
-            <p className="w-[15%] ">UserId</p>
-            <p className="w-[30%] ">UserName</p>
-            <p className="w-[20%] ">Point</p>
-            <p className="w-[20%] ">Accuracy</p>
-            <p className="w-[20%] ">Submited Problems</p>
+          <div className="flex bg-gray-500 text-md font-medium  text-white py-2">
+            <p className="w-[10%] overflow-ellipsis">Rank</p>
+            <p className="w-[10%] overflow-ellipsis">UserId</p>
+            <p className="w-[20%] overflow-ellipsis ">UserName</p>
+            <p className="w-[10%] overflow-ellipsis ">Point</p>
+            <p className="w-[10%] overflow-ellipsis">Accuracy</p>
+            <p className="w-[10%] overflow-ellipsis ">problems</p>
+            <p className="w-[20%]  overflow-ellipsis">Submitted problems</p>
+            <p className="w-[10%]  overflow-ellipsis">submission</p>
           </div>
         </>
       ) : (
         <p className="bg-red-200 p-2 text-red-900 rounded">No Percipient Yet</p>
       )}
 
-      <div>
+      <div className=" ">
         {ranking.map((rank, index) => {
           return (
             <RanksTable data={rank} index={index} lenofrank={ranking.length} />
