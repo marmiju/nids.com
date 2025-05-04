@@ -16,7 +16,7 @@ export default async function ContestEvent({
   if (!contest) return <Loading />;
 
   return (
-    <div>
+    <div className="px-4">
       <ContestTabs contest={contest} />
       <Ranking contest_id={contest.id}></Ranking>
     </div>

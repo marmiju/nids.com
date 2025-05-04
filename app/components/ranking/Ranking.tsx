@@ -18,10 +18,10 @@ export const Ranking = ({ contest_id }: Rank_Props) => {
     <div className="max-w-[1280px] mx-auto text-center my-10">
       {ranking && ranking.length > 0 ? (
         <>
-          <h2 className="text-xl text-black bg-gray-200 rounded-t-xl font-semibold p-2 ">
+          <h2 className="text-xl text-white bg-gray-900 rounded-t-xl font-semibold p-2 ">
             Leader Board
           </h2>
-          <div className="flex bg-gray-500 text-md font-medium  text-white py-2">
+          <div className="flex bg-gray-800 text-md font-medium  text-white py-2">
             <p className="w-[10%] overflow-ellipsis">Rank</p>
             <p className="w-[10%] overflow-ellipsis">UserId</p>
             <p className="w-[20%] overflow-ellipsis ">UserName</p>
@@ -39,7 +39,12 @@ export const Ranking = ({ contest_id }: Rank_Props) => {
       <div className=" ">
         {ranking.map((rank, index) => {
           return (
-            <RanksTable data={rank} index={index} lenofrank={ranking.length} />
+            <RanksTable
+              key={index}
+              data={rank}
+              index={index}
+              lenofrank={ranking.length}
+            />
           );
         })}
         <p className="text-black bg-red-100 mt-10 p-1">

@@ -9,6 +9,13 @@ import React, { useEffect, useState } from "react";
 import { CodeSnipet } from "@/lib/compiler/lanSnipet/LanSnipet";
 import { submission } from "@/lib/Function/Submit";
 import { Contest } from "../contest/Contest";
+import { jwtDecode } from "jwt-decode";
+import { useSelector } from "react-redux";
+import { RootState } from "@reduxjs/toolkit/query";
+
+interface MyTokenPayload {
+  userId: number;
+}
 
 interface Props {
   problem: ProblemType;
@@ -43,8 +50,20 @@ export const Problem: React.FC<Props> = ({
   const [isAccepted, setIsAccepted] = useState<boolean | null>(null);
   const [solvedproblem, setsolvedproblem] = useState([]);
 
-  let expected;
-  function handlesolvedproblem() {}
+  const [userId, setUserId] = useState<number>();
+
+  // ===================
+  const userData = useSelector((state: any) =>
+    state.Problem.find((item: any) => item.user_id === userId)
+  );
+
+  // =======
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    const decoded_value = jwtDecode<MyTokenPayload>(token!);
+    const userid = decoded_value.userId;
+    setUserId(userid);
+  });
 
   const [color, setcolor] = useState<string>();
 
@@ -101,7 +120,6 @@ export const Problem: React.FC<Props> = ({
 
     setIsRunning(false);
   };
-  useEffect(() => {});
 
   const Submit = async () => {
     setIsRunning(true);
@@ -146,9 +164,16 @@ export const Problem: React.FC<Props> = ({
       <div className="pt-2 rounded mb-4 grid grid-cols-1 lg:grid-cols-2 gap-2">
         {/* Problem statement */}
         <div className="bg-white shadow-sm p-2 rounded-2xl border border-gray-100">
-          <h2 className="text-md font-light w-[70px] text-center border rounded-full border-gray-200 shadow px-2">
-            Id: {problem.id}
-          </h2>
+          <div className="flex justify-between">
+            <h2 className="text-sm font-light text-center border rounded-full border-gray-200 shadow px-2">
+              Id: {problem.id}
+            </h2>
+            {userData && userData.value.includes(problem.id) && (
+              <p className="text-sm font-light text-center border rounded-full border-green-600 text-white bg-green-500 shadow shadow-green-500 px-2">
+                ⨀ Solved
+              </p>
+            )}
+          </div>
           <h2 className="text-xl font-semibold">{problem.title}</h2>
 
           <p className="text-gray-700 bg-gray-100 mr-2 p-2">
