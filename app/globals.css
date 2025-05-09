@@ -4,7 +4,7 @@
 
 
 :root {
-  --background: #f5f5f5;
+  --background: #fcfcfc;
   --foreground: #001817;
 }
 
@@ -15,8 +15,6 @@
 body {
   @apply bg-[url('/bg.png')] bg-black
 }
-
-
 
 /* [#FE4F2D] */
 .color-orange {

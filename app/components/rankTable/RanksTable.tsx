@@ -58,7 +58,11 @@ export const RanksTable: React.FC<rankprops> = ({ data, index, lenofrank }) => {
       <p className="w-[10%]">{data.total_point}</p>
       <p className="w-[10%]">{data.acceptance_rate}%</p>
       <p className="w-[10%]">{data.total_problems}</p>
-      <p className="w-[20%]">{data.accepted_problem_ids}</p>
+      <p className="w-[20%]">
+        {data.accepted_problem_ids
+          ? data.accepted_problem_ids
+          : "Not acceptence"}
+      </p>
       <p className="w-[10%]">{data.total_submissions}</p>
     </div>
   );
