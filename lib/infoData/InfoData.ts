@@ -1,7 +1,7 @@
 import { error } from 'console'
 import React from 'react'
 
-interface InfoData {
+ export interface InfoData {
     id: number;
     logo: string;
     title: string;
@@ -13,16 +13,16 @@ interface InfoData {
     email: string;
   }
   
-  interface SocialData {
+  export interface SocialData {
     id: number;
     title: string;
     link: string;
     icon: string;
   }
   
-  interface GetInfoResponse {
+ export interface GetInfoResponse {
     message: string;
-    infoData: InfoData[];
+    infoData: InfoData;
     socialData: SocialData[];
   }
   

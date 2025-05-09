@@ -23,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`antialiased ${poppins.className} bg-black`}>
+      <body className={`antialiased ${poppins.className} bg-black `}>
         <ReduxProvider>
           <Header />
           {children}
