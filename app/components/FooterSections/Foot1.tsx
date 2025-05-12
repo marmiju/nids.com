@@ -12,7 +12,7 @@ export const Foot1: React.FC<props> = ({ info }) => {
     <div className=" grid justify-center space-y-2 ">
       <div className=" text-black w-[160px] -mt-20 rounded-2xl ">
         <Image
-          className="rounded-2xl shadow-2xs border-slate-200 p-1 border"
+          className="rounded-2xl shadow-2xs border-slate-200 p-1 border-2"
           src={
             info.infoData.logo ??
             "https://i.ibb.co/zTXpfjr2/Chat-GPT-Image-May-9-2025-12-33-23-AM.png"

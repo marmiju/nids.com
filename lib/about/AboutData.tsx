@@ -35,18 +35,20 @@ export const AboutData: AboutUs = {
   image: "https://i.ibb.co/7JT5CLpZ/Untitled-design-5.png",
   desc: "Welcome to NIDS, a center of academic excellence, innovation, and holistic development. Since our establishment in 2000, we have remained committed to empowering students through quality education, values-based learning, and real-world exposure.",
   programs: {
-    title: "Programs We Offer",
-    desc: "programs description",
+    title: " Bachelor Programs at NIDS",
+    desc: "The National Institute of Design & Sciences (NIDS), affiliated with the National University of Bangladesh, offers undergraduate programs that combine academic excellence with practical skills to prepare students for success in their respective fields. Our Bachelor programs focus on both theoretical foundations and hands-on experiences to equip students with the tools they need to thrive in today's competitive world.",
     program: [
       {
         title: "Bachelor of Business Administration (BBA)",
-        desc: "Focused on building future leaders in business, entrepreneurship, and management",
-        image: "https://i.ibb.co/7JT5CLpZ/Untitled-design-5.png",
+        desc: "The B.Sc. in Computer Science & Engineering (CSE) program at NIDS is designed to provide students with a strong foundation in computer science principles and practical engineering skills. The curriculum includes core subjects such as computer programming, mathematics, data structures, algorithm design, theory of computation, database management systems, networking, information security, mobile application development, and web design and development. Students pursuing the course will gain profound knowledge about the design, development, and management of software and hardware systems. The program emphasizes analytical capability, critical thinking, and problem-solving skills, preparing graduates to meet the ever-growing demand of the ICT industry",
+        image:
+          "https://i.ibb.co/5grYz76t/Green-Illustrated-Start-Your-Business-Facebook-Post-2.png",
       },
       {
         title: "Bachelor of Science in Computer Science & Engineering (CSE)",
-        desc: "A comprehensive engineering course that blends \\n computer theory with hands-on technical skills in programming, data, and system development",
-        image: "https://i.ibb.co/7JT5CLpZ/Untitled-design-5.png",
+        desc: "The B.Sc. in Computer Science & Engineering (CSE) program at NIDS is designed to provide students with a strong foundation in computer science principles and practical engineering skills. The curriculum includes core subjects such as computer programming, mathematics, data structures, algorithm design, theory of computation, database management systems, networking, information security, mobile application development, and web design and development. Students pursuing the course will gain profound knowledge about the design, development, and management of software and hardware systems. The program emphasizes analytical capability, critical thinking, and problem-solving skills, preparing graduates to meet the ever-growing demand of the ICT industry",
+        image:
+          "https://i.ibb.co/5grYz76t/Green-Illustrated-Start-Your-Business-Facebook-Post-2.png",
         slogan: "",
       },
     ],

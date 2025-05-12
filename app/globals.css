@@ -4,7 +4,7 @@
 
 
 :root {
-  --background: @apply bg-slate-200;
+  --background: #f1f4f7fb;
   --foreground: #001817;
 }
 

@@ -2,6 +2,7 @@ import { AboutData, AboutUs } from "@/lib/about/AboutData";
 import React from "react";
 import Programs from "../components/Programs/Programs";
 import VisMis from "../components/vis_mis/VisMis";
+import { Award } from "../components/award/Award";
 
 const page = () => {
   const aboutData: AboutUs = AboutData;
@@ -21,12 +22,12 @@ const page = () => {
         </div>
       </div>
       {/* //end hero */}
-      <div className="max-w-[1200px] mx-auto">
-      <Programs programs={aboutData.programs}/>
-      <VisMis goal={aboutData.goal}></VisMis>
-      </div>
+      <Award />
 
-      
+      <div className="max-w-[1200px] mx-auto ">
+        <Programs programs={aboutData.programs} />
+        <VisMis goal={aboutData.goal}></VisMis>
+      </div>
     </div>
   );
 };
