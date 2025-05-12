@@ -1,34 +1,26 @@
-export type noticetype = singenoticetype[];
+// lib/notice/Notice.ts
 
-export type singenoticetype = {
-    title: string;
-    desc: string;
-    date: Date;
+export type noticetype = {
+  title: string;
+  description: string;
+  author: string;
+  date: string;
 };
 
-export type noticeprop = {
-    item: noticetype
-}
+export type noticesType = noticetype[];
 
-export default function getNotices(): noticetype {
-    const notice = [
-        {
-            title: 'Holiday of Eid-ul-Fitr',
-            desc: `Works of NIDS College officially
-             off for Eid-ul-Fitr from 24 March to 5 April. On 6 April,  everything will continue as usualWorks of NIDS College officially off 
-             for Eid-ul-Fitr from 24 March to 5 April. On 6 April, everything will  continue as usualWorks of NIDS College officially off for Eid-ul-Fitr 
-             
-             
-             from 24 March to 5 April. On 6 April, everything will continue as usualWorks of NIDS College officially off for Eid-ul-Fitr from 24 March to 5 April. On 6 April, everything will continue as usualWorks of NIDS College officially off for Eid-ul-Fitr from 24 March to 5 April. On 6 April, everything will continue as usualWorks of NIDS College officially off for Eid-ul-Fitr from 24 March to 5 April. On 6 April, everything will continue as usual`,
-            date: new Date('2025-04-05')
-        },
-        {
-            title: 'Admission to CSE 2025',
-            desc: 'Admission is going on from 6 May 2025 to 12 Dec 2025',
-            date: new Date('2025-03-02')
-        }
-    ];
-
-
-    return notice.sort((a, b) => b.date.getTime() - a.date.getTime());
-}
+export const getNotices = async (): Promise<noticesType> => {
+  const respons = await fetch(
+    `${process.env.NEXT_PUBLIC_END_POINT}/getnotices`,
+    {
+      cache: "no-store",
+    }
+  );
+  const result = await respons.json();
+  const sortednotice = result.result.sort(
+    (a: { date: string }, b: { date: string }) => {
+      new Date(b.date).getTime() - new Date(a.date).getTime();
+    }
+  );
+  return sortednotice; // Should be an array of notice objects
+};
