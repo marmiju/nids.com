@@ -5,11 +5,14 @@ import { HeroContent } from "./components/heroContent/HeroContent";
 import { Award } from "./components/award/Award";
 import Programs from "./components/Programs/Programs";
 import { AboutData, AboutUs } from "@/lib/about/AboutData";
+import VisMis from "./components/vis_mis/VisMis";
+import RecentContest from "./components/recentContest/recentContest";
 
 export default function Home() {
   const aboutData: AboutUs = AboutData;
   const isLogged = useAuth();
   const herodata = HeroData();
+
   console.log(herodata);
   if (isLogged) {
   } else {
@@ -34,6 +37,18 @@ export default function Home() {
       <Award />
       <div>
         <Programs programs={aboutData.programs} />
+      </div>
+      <div className="max-w-[1280px] mx-auto mt-20 justify-center">
+        <p className="text-center text-gray-400 font-bold  text-xl md:text-3xl ">
+          Our Vision & mission
+        </p>
+        <VisMis goal={aboutData.goal} />
+      </div>
+      <div className="max-w-[1280px] mx-auto">
+        <p className="text-center text-xl text-gray-400 font-semibold mt-20">
+          recent Weekly Contest Rank
+        </p>
+        <RecentContest />
       </div>
     </div>
   );

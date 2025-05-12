@@ -7,12 +7,12 @@ type props = {
 
 export const Foot3: React.FC<props> = ({ data }) => {
   return (
-    <div className="grid justify-center p-2">
-      Info
-      <p>{data.description}</p>
-      <p>{data.location}</p>
-      <p>{data.email}</p>
-      <p>{data.phone}</p>
+    <div className="grid grid-cols-1 justify-center items-center p-4 ">
+      <p className="font-semibold tex-xl">Info</p>
+      <p className="font-medium tex-sm">{data.description}</p>
+      <p className="">⨀ {data.location}</p>
+      <p>⨀ {data.email}</p>
+      <p>⨀ {data.phone}</p>
     </div>
   );
 };

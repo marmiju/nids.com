@@ -8,7 +8,7 @@ const Singleprogram: React.FC<props> = ({ program }) => {
   return (
     <div className="bg-slate-50 grid md:flex shadow  hover:scale-101 hover:drop-shadow-xl  transition-all duration-500 border-gray-100-50 ">
       <img
-        className=" rounded-l-sm w-1/3"
+        className=" rounded-l-sm md:w-1/3"
         src={program.image}
         alt={program.title}
       />
