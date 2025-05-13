@@ -1,16 +1,15 @@
 import { HeroData } from "@/lib/heroData/HeroData";
-import { useAuth } from "@/utils/auth";
 import { HeroContent } from "./components/heroContent/HeroContent";
 import { Award } from "./components/award/Award";
 import Programs from "./components/Programs/Programs";
-import { AboutData, AboutUs } from "@/lib/about/AboutData";
+import { AboutData, AboutUsData } from "@/lib/about/AboutData";
 import VisMis from "./components/vis_mis/VisMis";
 import RecentContest from "./components/contest/recentContest/recentContest";
 import { Notice } from "./components/Notice/Notice/Notice";
 import { Modal } from "./components/Modal/Modal";
 
-export default function Home() {
-  const aboutData: AboutUs = AboutData;
+export default async function Home() {
+  const aboutData: AboutUsData = await AboutData();
   const herodata = HeroData();
 
   return (
@@ -40,8 +39,11 @@ export default function Home() {
           <VisMis goal={aboutData.goal} />
         </div>
         {/* ending of vision mission */}
-        <div className="col-span-1 md:col-span-4 lg:col-span-4 h-[300px] overflow-scroll rounded-sm bg-white p-2">
-          <Notice />
+        <div className="col-span-1 md:col-span-4 lg:col-span-4  rounded-sm bg-white p-2">
+          <p className="py-2">All notice (Latest Fast) </p>
+          <div className="h-[400px] overflow-scroll">
+            <Notice />
+          </div>
         </div>
 
         {/* starting of Notice */}

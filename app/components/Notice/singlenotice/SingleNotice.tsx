@@ -36,16 +36,17 @@ export const SingleNotice: React.FC<Props> = ({ notice, idx }) => {
     >
       <div className="flex items-center justify-between">
         <div>
-          <div className="flex gap-x-2">
+          <div className="flex items-center gap-x-2">
             <p className="font-medium">{notice.title}</p>
-            <p className="rounded-md px-2 text-gray-400 text-sm">
-              {notice.author}
-            </p>
             {isNew && (
-              <p className="text-sm text-green-600 font-semibold">New</p>
+              <p className="text-sm bg-red-600 font-semibold text-white text-center px-1 rounded-full">
+                New
+              </p>
             )}
           </div>
-          <p className="text-slate-400">{notice.date.slice(0, 10)}</p>
+          <p className="text-slate-400">
+            {notice.author + " | " + notice.date.slice(0, 10)}
+          </p>
         </div>
 
         <button onClick={handleOpenModal}>

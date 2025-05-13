@@ -1,4 +1,3 @@
-import { Ranking } from "@/app/components/ranking/Ranking";
 import React, { useEffect, useState } from "react";
 
 export interface Rank_Props {
@@ -26,6 +25,5 @@ export const GetRanking = async ({ contest_id }: Rank_Props) => {
     }
   );
   const result = await response.json();
-  console.log("ranking", result.rankings);
   return result.rankings;
 };

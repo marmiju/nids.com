@@ -1,9 +1,9 @@
-import { programs } from "@/lib/about/AboutData";
+import { ProgramItem, ProgramsData } from "@/lib/about/AboutData";
 import React from "react";
 import Singleprogram from "./program/SingleProgram";
 
 type props = {
-  programs: programs;
+  programs: ProgramsData;
 };
 
 const Programs: React.FC<props> = ({ programs }) => {
@@ -22,7 +22,7 @@ const Programs: React.FC<props> = ({ programs }) => {
         </a>
       </div>
       <div className="grid grid-cols-1 gap-4">
-        {programs.program.map((data, index) => {
+        {programs.programs.map((data, index) => {
           return <Singleprogram key={index} program={data}></Singleprogram>;
         })}
       </div>

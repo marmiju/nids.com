@@ -5,7 +5,7 @@ import React from "react";
 export const Foot2 = () => {
   const navlink = Navlink();
   return (
-    <div className="flex flex-col text-end space-y-2 font-semibold text-xl">
+    <div className="flex flex-col text-center space-y-2 font-semibold text-xl">
       Links
       {navlink.map((data, index) => {
         return (
