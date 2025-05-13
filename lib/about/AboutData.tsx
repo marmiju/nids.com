@@ -30,6 +30,18 @@ export interface AboutUs {
   goal: goal[];
 }
 
+const text = `Carry on action research, studies, and practical education for the advancement of general, technical, engineering, socio-technical, agricultural, environmental, legal, computer and information technology to meet the requirements of the northwest Bangladesh and the country in general commensurate with scientific and technological advancement in the world and thereby providing scope for building and molding the life, character and thoughts of the youths, students, civil society, NGOs, duty bearers, policy makers etc.
+
+Establish database with regard to pertinent issues of northwest Bangladesh for the promotion of information technology to cope with the current technological advancement
+
+Conduct specific studies for sharing development information on effective delivery of services/resources administered by Government agencies, NGOs and Private sectors
+
+Arrange for institutional education, training, diploma and certificate courses in socio-economic program so that the youth and students may get vocational training and guidance and are engaged in country-wide socio-economic framework of activities
+
+Publish literature journals, books, news bulletins and research work relating to social science, business, language, literature, science and technology, agriculture, engineering, community health, computer science and information technology
+
+Carry on consultancy works, studies, projects etc. in environment, agriculture, health and family planning, education sectors, civil, mechanical, computer, irrigation and water resources engineering etc. either solely or in collaboration with any local or foreign organizations or to act as managing agent of any local or foreign organizations, governments, bilateral or multilateral donor agencies or institutions.`;
+
 export const AboutData: AboutUs = {
   title: "Know About Us",
   image: "https://i.ibb.co/7JT5CLpZ/Untitled-design-5.png",
@@ -69,6 +81,20 @@ export const AboutData: AboutUs = {
     {
       title: "mission",
       desc: "To be the leading force in sustainable innovation, creating a world where technology and nature thrive together.To be the leading force in sustainable innovation, creating a world where technology and nature thrive together.To be the leading force in sustainable innovation, creating a world where technology and nature thrive together.To be the leading force in sustainable innovation, creating a world where technology and nature thrive together.To be the leading force in sustainable innovation, creating a world where technology and nature thrive together.",
+    },
+    {
+      title: "Major Objectives",
+      desc: `Carry on </br> action research, studies, and practical education for the advancement of general, technical, engineering, socio-technical, agricultural, environmental, legal, computer and information technology to meet the requirements of the northwest Bangladesh and the country in general commensurate with scientific and technological advancement in the world and thereby providing scope for building and molding the life, character and thoughts of the youths, students, civil society, NGOs, duty bearers, policy makers etc.
+
+Establish database with regard to pertinent issues of northwest Bangladesh for the promotion of information technology to cope with the current technological advancement
+
+Conduct specific studies for sharing development information on effective delivery of services/resources administered by Government agencies, NGOs and Private sectors
+
+Arrange for institutional education, training, diploma and certificate courses in socio-economic program so that the youth and students may get vocational training and guidance and are engaged in country-wide socio-economic framework of activities
+
+Publish literature journals, books, news bulletins and research work relating to social science, business, language, literature, science and technology, agriculture, engineering, community health, computer science and information technology
+
+Carry on consultancy works, <br/> studies, projects etc. in environment, agriculture, health and family planning, education sectors, civil, mechanical, computer, irrigation and water resources engineering etc. either solely or in collaboration with any local or foreign organizations or to act as managing agent of any local or foreign organizations, governments, bilateral or multilateral donor agencies or institutions.`,
     },
   ],
 };

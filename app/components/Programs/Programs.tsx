@@ -1,6 +1,6 @@
 import { programs } from "@/lib/about/AboutData";
 import React from "react";
-import Singleprogram from "../program/SingleProgram";
+import Singleprogram from "./program/SingleProgram";
 
 type props = {
   programs: programs;

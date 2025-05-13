@@ -31,11 +31,11 @@ const VisMis: React.FC<props> = ({ goal }) => {
               <p>{open == index ? "-" : "+"}</p>
             </div>
             <p
-              className={`${
-                open == index ? "" : "hidden"
-              } bg-gray-200 p-4 transition-all duration-300 ease-in-out`}
+              className={`w-full overflow-y-auto whitespace-pre-wrap break-words pointer-events-auto bg-gray-200 p-4 transition-all duration-300 ease-in-out ${
+                open === index ? "" : "hidden"
+              }`}
             >
-              {data.desc}
+              {data?.desc}
             </p>
           </div>
         );

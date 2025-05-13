@@ -1,7 +1,6 @@
 "use client";
 import { updateData } from "@/app/redux/ProblemSlice";
 import { Type_Ranks } from "@/lib/Ranking/GetRanking";
-import { jwtDecode } from "jwt-decode";
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 

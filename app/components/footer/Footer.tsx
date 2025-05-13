@@ -1,8 +1,8 @@
 import { GetInfoResponse, InfoData } from "@/lib/infoData/InfoData";
 import React from "react";
-import { Foot1 } from "../FooterSections/Foot1";
-import { Foot2 } from "../FooterSections/Foot2";
-import { Foot3 } from "../FooterSections/Foot3";
+import { Foot1 } from "./FooterSections/Foot1";
+import { Foot3 } from "./FooterSections/Foot3";
+import { Foot2 } from "./FooterSections/Foot2";
 
 export const Footer = async () => {
   const infodata: GetInfoResponse = await InfoData();

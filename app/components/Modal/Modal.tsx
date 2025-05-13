@@ -17,9 +17,9 @@ export const Modal: React.FC<Props> = ({ notice, onClose }) => {
         >
           <IoCloseCircleSharp />
         </button>
-        <div className="flex gap-4">
+        <div className="flex gap-4 justify-between">
           <p className="font-semibold text-slate-800">{notice.title}</p>
-          <p className="font-semibold text-slate-300">{notice.author}</p>
+          <p className="textsm text-slate-300">{notice.author}</p>
         </div>
         <p className="text-gray-400">{notice.date.slice(0, 10)}</p>
         <div className="border-t-2 border-gray-200 w-40 mt-2"> </div>

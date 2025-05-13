@@ -1,5 +1,4 @@
 import { GetInfoResponse } from "@/lib/infoData/InfoData";
-import { imageConfigDefault } from "next/dist/shared/lib/image-config";
 import Image from "next/image";
 import React from "react";
 

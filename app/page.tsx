@@ -5,7 +5,7 @@ import { Award } from "./components/award/Award";
 import Programs from "./components/Programs/Programs";
 import { AboutData, AboutUs } from "@/lib/about/AboutData";
 import VisMis from "./components/vis_mis/VisMis";
-import RecentContest from "./components/recentContest/recentContest";
+import RecentContest from "./components/contest/recentContest/recentContest";
 import { Notice } from "./components/Notice/Notice/Notice";
 import { Modal } from "./components/Modal/Modal";
 

@@ -16,7 +16,7 @@ const Singleprogram: React.FC<props> = ({ program }) => {
         <p className="md:text-2xl font-bold border-b border-gray-200">
           {program.title}
         </p>
-        <p className="text-sm">{program.desc}</p>
+        <p className="text-md">{program.desc}</p>
       </div>
     </div>
   );

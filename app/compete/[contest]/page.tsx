@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Problem } from "@/app/components/problem/Problem";
 import { Contest, OneContest } from "@/lib/contest/Contest";
-import { ContestTabs } from "@/app/components/ContestTabs/ContestTabs";
+import { ContestTabs } from "@/app/components/contest/ContestTabs/ContestTabs";
 import { Loading } from "@/app/components/Loading/Loading";
-import { Ranking } from "@/app/components/ranking/Ranking";
+import { Ranking } from "@/app/components/contest/ranking/Ranking";
 
 export default async function ContestEvent({
   params,
