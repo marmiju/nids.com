@@ -10,6 +10,7 @@ export const Foot2 = () => {
       {navlink.map((data, index) => {
         return (
           <Link
+            key={index}
             className="text-black font-normal text-sm underline hover:text-slate-400"
             href={data.path}
           >
