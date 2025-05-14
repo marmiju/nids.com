@@ -17,7 +17,7 @@ export const Navlink = () => {
     { path: "/compete", name: "Compete" },
     { path: "/notice", name: "Notice" },
     { path: "/about", name: "About" },
-    { path: "/students", name: "Students" },
+    { path: "/students", name: "Students/Teachers" },
     { path: "http://app11.nu.edu.bd/", name: "Addmission" },
   ];
   return link;

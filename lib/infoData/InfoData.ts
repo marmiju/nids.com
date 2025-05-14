@@ -26,13 +26,15 @@ import React from 'react'
     socialData: SocialData[];
   }
   
+export let siteLogo: string;
 
 export const InfoData = async () => {
 
     try {
         const respons = await fetch(`${process.env.NEXT_PUBLIC_END_POINT}/getinfo`)
         
-        const result = await respons.json()
+      const result = await respons.json()
+      siteLogo= result.infoData.logo
         return result
     
     } catch (err) {

@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { noticetype } from "@/lib/notice/Notice";
 import { Modal } from "../../Modal/Modal";
 import { GiLevelFourAdvanced } from "react-icons/gi";
+import { BsEye } from "react-icons/bs";
 
 interface Props {
   notice: noticetype;
@@ -31,26 +32,29 @@ export const SingleNotice: React.FC<Props> = ({ notice, idx }) => {
   return (
     <div
       className={`${
-        idx % 2 === 0 ? "bg-slate-200" : "bg-gray-100"
-      } py-2 px-4 rounded-sm relative`}
+        idx % 2 === 0 ? "bg-slate-200 " : "bg-white"
+      } py-2 px-4 rounded-sm relative drop-shadow-xl`}
     >
       <div className="flex items-center justify-between">
         <div>
           <div className="flex items-center gap-x-2">
-            <p className="font-medium">{notice.title}</p>
-            {isNew && (
-              <p className="text-sm bg-red-600 font-semibold text-white text-center px-1 rounded-full">
-                New
-              </p>
-            )}
+            <p className="font-medium">{"⨀ " + notice.title}</p>
           </div>
-          <p className="text-slate-400">
-            {notice.author + " | " + notice.date.slice(0, 10)}
-          </p>
+          <div className="flex items-center">
+            <p className="text-slate-400">
+              {notice.author + " | " + notice.date.slice(0, 10)}
+
+              {isNew && (
+                <p className="text-sm bg-red-600 font-semibold text-white text-center px-2 rounded-full">
+                  New
+                </p>
+              )}
+            </p>
+          </div>
         </div>
 
         <button onClick={handleOpenModal}>
-          <GiLevelFourAdvanced className="text-xl text-green-600 hover:scale-110" />
+          <BsEye className="text-xl text-green-600 hover:scale-120 hover:cursor-pointer" />
         </button>
       </div>
 

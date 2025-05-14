@@ -8,25 +8,26 @@ import { useAuth } from "@/utils/auth";
 import { Desktop } from "./Desktop";
 import { Navlink } from "@/lib/Navlink";
 import { useRouter } from "next/navigation";
+import { InfoData } from "@/lib/infoData/InfoData";
 
 const header = () => {
   const [isopen, setIsOpen] = useState(false);
   const router = useRouter();
   const islogged = useAuth();
   const navlink = Navlink();
-  const [path, setpath] = useState("");
 
   return (
-    <div className=" z-50 p-6 flex justify-end max-w-[1200px] mx-auto text-black">
+    <div className=" z-50 flex justify-end max-w-[1200px] mx-auto text-black">
       {/* for Mobile */}
       <Mobile navs={navlink} />
 
       {/* for desktop or tablate */}
+      {}
       <Desktop navs={navlink} />
       <div className={`relative flex justify-end text-3xl gap-4 `}>
         {/* Profile  */}
         <div
-          className={`hover:cursor-pointer pr-2 flex justify-center  shadow-2xl `}
+          className={`hover:cursor-pointer pr-2 flex justify-center items-center  shadow-2xl `}
           onClick={() => setIsOpen(!isopen)}
         >
           {islogged ? <MdManageAccounts /> : <MdOutlineAccountCircle />}

@@ -26,7 +26,7 @@ const page = async () => {
       <Award />
 
       <div className="max-w-[1200px] mx-auto ">
-        {/* <Programs programs={aboutData.programs} /> */}
+        <Programs programs={aboutData.programs} />
         <VisMis goal={aboutData.goal}></VisMis>
       </div>
     </div>

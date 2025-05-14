@@ -39,7 +39,7 @@ export default async function Home() {
           <VisMis goal={aboutData.goal} />
         </div>
         {/* ending of vision mission */}
-        <div className="col-span-1 md:col-span-4 lg:col-span-4  rounded-sm bg-white p-2">
+        <div className="col-span-1 md:col-span-4 lg:col-span-4 drop-shadow-md  rounded-sm bg-white p-2">
           <p className="py-2">All notice (Latest Fast) </p>
           <div className="h-[400px] overflow-scroll">
             <Notice />

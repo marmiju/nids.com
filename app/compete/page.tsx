@@ -40,7 +40,7 @@ const Page = () => {
       </div>
       {contestData.contests.map((contest) => {
         return (
-          <Link key={contest.id} href={`event/${contest.id}`}>
+          <Link key={contest.id} href={`compete/${contest.id}`}>
             <Contest
               end_time={contest.end_time}
               created_at={contest.created_at}

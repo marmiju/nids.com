@@ -21,10 +21,10 @@ const VisMis: React.FC<props> = ({ goal }) => {
           <div key={index}>
             <div
               onClick={() => togleshow(index)}
-              className="bg-slate-300 flex px-2 transition-all duration-300 items-center hover:cursor-pointer gap-2 text-2xl font-medium  justify-between"
+              className="bg-white drop-shadow mt-1 flex px-2 transition-all duration-300 items-center hover:cursor-pointer gap-2 text-2xl font-medium  justify-between"
             >
               <p
-                className={`p-1 ${montserrat.className} font-semibold text-slate-50`}
+                className={`p-1 ${montserrat.className} font-semibold text-gray-950`}
               >
                 {data.title}
               </p>
@@ -32,7 +32,7 @@ const VisMis: React.FC<props> = ({ goal }) => {
               <p>{open == index ? "-" : "+"}</p>
             </div>
             <p
-              className={`w-full overflow-y-auto whitespace-pre-wrap break-words pointer-events-auto bg-slate-50 ml-1 p-2 text-sm transition-all duration-300 ease-in-out ${
+              className={`w-full overflow-y-auto drop-shadow-xl whitespace-pre-wrap break-words pointer-events-auto bg-gray-100  p-2  transition-all duration-300 ease-in-out ${
                 open === index ? "" : "hidden"
               }`}
             >
