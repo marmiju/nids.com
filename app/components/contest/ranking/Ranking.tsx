@@ -21,15 +21,31 @@ export const Ranking = ({ contest_id }: Rank_Props) => {
           <h2 className="text-xl text-black bg-gray-200 rounded-t-xl font-semibold p-2 ">
             Leader Board
           </h2>
-          <div className="flex bg-gray-300 text-md font-medium  text-black py-2">
-            <p className="w-[10%] overflow-ellipsis">Rank</p>
-            <p className="w-[10%] overflow-ellipsis">UserId</p>
-            <p className="w-[20%] overflow-ellipsis ">UserName</p>
-            <p className="w-[10%] overflow-ellipsis ">Point</p>
-            <p className="w-[10%] overflow-ellipsis">Accuracy</p>
-            <p className="w-[10%] overflow-ellipsis ">problems</p>
-            <p className="w-[20%]  overflow-ellipsis">Accepted</p>
-            <p className="w-[10%]  overflow-ellipsis">submission</p>
+          <div className="flex bg-gray-300 text-md font-medium text-black py-2">
+            <p className="w-[10%] truncate overflow-hidden whitespace-nowrap">
+              Rank
+            </p>
+            <p className="w-[10%] truncate overflow-hidden whitespace-nowrap">
+              UserId
+            </p>
+            <p className="w-[20%] truncate overflow-hidden whitespace-nowrap">
+              UserName
+            </p>
+            <p className="w-[10%] truncate overflow-hidden whitespace-nowrap">
+              Point
+            </p>
+            <p className="w-[10%] truncate overflow-hidden whitespace-nowrap">
+              Accuracy
+            </p>
+            <p className="w-[10%] truncate overflow-hidden whitespace-nowrap">
+              Problems
+            </p>
+            <p className="w-[20%] truncate overflow-hidden whitespace-nowrap">
+              Accepted
+            </p>
+            <p className="w-[10%] truncate overflow-hidden whitespace-nowrap">
+              Submission
+            </p>
           </div>
         </>
       ) : (

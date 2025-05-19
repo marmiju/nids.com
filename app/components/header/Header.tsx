@@ -27,7 +27,7 @@ const header = () => {
       <div className={`relative flex justify-end text-3xl gap-4 `}>
         {/* Profile  */}
         <div
-          className={`hover:cursor-pointer pr-2 flex justify-center items-center  shadow-2xl `}
+          className={`hover:cursor-pointer  items-center justify-center rounded-full flex `}
           onClick={() => setIsOpen(!isopen)}
         >
           {islogged ? <MdManageAccounts /> : <MdOutlineAccountCircle />}
@@ -35,7 +35,7 @@ const header = () => {
 
         {/* Dropdown Menu */}
         <div
-          className={`absolute mx-4  right-0 text-sm font-medium gap-2 rounded   mt-10 shadow-xl border-gray-300   border  bg-white  overflow-hidden  ${
+          className={`absolute mx-4  right-0 text-sm font-medium gap-2 rounded   top-12 shadow-xl border-gray-300   border  bg-white  overflow-hidden  ${
             isopen ? "grid" : "hidden"
           } `}
         >

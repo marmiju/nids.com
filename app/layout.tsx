@@ -25,6 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <div className="root"></div>
       <body className={`antialiased ${montserrat.className} bg-black`}>
         <ReduxProvider>
           <Header />

@@ -6,14 +6,21 @@ import { AboutData, AboutUsData } from "@/lib/about/AboutData";
 import VisMis from "./components/vis_mis/VisMis";
 import RecentContest from "./components/contest/recentContest/recentContest";
 import { Notice } from "./components/Notice/Notice/Notice";
-import { Modal } from "./components/Modal/Modal";
+import backgroungImage from "@/lib/background6.png";
 
 export default async function Home() {
   const aboutData: AboutUsData = await AboutData();
   const herodata = HeroData();
 
   return (
-    <div className="w-full ">
+    <div
+      style={{
+        backgroundImage: `url(${backgroungImage.src})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+      className="w-full"
+    >
       {/* starting of section 1 hero section */}
       <div
         className="text-center text-slate-100 font-medium text-sm bg-slate-200 py-2"
@@ -39,8 +46,8 @@ export default async function Home() {
           <VisMis goal={aboutData.goal} />
         </div>
         {/* ending of vision mission */}
-        <div className="col-span-1 md:col-span-4 lg:col-span-4 drop-shadow-md  rounded-sm bg-white p-2">
-          <p className="py-2">All notice (Latest Fast) </p>
+        <div className="col-span-1 md:col-span-4 lg:col-span-4 drop-shadow-md  rounded-sm bg-white border  border-slate-100 p-2">
+          <p className="py-2">Notice Board (Latest Fast) </p>
           <div className="h-[400px] overflow-scroll">
             <Notice />
           </div>
@@ -52,8 +59,8 @@ export default async function Home() {
         <Programs programs={aboutData.programs} />
       </div>
       <div className="max-w-[1280px] mx-auto">
-        <p className="text-center text-xl text-gray-400 font-semibold mt-20">
-          recent Weekly Contest Rank
+        <p className="text-center text-xl text-gray-400 font-semibold mt-20 stroke-black stroke-3">
+          LATEST CONTEST RANK
         </p>
         <RecentContest />
       </div>

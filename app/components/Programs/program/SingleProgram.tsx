@@ -1,12 +1,12 @@
-import { program } from "@/lib/about/AboutData";
+import { ProgramItem } from "@/lib/about/AboutData";
 import React from "react";
 type props = {
-  program: program;
+  program: ProgramItem;
 };
 
 const Singleprogram: React.FC<props> = ({ program }) => {
   return (
-    <div className="bg-slate-50 grid md:flex shadow  hover:scale-101 hover:drop-shadow-xl  transition-all duration-500 border-gray-100-50 ">
+    <div className="bg-white/50 backdrop-blur-2xl grid md:flex shadow  hover:scale-102  hover:drop-shadow-xl  transition-all duration-500 border-gray-100-50 ">
       <img
         className=" rounded-l-sm md:w-1/3"
         src={program.image}

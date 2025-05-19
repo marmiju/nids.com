@@ -15,7 +15,7 @@ const Programs: React.FC<props> = ({ programs }) => {
         </p>
         <p className="text-center">{programs.desc}</p>
         <a
-          className="bg-white drop-shadow-lg w-44 mx-auto shadow py-0.5 px-1 rounded-sm mt-5 hover:scale-105 transition-all duration-300"
+          className="backdrop-blur-3xl bg-white/50 border-white/75 border drop-shadow-lg w-64 mx-auto shadow py-2 px-3 rounded-sm mt-5 hover:scale-105 transition-all duration-300"
           href="https://www.nu.ac.bd/syllabus.php"
         >
           Download syllabus

@@ -34,13 +34,13 @@ export const InfoData = async () => {
         const respons = await fetch(`${process.env.NEXT_PUBLIC_END_POINT}/getinfo`)
         
       const result = await respons.json()
-      siteLogo= result.infoData.logo
+      siteLogo = result.infoData.logo
+      
         return result
-    
     } catch (err) {
         throw new Error('Something went wrong')
     }
-  return 
+
 }
 
 

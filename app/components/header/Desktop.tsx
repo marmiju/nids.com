@@ -8,7 +8,7 @@ export const Desktop: React.FC<navprop> = ({ navs }) => {
   return (
     <div className="flex justify-between w-full">
       <div className="  hidden md:flex justify-between items-center mr-10  w-full  mx-auto">
-        {/* <Sitelogo /> */}
+        <Sitelogo />
 
         <Links navs={navs} />
       </div>

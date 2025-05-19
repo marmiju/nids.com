@@ -1,17 +1,22 @@
-import { InfoData } from "@/lib/infoData/InfoData";
-import Image from "next/image";
-import React from "react";
+"use client";
+import store from "@/app/redux/store/Store";
 
-export const Sitelogo = async () => {
-  const infodata: InfoData = await InfoData();
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import React from "react";
+import { useSelector } from "react-redux";
+
+export const Sitelogo = () => {
+  const info = useSelector(store.getState);
+  const router = useRouter();
   return (
-    <div>
+    <div className="hover:cursor-pointer" onClick={() => router.replace("/")}>
       <Image
         className=" rounded-sm"
-        height={100}
-        width={100}
+        height={80}
+        width={80}
         src={
-          infodata.logo ||
+          info.info.siteLogo ||
           "https://i.ibb.co/zTXpfjr2/Chat-GPT-Image-May-9-2025-12-33-23-AM.png"
         }
         alt="SiteLogo"

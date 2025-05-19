@@ -1,10 +1,13 @@
 "use client";
+
 import { configureStore } from "@reduxjs/toolkit";
-import problemReducer from "../ProblemSlice";
+import ProblemReducer from "../ProblemSlice";
+import InfoReducer from "../InfoSlice";
 
 const store = configureStore({
   reducer: {
-    Problem: problemReducer,
+    Problem: ProblemReducer,
+    info: InfoReducer,
   },
 });
 

@@ -3,13 +3,21 @@ import React from "react";
 import Programs from "../components/Programs/Programs";
 import VisMis from "../components/vis_mis/VisMis";
 import { Award } from "../components/award/Award";
+import backgroundImage from "../../lib/background6.png";
 
 const page = async () => {
   const aboutData: AboutUsData = await AboutData();
   console.log("aboutdata", aboutData);
 
   return (
-    <div className="w-full ease-linear">
+    <div
+      style={{
+        backgroundImage: `url(${backgroundImage.src})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+      className="w-full ease-linear"
+    >
       {/* //hero */}
       <div
         style={{ backgroundImage: `url(${aboutData.image})` }}

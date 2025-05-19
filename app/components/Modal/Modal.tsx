@@ -10,20 +10,21 @@ interface Props {
 export const Modal: React.FC<Props> = ({ notice, onClose }) => {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
-      <div className="absolute max-w-[600px] bg-white p-2 rounded-2xl">
+      <div className="relative max-w-full h-screen w-full backdrop-blur-3xl bg-white/90 p-6 rounded-sm">
         <button
           onClick={onClose}
-          className="top-3 left-3 text-2xl text-red-600 hover:scale-102 hover:cursor-pointer"
+          className="flex top-4 right-4 text-2xl hover:cursor-pointer hover:scale-150 text-red-600 transition-all duration-200"
         >
           <IoCloseCircleSharp />
         </button>
-        <div className="flex gap-4 justify-between">
-          <p className="font-semibold text-green-800">{notice.title}</p>
-          <p className="textsm text-green-300">{notice.author}</p>
+
+        <div className="space-y-2">
+          <p className="font-semibold text-gray-800 text-lg">{notice.title}</p>
+          <p className="text-sm text-slate-500">{notice.author}</p>
+          <p className="text-slate-400 text-sm">{notice.date.slice(0, 10)}</p>
         </div>
-        <p className="text-green-400">{notice.date.slice(0, 10)}</p>
-        <div className="border-t-2 border-green-200 w-40 mt-2"> </div>
-        <p className=" p-2 font-medium">{notice.description}</p>
+
+        <p className="text-black whitespace-pre-wrap">{notice.description}</p>
       </div>
     </div>
   );
