@@ -2,8 +2,6 @@
 import React, { useState } from "react";
 import { noticetype } from "@/lib/notice/Notice";
 import { Modal } from "../../Modal/Modal";
-import { GiLevelFourAdvanced } from "react-icons/gi";
-import { PiEyeFill } from "react-icons/pi";
 import { BsEyeFill } from "react-icons/bs";
 
 interface Props {
@@ -31,34 +29,35 @@ export const SingleNotice: React.FC<Props> = ({ notice, idx }) => {
   };
 
   return (
-    <div
-      className={`${
-        idx % 2 === 0 ? "bg-white/85" : "border border-white"
-      } py-2 px-4 rounded-sm relative`}
-    >
-      <div className="flex items-center justify-between">
-        <div>
-          <div className="flex items-center gap-x-2">
-            <p className="font-medium">{notice.title}</p>
-            {isNew && (
-              <p className="text-sm bg-red-600 font-semibold text-white/50 text-center px-1 rounded-full">
-                New
-              </p>
-            )}
+    <>
+      <div
+        className={`${
+          idx % 2 === 0 ? "bg-secondary" : " border-white"
+        } py-2 px-4 rounded-sm relative`}
+      >
+        <div className="flex items-center justify-between">
+          <div>
+            <div className="flex items-center gap-x-2">
+              <p className="font-medium text-primary">{notice.title}</p>
+              {isNew && (
+                <p className="text-sm bg-text/50 font-semibold text-white/50 text-center px-1 rounded-full">
+                  New
+                </p>
+              )}
+            </div>
+            <p className="text-slate-400">
+              {notice.author + " | " + notice.date.slice(0, 10)}
+            </p>
           </div>
-          <p className="text-slate-400">
-            {notice.author + " | " + notice.date.slice(0, 10)}
-          </p>
+
+          <button onClick={handleOpenModal}>
+            <BsEyeFill className="text-xl text-text hover:scale-150 hover:cursor-pointer transition-all duration-200" />
+          </button>
         </div>
 
-        <button onClick={handleOpenModal}>
-          <BsEyeFill className="text-xl text-black hover:scale-150 hover:cursor-pointer transition-all duration-200" />
-        </button>
+        {/* Modal Rendered Conditionally */}
       </div>
-
-      {/* Modal Rendered Conditionally */}
-
       {showModal && <Modal notice={notice} onClose={handleCloseModal} />}
-    </div>
+    </>
   );
 };

@@ -13,17 +13,10 @@ export default async function Home() {
   const herodata = HeroData();
 
   return (
-    <div
-      style={{
-        backgroundImage: `url(${backgroungImage.src})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-      className="w-full"
-    >
+    <div className="w-full">
       {/* starting of section 1 hero section */}
       <div
-        className="text-center text-slate-100 font-medium text-sm bg-slate-200 py-2"
+        className="text-center text-white font-medium text-sm py-2"
         style={{
           backgroundImage: `url(${herodata.img})`,
           backgroundSize: "cover",
@@ -46,8 +39,8 @@ export default async function Home() {
           <VisMis goal={aboutData.goal} />
         </div>
         {/* ending of vision mission */}
-        <div className="col-span-1 md:col-span-4 lg:col-span-4 drop-shadow-md  rounded-sm bg-white border  border-slate-100 p-2">
-          <p className="py-2">Notice Board (Latest Fast) </p>
+        <div className="col-span-1 md:col-span-4 lg:col-span-4 drop-shadow-md  rounded-sm select-secondary border  border-secondary p-2">
+          <p className="py-2 text-text">Notice Board (Latest Fast) </p>
           <div className="h-[400px] overflow-scroll">
             <Notice />
           </div>

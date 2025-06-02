@@ -1,44 +1,29 @@
 @import "tailwindcss";
-@plugin "daisyui";
 
 
+
+@theme {
+  --color-background: var(--background);
+  --color-primary: var(--primary);
+  --color-text: var(--text);
+  --color-secondary: var(--secondary)
+}
 
 :root {
-  --background: #f1f4f7fb;
-  --foreground: #001817;
+  --background: #ffffff;
+  --primary: #000000;
+  --text: #474747;
+  --secondary: #e9e9e9;
 }
 
-.text-text {
-  @apply bg-[#015551]
+.dark {
+  --background: #000000;
+  --primary: #ffffff;
+  --text: #c2c2c2;
+  --secondary: #1d1d1d;
 }
 
 body {
-  @apply bg-[url('/bg.png')] bg-black
-}
-
-/* [#FE4F2D] */
-.color-orange {
-  @apply bg-[#FE4F2D]
-}
-
-.brown {
-  @apply bg-[#fff8ca]
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-}
-
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-/* register */
-.input-css {
-  @apply bg-[#FDFBEE] p-2 rounded border border-gray-800 mb-2 text-gray-800
+  background-color: var(--background);
 }
 

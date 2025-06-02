@@ -9,6 +9,8 @@ import { Desktop } from "./Desktop";
 import { Navlink } from "@/lib/Navlink";
 import { useRouter } from "next/navigation";
 import { InfoData } from "@/lib/infoData/InfoData";
+import { BiMoon } from "react-icons/bi";
+import { DarkTogle } from "../darktoggle/DarkToggle";
 
 const header = () => {
   const [isopen, setIsOpen] = useState(false);
@@ -17,7 +19,7 @@ const header = () => {
   const navlink = Navlink();
 
   return (
-    <div className=" z-50 flex justify-end max-w-[1200px] mx-auto text-black">
+    <div className=" z-50 flex justify-end max-w-[1200px] mx-auto text-text">
       {/* for Mobile */}
       <Mobile navs={navlink} />
 
@@ -27,10 +29,14 @@ const header = () => {
       <div className={`relative flex justify-end text-3xl gap-4 `}>
         {/* Profile  */}
         <div
-          className={`hover:cursor-pointer  items-center justify-center rounded-full flex `}
-          onClick={() => setIsOpen(!isopen)}
+          className={`hover:cursor-pointer gap-4  items-center justify-center rounded-full flex `}
         >
-          {islogged ? <MdManageAccounts /> : <MdOutlineAccountCircle />}
+          <button onClick={() => setIsOpen(!isopen)}>
+            {islogged ? <MdManageAccounts /> : <MdOutlineAccountCircle />}
+          </button>
+          <button>
+            <DarkTogle />
+          </button>
         </div>
 
         {/* Dropdown Menu */}

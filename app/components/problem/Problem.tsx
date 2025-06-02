@@ -8,10 +8,9 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { CodeSnipet } from "@/lib/compiler/lanSnipet/LanSnipet";
 import { submission } from "@/lib/Function/Submit";
-import { Contest } from "../contest/Contest";
 import { jwtDecode } from "jwt-decode";
 import { useSelector } from "react-redux";
-import { RootState } from "@reduxjs/toolkit/query";
+import { redirect } from "next/navigation";
 
 interface MyTokenPayload {
   userId: number;
@@ -42,13 +41,11 @@ export const Problem: React.FC<Props> = ({
   contest_id,
 }) => {
   const [isRunning, setIsRunning] = useState(false);
-  const [isLog, setisLog] = useState<boolean>(true);
   const [language, setLanguage] = useState<string>("python");
   const [version, setVersion] = useState(runtimeMap["python"]);
-  const [SnipedCode, setSnipetCode] = useState(CodeSnipet[language]);
-  const [expectedOutput, setExpectedOutput] = useState<string>("");
+  // const [SnipedCode, setSnipetCode] = useState(CodeSnipet[language]);
+  // const [expectedOutput, setExpectedOutput] = useState<string>("");
   const [isAccepted, setIsAccepted] = useState<boolean | null>(null);
-  const [solvedproblem, setsolvedproblem] = useState([]);
 
   const [userId, setUserId] = useState<number>();
 
@@ -60,22 +57,17 @@ export const Problem: React.FC<Props> = ({
   // =======
   useEffect(() => {
     const token = localStorage.getItem("token");
+    if (!token) redirect("/login");
     const decoded_value = jwtDecode<MyTokenPayload>(token!);
-    const userid = decoded_value.userId;
-    setUserId(userid);
-  });
+    setUserId(decoded_value.userId);
+  }, []);
 
   const [color, setcolor] = useState<string>();
-
-  // on mount check login
-  useEffect(() => {
-    setisLog(!!localStorage.getItem("token"));
-  }, []);
 
   // when language changes, update version
   useEffect(() => {
     setVersion(runtimeMap[language]);
-    setSnipetCode(CodeSnipet[language]);
+    // setSnipetCode(CodeSnipet[language]);
   }, [language]);
 
   const handleEditorChange = (value: string | undefined) => {
@@ -85,13 +77,12 @@ export const Problem: React.FC<Props> = ({
   const handlecodeChenge = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const value = e.target.value;
     setLanguage(value);
-    setSnipetCode(CodeSnipet[language]);
+    // setSnipetCode(CodeSnipet[language]);
   };
 
   const runCode = async () => {
     setIsRunning(true);
     onChngeError("");
-    setExpectedOutput("");
     setIsAccepted(null);
 
     try {
@@ -141,7 +132,7 @@ export const Problem: React.FC<Props> = ({
       const expected = problem.output.replace(/\\n/g, "\n").replace(/\r/g, "");
 
       onChangeOutput(receivedOutput);
-      setExpectedOutput(expected);
+      // setExpectedOutput(expected);
       setIsAccepted(receivedOutput.trim() === expected.trim());
       console.log(isAccepted);
       const status = receivedOutput.trim() === expected.trim();
@@ -261,7 +252,7 @@ export const Problem: React.FC<Props> = ({
             </p>
           ) : isRunning ? (
             <p className="text-white text-center">↻ Exucuting...</p>
-          ) : isLog ? (
+          ) : (
             <div className="flex justify-center gap-1">
               <button
                 onClick={runCode}
@@ -276,17 +267,6 @@ export const Problem: React.FC<Props> = ({
                 ⇮ Submit
               </button>
               {}
-            </div>
-          ) : (
-            <div className="w-full flex justify-center">
-              <Link
-                href="/login"
-                className="text-center bg-yellow-400 w-full p-2"
-              >
-                Oops! You're Not Logged In!
-                <br />
-                Please Log In First
-              </Link>
             </div>
           )}
           <div
@@ -310,7 +290,6 @@ export const Problem: React.FC<Props> = ({
           </div>
 
           <Editor
-            defaultValue={CodeSnipet[language]}
             height="60vh"
             theme="vs-dark"
             language={language}

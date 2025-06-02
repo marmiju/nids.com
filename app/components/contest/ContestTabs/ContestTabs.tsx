@@ -7,8 +7,6 @@ import { Contest } from "@/lib/contest/Contest";
 interface Props {
   contest: Contest;
 }
-// const languages = ['python', 'c', 'cpp', 'java', 'javascript', 'php'];
-// const version = ['3.10.0', '10.2.0', '10.2.0', '15.0.2', '15.10.0', '8.2.3'];
 
 export const ContestTabs: React.FC<Props> = ({ contest }) => {
   const [activeTab, setActiveTab] = useState(0);
