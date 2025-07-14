@@ -1,4 +1,5 @@
 import { ProgramItem } from "@/lib/about/AboutData";
+import Image from "next/image";
 import React from "react";
 type props = {
   program: ProgramItem;
@@ -7,8 +8,11 @@ type props = {
 const Singleprogram: React.FC<props> = ({ program }) => {
   return (
     <div className="bg-white/50 backdrop-blur-2xl grid md:flex shadow  hover:scale-102  hover:drop-shadow-xl  transition-all duration-500 border-gray-100-50 ">
-      <img
+      <Image
         className=" rounded-l-sm md:w-1/3"
+        priority
+        width={500}
+        height={300}
         src={program.image}
         alt={program.title}
       />

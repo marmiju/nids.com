@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { Props, Contest as ContestType } from "@/lib/contest/Contest";
 import { Contest } from "../components/contest/Contest";
-import { Loading } from "../components/Loading/Loading";
+import { Loading } from "../Loading";
 import Link from "next/link";
 
 const Page = () => {
@@ -24,7 +24,7 @@ const Page = () => {
     };
 
     fetchContest();
-  }, []);
+  }, [contestData]);
   console.log(contestData);
 
   if (!contestData) return <Loading />;

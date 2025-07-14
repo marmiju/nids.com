@@ -14,6 +14,10 @@ const VisMis: React.FC<props> = ({ goal }) => {
     setopen((prev) => (prev === index ? null : index));
   }
 
+  if (!goal ) {
+    return <div className="w-full h-96 bg-slate-200 animate-pulse flex items-center justify-center"/>
+  }
+
   return (
     <div className="p-4">
       {goal.map((data, index) => {

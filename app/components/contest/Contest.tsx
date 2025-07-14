@@ -1,5 +1,4 @@
 import { Contest as contestType } from '@/lib/contest/Contest'
-import { timeStamp } from 'console'
 import React from 'react'
 
 export const Contest: React.FC<contestType> = ({ id, problems, end_time, }) => {

@@ -6,32 +6,35 @@ import { AboutData, AboutUsData } from "@/lib/about/AboutData";
 import VisMis from "./components/vis_mis/VisMis";
 import RecentContest from "./components/contest/recentContest/recentContest";
 import { Notice } from "./components/Notice/Notice/Notice";
-import backgroungImage from "@/lib/background6.png";
+import Image from "next/image";
+import banner from "@/public/banner.png"
 
 export default async function Home() {
-  const aboutData: AboutUsData = await AboutData();
-  const herodata = HeroData();
+  const [aboutData, herodata] = await Promise.all([AboutData(), HeroData()]);
 
   return (
-    <div className="w-full">
+    <main className="w-full">
       {/* starting of section 1 hero section */}
-      <div
-        className="text-center text-white font-medium text-sm py-2"
-        style={{
-          backgroundImage: `url(${herodata.img})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        affiliated to National University; code: 3252
-        <div className=" h-[600px] max-w-[1200px] mx-auto items-center justify-center text-center grid p-10 rounded-2xl">
+      <div className="relative w-full h-[600px] md:h-screen">
+        <Image
+          src={banner}
+          alt="Hero Background"
+          fill
+          placeholder="blur"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-black/60 flex items-center justify-start">
+
           <HeroContent data={herodata} />
+
         </div>
       </div>
       {/* ending of hero section */}
 
       {/* section 2 awareness */}
-      <Award />
+      <div>
+        <Award />
+      </div>
       {/* mivVis and Notice */}
       <div className="grid grid-cols-1 md:grid-cols-10 lg:grid-cols-12  mt-10 max-w-[1280px] mx-auto">
         {/* vission and mission start */}
@@ -57,6 +60,6 @@ export default async function Home() {
         </p>
         <RecentContest />
       </div>
-    </div>
+    </main>
   );
 }

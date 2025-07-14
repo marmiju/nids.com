@@ -9,10 +9,10 @@ export const Footer = async () => {
   const infodata: GetInfoResponse = await fetchInfoData();
 
   return (
-    <div className=" bg-slate-200 w-full lg:p-10 mt-20">
+    <footer className=" bg-slate-200 w-full lg:p-10 mt-20">
       <div className="grid grid-cols-1 md:grid-cols-3 max-w-[1280px] mx-auto">
         <FooterClient infodata={infodata} />
       </div>
-    </div>
+    </footer>
   );
 };

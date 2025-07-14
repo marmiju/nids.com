@@ -9,7 +9,7 @@ export type noticetype = {
 
 export type noticesType = noticetype[];
 
-export const getNotices = async (): Promise<noticesType> => {
+export const getNotices = async () => {
   const respons = await fetch(
     `${process.env.NEXT_PUBLIC_END_POINT}/getnotices`,
     {

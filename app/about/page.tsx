@@ -4,30 +4,37 @@ import Programs from "../components/Programs/Programs";
 import VisMis from "../components/vis_mis/VisMis";
 import { Award } from "../components/award/Award";
 import backgroundImage from "../../lib/background6.png";
+import Image from "next/image";
+import banner from "@/public/banner.png";
+import { Loading } from "../Loading";
 
 const page = async () => {
   const aboutData: AboutUsData = await AboutData();
-  console.log("aboutdata", aboutData);
+
+  if(!aboutData){
+    return <Loading/>
+  }
 
   return (
     <div
-      style={{
-        backgroundImage: `url(${backgroundImage.src})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
       className="w-full ease-linear"
     >
       {/* //hero */}
-      <div
-        style={{ backgroundImage: `url(${aboutData.image})` }}
-        className={`grid  w-full h-screen bg-cover justify-center items-center text-white `}
-      >
-        <div className={`text-center max-w-[800px] space-y-4`}>
-          <h1 className="text-center  font-bold text-lg md:text-2xl lg:text-4xl">
+      <div className="relative w-full h-[600px] md:h-screen">
+        <Image
+          src={banner}
+          alt="Hero Background"
+          fill
+          placeholder="blur"
+          className="object-cover"
+        />
+        <div className={`absolute inset-0 bg-black/60 h-svh border grid border-white items-center p-10 md:p-20 lg:p-40 text-white`}>
+          <div>
+            <h1 className="text-center  font-bold text-lg md:text-2xl lg:text-4xl">
             {aboutData.title}
           </h1>
           <p>{aboutData.desc}</p>
+          </div>
         </div>
       </div>
       {/* //end hero */}

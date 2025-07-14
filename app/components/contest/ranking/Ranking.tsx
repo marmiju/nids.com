@@ -12,7 +12,7 @@ export const Ranking = ({ contest_id }: Rank_Props) => {
       setRanking(rankingData || []);
     };
     fetchRanking();
-  }, []);
+  }, [ranking, contest_id]);
 
   return (
     <div className="max-w-[1280px] mx-auto text-center my-10">

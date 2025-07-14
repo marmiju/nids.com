@@ -9,13 +9,14 @@ const Page = () => {
   const [userData, setUserData] = useState<usersType>([]);
   const [searchTerm, setSearchTerm] = useState("student");
 
+
   useEffect(() => {
     const fetchUsers = async () => {
       const data = await Users();
       setUserData(data);
     };
     fetchUsers();
-  }, []);
+  }, [userData]);
 
   const filteredUsers = userData.filter(
     (user) =>

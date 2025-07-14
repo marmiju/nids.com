@@ -15,6 +15,7 @@
     "bcryptjs": "^3.0.2",
     "crypto-js": "^4.2.0",
     "dotenv": "^16.4.7",
+    "framer-motion": "^12.23.5",
     "jsonwebtoken": "^9.0.2",
     "jwt-decode": "^4.0.0",
     "next": "15.2.3",

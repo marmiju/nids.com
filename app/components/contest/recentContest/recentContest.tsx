@@ -19,7 +19,7 @@ const RecentContest = () => {
     };
 
     fetchMaxContestId();
-  }, []);
+  }, [maxContestId]);
 
   return (
     <div>
