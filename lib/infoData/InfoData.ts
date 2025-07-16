@@ -32,7 +32,6 @@ export const InfoData = async () => {
 
   try {
     const respons = await fetch(`${process.env.NEXT_PUBLIC_END_POINT}/getinfo`)
-
     const result = await respons.json()
     console.log(result)
     siteLogo = result.infoData.logo

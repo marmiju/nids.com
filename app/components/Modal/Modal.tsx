@@ -9,8 +9,8 @@ interface Props {
 
 export const Modal: React.FC<Props> = ({ notice, onClose }) => {
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-secondary">
-      <div className="relative max-w-full h-screen w-full backdrop-blur-3xl bg-secondary p-6 rounded-sm">
+    <div className=" inset-0 fixed z-50 flex items-center justify-center bg-secondary">
+      <div className="relative max-w-full h-screen w-full backdrop-blur-3xl bg-background/90 p-6 rounded-sm">
         <button
           onClick={onClose}
           className="flex top-4 right-4 text-2xl hover:cursor-pointer hover:scale-150 text-red-600 transition-all duration-200"

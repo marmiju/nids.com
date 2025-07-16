@@ -7,7 +7,6 @@ import { Foot1 } from "./FooterSections/Foot1";
 import { Foot2 } from "./FooterSections/Foot2";
 import { Foot3 } from "./FooterSections/Foot3";
 import { setInfo } from "@/app/redux/InfoSlice";
-import { info } from "node:console";
 
 interface Props {
   infodata: GetInfoResponse;

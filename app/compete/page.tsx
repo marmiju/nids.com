@@ -1,16 +1,13 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { Props, Contest as ContestType } from "@/lib/contest/Contest";
+import { Props } from "@/lib/contest/Contest";
 import { Contest } from "../components/contest/Contest";
-import { Loading } from "../Loading";
 import Link from "next/link";
 
 const Page = () => {
   const [contestData, setContestData] = useState<Props | null>(null);
-  const [activeTab, setActiveTab] = useState(0);
-  const [code, setCode] = useState("// Write your solution here");
-  const [output, setOutput] = useState("");
+
 
   useEffect(() => {
     const fetchContest = async () => {
@@ -27,7 +24,6 @@ const Page = () => {
   }, [contestData]);
   console.log(contestData);
 
-  if (!contestData) return <Loading />;
 
   return (
     <div className="max-w-[1280px] mx-auto p-4 ">
@@ -38,7 +34,7 @@ const Page = () => {
         <p className="w-[20%]"> Problems</p>
         <p className="w-[40%]">end_time</p>
       </div>
-      {contestData.contests.map((contest) => {
+      {contestData?.contests.map((contest) => {
         return (
           <Link key={contest.id} href={`compete/${contest.id}`}>
             <Contest

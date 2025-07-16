@@ -1,3 +1,4 @@
+
 export interface ProgramItem {
   title: string;
   desc: string;
@@ -33,11 +34,16 @@ export interface AboutUsData {
 }
 
 export const AboutData = async () => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_END_POINT}/getabout`);
+  const response = await fetch(`${process.env.NEXT_PUBLIC_END_POINT}/getabout`,{
+    cache: "no-store",
+  });
   if (!response.ok) {
     throw new Error(`Failed to fetch: ${response.status}`);
   }
+
+  await new Promise((r) => setTimeout(r, 2000));
   const alldata = await response.json();
+
   const result: AboutUsData = alldata.allData;
 
   return result;

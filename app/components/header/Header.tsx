@@ -8,8 +8,6 @@ import { useAuth } from "@/utils/auth";
 import { Desktop } from "./Desktop";
 import { Navlink } from "@/lib/Navlink";
 import { useRouter } from "next/navigation";
-import { InfoData } from "@/lib/infoData/InfoData";
-import { BiMoon } from "react-icons/bi";
 import { DarkTogle } from "../darktoggle/DarkToggle";
 
 const header = () => {
@@ -34,9 +32,9 @@ const header = () => {
           <button onClick={() => setIsOpen(!isopen)}>
             {islogged ? <MdManageAccounts /> : <MdOutlineAccountCircle />}
           </button>
-          <button>
+          
             <DarkTogle />
-          </button>
+          
         </div>
 
         {/* Dropdown Menu */}

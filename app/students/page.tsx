@@ -35,11 +35,10 @@ const Page = () => {
         <button
           onClick={() => setSearchTerm("student")}
           className={`
-                    ${
-                      searchTerm == "student"
-                        ? "bg-green-900 text-white"
-                        : "bg-green-200"
-                    }
+                    ${searchTerm == "student"
+              ? "bg-green-900 text-white"
+              : "bg-green-200"
+            }
                     px-4 py-2 rounded-sm  transition-all duration-500
           `}
         >
@@ -47,12 +46,12 @@ const Page = () => {
         </button>
         <button
           className={`
-                    ${
-                      searchTerm == "teacher"
-                        ? "bg-green-900 text-white"
-                        : "bg-green-200"
-                    }
+                    ${searchTerm == "teacher"
+              ? "bg-green-900 text-white"
+              : "bg-green-200"
+            }
                     px-4 py-1 rounded-sm  transition-all duration-500
+                    
           `}
           onClick={() => setSearchTerm("teacher")}
         >
@@ -63,8 +62,8 @@ const Page = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-[1200px] mx-auto gap-2">
         {filteredUsers.length > 0
           ? filteredUsers.map((data: usertype) => (
-              <UserCart key={data.id} data={data} />
-            ))
+            <UserCart key={data.id} data={data} />
+          ))
           : " Not Found"}
       </div>
     </div>

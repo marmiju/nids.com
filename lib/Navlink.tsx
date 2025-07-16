@@ -12,13 +12,16 @@ export type navprop = {
 };
 
 export const Navlink = () => {
+  // http://app11.nu.edu.bd/
   const link = [
-    { path: "/", name: "home" },
-    { path: "/compete", name: "Compete" },
-    { path: "/notice", name: "Notice" },
+    { path: "/", name: "Home" },
     { path: "/about", name: "About" },
-    { path: "/students", name: "Students/Teachers" },
-    { path: "http://app11.nu.edu.bd/", name: "Addmission" },
+    { path: "/admission", name: "Addmission" },
+    { path: "/programs", name: "Offer Programs" },
+    { path: "/teachers", name: "Teachers" },
+    { path: "/notice", name: "Notice" },
+    { path: "/ressearch", name: "Research" },
+    { path: "/contest", name: "contact" },
   ];
   return link;
 };
