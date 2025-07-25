@@ -1,6 +1,6 @@
+import { Loading } from "../components/loading/Loading";
 import Programs from "../components/Programs/Programs";
 import { AboutData } from "@/lib/about/AboutData";
-import Loading from "../loading";
 
 export default async function page() {
     const aboutData = await AboutData()

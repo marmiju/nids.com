@@ -7,8 +7,8 @@ import RecentContest from "./components/contest/recentContest/recentContest";
 import { Notice } from "./components/Notice/Notice/Notice";
 import HeroCarousel from "./carosol/HeroCarosol";
 
-import Loading from "./loading";
 import { BreakingNews } from "./components/breakingNews/BrekingNews";
+import { Loading } from "./components/loading/Loading";
 
 export default async function Home() {
   const [aboutData, herodata] = await Promise.all([AboutData(), HeroData()]);
