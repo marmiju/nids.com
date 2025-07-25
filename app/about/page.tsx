@@ -4,6 +4,12 @@ import VisMis from "../components/vis_mis/VisMis";
 import { Award } from "../components/award/Award";
 import Image from "next/image";
 import banner from "@/public/banner.png";
+import SingleCardWithTitle from "../components/singCardwithTitle&icon/SingleCartTitle";
+import { FaComputer, FaInternetExplorer, FaPeopleRoof, FaRankingStar } from "react-icons/fa6";
+import { IoLibrarySharp } from "react-icons/io5";
+import { GiFamilyHouse } from "react-icons/gi";
+import { BiCode } from "react-icons/bi";
+import { GrMore } from "react-icons/gr";
 
 const page = async () => {
   const aboutData: AboutUsData = await AboutData();
@@ -45,11 +51,20 @@ const page = async () => {
         <VisMis goal={aboutData.goal}></VisMis>
 
         {/* facilities */}
-        <div className="grid grid-cols-4">
-            <h3>Our facilities</h3>
-            <div>
-              
-            </div>
+        <div className="grid grid-cols-4 p-4 space-y-4 items-center justify-center">
+          <h3 className="col-span-4 text-center text-3xl font-bold mt-10 bg-primary text-background p-4">Our facilities</h3>
+          {/* 
+            card imported from components/CardwithTitle
+            props: title + reactIccon(optional) 
+          */}
+          <SingleCardWithTitle title="Lab Facilities" icon={<FaComputer />} />
+          <SingleCardWithTitle title="Library" icon={<IoLibrarySharp />} />
+          <SingleCardWithTitle title="Internet Facilities" icon={<FaInternetExplorer />} />
+          <SingleCardWithTitle title="Hostel Facilities" icon={<GiFamilyHouse /> } />
+          <SingleCardWithTitle title="Tutorial" icon={<BiCode /> } />
+          <SingleCardWithTitle title="programming contest" icon={<FaRankingStar /> } />
+          <SingleCardWithTitle title="Student Colabration" icon={<FaPeopleRoof />} />
+          <SingleCardWithTitle title="and more" icon={<GrMore />} />
 
         </div>
 

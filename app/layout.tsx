@@ -1,11 +1,11 @@
 // app/layout.tsx (or RootLayout.tsx)
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "./components/header/Header";
 import { Footer } from "./components/footer/Footer";
 import ReduxProvider from "./redux/ReduxProvider"; // ✅ your new client wrapper
 import { montserrat } from "@/lib/fonts/Alexandria";
 import { Developer } from "./components/footer/Developer/Developer";
+import { Header } from "./components/header/Header";
 
 
 export const metadata: Metadata = {
