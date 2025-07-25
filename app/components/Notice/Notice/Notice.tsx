@@ -5,6 +5,7 @@ import Loading from "@/app/loading";
 
 export const Notice = async () => {
   const noticedatas: noticesType = await getNotices();
+  
   if (!noticedatas){
       return <Loading/>
   }

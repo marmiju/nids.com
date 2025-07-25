@@ -1,8 +1,8 @@
 
 import { Contest } from "../components/contest/Contest";
 import Link from "next/link";
-import Loading from "../loading";
 import { getContest } from "@/lib/contest/Contest";
+import Loading from "../loading";
 
 const Page = async () => {
   const contestData = await getContest()
