@@ -8,7 +8,6 @@ import React, { useEffect, useState } from "react";
 import { submission } from "@/lib/Function/Submit";
 import { jwtDecode } from "jwt-decode";
 import { useSelector } from "react-redux";
-import { redirect } from "next/navigation";
 import { RootType } from "@/app/redux/store/Store";
 
 interface MyTokenPayload {
@@ -173,6 +172,7 @@ export const Problem: React.FC<Props> = ({
             <pre className="bg-gray-900 p-2 mb-2 rounded text-gray-200">
               3 <br></br>
               {
+                problem.input &&
                 problem.input
                   .replace(/\\n/g, "\n") // Convert escaped newlines to real newlines
                   .split("\n") // Split lines
@@ -189,11 +189,12 @@ export const Problem: React.FC<Props> = ({
                   : "text-red-500"
                 }`}
             >
-              {problem.output
-                .replace(/\\n/g, "\n")
-                .split("\n")
-                .slice(0, 3)
-                .join("\n")}
+              {problem.output &&
+                problem.output
+                  .replace(/\\n/g, "\n")
+                  .split("\n")
+                  .slice(0, 3)
+                  .join("\n")}
             </pre>
             {output && (
               <div

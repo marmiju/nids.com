@@ -42,3 +42,21 @@ export const OneContest = async (id:number) => {
     console.error("Failed to fetch contest:", error);
   }
 };
+
+
+export const getContest =async ()=>{
+  try{
+    const res = await fetch(`${process.env.NEXT_PUBLIC_END_POINT}/contest`,{
+      next:{
+        revalidate:10,
+      }
+    });
+    const data:Contest[] = await res.json() 
+    return data
+
+  }catch(err){
+    console.log(err)
+    throw new Error("Failed to fetch contest")
+  }
+
+}

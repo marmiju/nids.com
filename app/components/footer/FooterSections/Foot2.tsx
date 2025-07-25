@@ -1,9 +1,6 @@
-import { NavLinks } from "@/lib/Navlink";
-import Link from "next/link";
 import React from "react";
 
 export const Foot2 = () => {
-  const navlink = NavLinks;
   return (
     <div className="flex flex-col text-center space-y-2 font-semibold text-xl">
       {/* Links

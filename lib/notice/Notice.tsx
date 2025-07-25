@@ -14,7 +14,9 @@ export const getNotices = async () => {
     const respons = await fetch(
       `${process.env.NEXT_PUBLIC_END_POINT}/getnotices`,
       {
-        cache: "no-store",
+        next:{
+          revalidate:10
+        }
       }
     );
     const result = await respons.json();

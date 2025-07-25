@@ -38,13 +38,11 @@ export const url = process.env.NEXT_PUBLIC_END_POINT || 'http://localhost:3000'
 
 export const AboutData = async () => {
   const response = await fetch(`${url}/getabout`,{
-    cache: "no-store",
+    cache:'force-cache'
   });
   if (!response.ok) {
     throw new Error(`Failed to fetch: ${response.status}`);
   }
-
-  await new Promise((r) => setTimeout(r, 2000));
   const alldata = await response.json();
 
   const result: AboutUsData = alldata.allData;

@@ -1,32 +1,12 @@
-"use client";
 
-import React, { useEffect, useState } from "react";
-import { Props } from "@/lib/contest/Contest";
 import { Contest } from "../components/contest/Contest";
 import Link from "next/link";
 import Loading from "../loading";
+import { getContest } from "@/lib/contest/Contest";
 
-const Page = () => {
-  const [contestData, setContestData] = useState<Props | null>(null);
-  console.log("contestData",contestData)
-
-
-  useEffect(() => {
-    const fetchContest = async () => {
-      try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_END_POINT}/contest`);
-        const data = await res.json();
-        setContestData({ contests: data });
-      } catch (err) {
-        console.error("Failed to fetch contest data:", err);
-      }
-    };
-
-    fetchContest();
-  }, [contestData]);
-  console.log(contestData);
+const Page = async () => {
+  const contestData = await getContest()
  
-
 
   return (
     <div className="max-w-[1280px] mx-auto p-4 ">
@@ -37,7 +17,7 @@ const Page = () => {
         <p className="w-[20%]"> Problems</p>
         <p className="w-[40%]">end_time</p>
       </div>
-      {contestData ? contestData?.contests.map((contest) => {
+      {contestData ? contestData?.map((contest) => {
         return (
           <Link key={contest.id} href={`compete/${contest.id}`}>
             <Contest

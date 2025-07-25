@@ -14,7 +14,6 @@ import { GrMore } from "react-icons/gr";
 const page = async () => {
   const aboutData: AboutUsData = await AboutData();
 
-
   return (
     <div
       className="w-full ease-linear"

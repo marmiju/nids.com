@@ -7,7 +7,6 @@ import RecentContest from "./components/contest/recentContest/recentContest";
 import { Notice } from "./components/Notice/Notice/Notice";
 import HeroCarousel from "./carosol/HeroCarosol";
 
-import ChairmanMessage from "./components/chairmanMessage/ChairmanMessage";
 import Loading from "./loading";
 import { BreakingNews } from "./components/breakingNews/BrekingNews";
 
@@ -26,24 +25,17 @@ export default async function Home() {
       importent from components/ breking news
       props lates notice
       */}
-         <BreakingNews/>
-
+        <BreakingNews/>
 
       {/* starting of section 1 hero section */}
       <div className="relative">
         <HeroCarousel herodata={herodata} key={'herodata'} />
       </div>
 
-
       {/* section 2 awareness */}
       <section id="award" className="relative z-1">
         <Award />
       </section >
-
-     
-
-      {/* section 3 drop message */}
-      <ChairmanMessage/>
 
       {/* mivVis and Notice */}
       <div className="grid grid-cols-1 md:grid-cols-10 lg:grid-cols-12  mt-10 max-w-[1280px] mx-auto">

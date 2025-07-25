@@ -29,11 +29,11 @@ export interface GetInfoResponse {
 export let siteLogo: string;
 
 export const InfoData = async () => {
-
+    
   try {
     const respons = await fetch(`${url}/getinfo`)
     const result = await respons.json()
-    siteLogo = result.infoData.logo
+    siteLogo = result.infoData.logo || null
     return result
   } catch (err) {
     console.log(err)
