@@ -10,9 +10,13 @@ import { IoLibrarySharp } from "react-icons/io5";
 import { GiFamilyHouse } from "react-icons/gi";
 import { BiCode } from "react-icons/bi";
 import { GrMore } from "react-icons/gr";
+import { Loading } from "../components/loading/Loading";
 
 const page = async () => {
   const aboutData: AboutUsData = await AboutData();
+  if(!aboutData){
+    return <Loading/>
+  }
 
   return (
     <div

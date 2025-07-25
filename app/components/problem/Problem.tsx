@@ -9,6 +9,7 @@ import { submission } from "@/lib/Function/Submit";
 import { jwtDecode } from "jwt-decode";
 import { useSelector } from "react-redux";
 import { RootType } from "@/app/redux/store/Store";
+import { redirect } from "next/navigation";
 
 interface MyTokenPayload {
   userId: number;
@@ -55,7 +56,7 @@ export const Problem: React.FC<Props> = ({
   // =======
   useEffect(() => {
     const token = localStorage.getItem("token");
-    // if (!token) redirect("/login");
+    if (!token) redirect("/login");
     const decoded_value = jwtDecode<MyTokenPayload>(token!);
     setUserId(decoded_value.userId);
   }, []);

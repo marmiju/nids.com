@@ -2,11 +2,10 @@
 import { Contest } from "../components/contest/Contest";
 import Link from "next/link";
 import { getContest } from "@/lib/contest/Contest";
-import Loading from "../loading";
+import { Loading } from "../components/loading/Loading";
 
 const Page = async () => {
   const contestData = await getContest()
- 
 
   return (
     <div className="max-w-[1280px] mx-auto p-4 ">

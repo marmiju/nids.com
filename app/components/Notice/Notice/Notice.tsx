@@ -1,7 +1,7 @@
 import { getNotices, noticesType } from "@/lib/notice/Notice";
 import React from "react";
 import { SingleNotice } from "../singlenotice/SingleNotice";
-import Loading from "@/app/loading";
+import { Loading } from "../../loading/Loading";
 
 export const Notice = async () => {
   const noticedatas: noticesType = await getNotices();
