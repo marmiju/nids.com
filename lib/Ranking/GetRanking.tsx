@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 
 export interface Rank_Props {
   contest_id: number;

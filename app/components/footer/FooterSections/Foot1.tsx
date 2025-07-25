@@ -27,7 +27,7 @@ export const Foot1: React.FC<props> = ({ info }) => {
       </p>
       <p className="text-gray-400 text-md w-full   ">{info.infoData.tagLine}</p>
       <div className="flex gap-4 mt-2">
-        {info.socialData.map((data, index) => {
+        {info.socialData.map((data) => {
           return (
             <a
               key={data.title}
@@ -39,7 +39,9 @@ export const Foot1: React.FC<props> = ({ info }) => {
               target="_blank"
               className="inline-block transition-transform hover:scale-110"
             >
-              <img
+              <Image
+              width={500}
+              height={500}
                 src={data.icon}
                 alt={data.title}
                 className="w-8 h-8 object-contain"

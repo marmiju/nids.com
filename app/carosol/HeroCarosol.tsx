@@ -25,7 +25,7 @@ const HeroCarousel = ({ herodata }: { herodata: HeroDataType[] }) => {
   const currentSlide = herodata[currentIndex];
 
   return (
-    <div className="relative w-full bg-black h-[600px] md:h-screen overflow-hidden">
+    <div className="relative w-full bg-black h-[600px]  overflow-hidden">
       <AnimatePresence initial={false} mode="wait">
         <motion.div
           key={currentIndex}

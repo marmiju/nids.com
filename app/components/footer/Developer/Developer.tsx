@@ -1,4 +1,5 @@
-import { developer, deveType } from "@/lib/developer/developer";
+import { developer } from "@/lib/developer/developer";
+import Image from "next/image";
 import React from "react";
 
 export const Developer = () => {
@@ -14,7 +15,7 @@ export const Developer = () => {
               className="bg-white p-1 rounded-sm  hover:scale-120 transition-all duration-300 hover:bg-amber-500"
             >
               <a href={data.url} target="_blank">
-                <img className="h-5 w-5 " src={data.icon} alt={data.title} />
+                <Image width={500} height={500} className="h-5 w-5 " src={data.icon} alt={data.title} />
               </a>
             </div>
           );

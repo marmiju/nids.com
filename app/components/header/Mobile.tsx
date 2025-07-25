@@ -1,11 +1,10 @@
 "use client";
-import { Navlink, navprop } from "@/lib/Navlink";
+import { navprop } from "@/lib/Navlink";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useState } from "react";
 import { HiMenuAlt2 } from "react-icons/hi";
-import { MdOutlineAccountCircle } from "react-icons/md";
-import { Sitelogo } from "./sitelogo";
+
 
 export const Mobile: React.FC<navprop> = ({ navs }) => {
   const [isOpen, setIsOpen] = useState(false);

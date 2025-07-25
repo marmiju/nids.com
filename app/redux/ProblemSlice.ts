@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState: any = [];
+const initialState: pblsolved[] = [];
 
 export interface pblsolved {
     user_id: number,
@@ -14,7 +14,7 @@ const ProblemSlice = createSlice({
     updateData: (state, action) => {
       const { user_id, value } = action.payload;
 
-      const existingUser = state.find((item: any) => item.user_id === user_id);
+      const existingUser = state.find((item: pblsolved) => item.user_id === user_id);
 
       if (existingUser) {
         existingUser.value = value;

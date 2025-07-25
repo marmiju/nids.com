@@ -1,6 +1,6 @@
 "use client";
 
-import { GetInfoResponse, InfoData } from "@/lib/infoData/InfoData";
+import { GetInfoResponse } from "@/lib/infoData/InfoData";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Foot1 } from "./FooterSections/Foot1";

@@ -11,9 +11,9 @@
 
 :root {
   --background: #ffffff;
-  --primary: #0026ff;
-  --text: #3554ff;
-  --secondary: #e3f5ff;
+  --primary: #1100ff;
+  --text: #2e2e2e;
+  --secondary: #ebfaff;
 }
 
 .dark {

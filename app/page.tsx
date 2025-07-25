@@ -1,7 +1,7 @@
 import { HeroData } from "@/lib/heroData/HeroData";
 import { Award } from "./components/award/Award";
 import Programs from "./components/Programs/Programs";
-import { AboutData, AboutUsData } from "@/lib/about/AboutData";
+import { AboutData } from "@/lib/about/AboutData";
 import VisMis from "./components/vis_mis/VisMis";
 import RecentContest from "./components/contest/recentContest/recentContest";
 import { Notice } from "./components/Notice/Notice/Notice";
@@ -9,20 +9,26 @@ import HeroCarousel from "./carosol/HeroCarosol";
 
 import ChairmanMessage from "./components/chairmanMessage/ChairmanMessage";
 import Loading from "./loading";
+import { BreakingNews } from "./components/breakingNews/BrekingNews";
 
 export default async function Home() {
-  let loading = true;
   const [aboutData, herodata] = await Promise.all([AboutData(), HeroData()]);
-  console.log(herodata);
 
-  loading = false;
 
-  if (!aboutData || !herodata || loading ) {
+  if (!aboutData || !herodata  ) {
     return <Loading />;
   }
 
   return (
     <main className="w-full">
+
+      {/* beaking news 
+      importent from components/ breking news
+      props lates notice
+      */}
+         <BreakingNews/>
+
+
       {/* starting of section 1 hero section */}
       <div className="relative">
         <HeroCarousel herodata={herodata} key={'herodata'} />
@@ -33,6 +39,8 @@ export default async function Home() {
       <section id="award" className="relative z-1">
         <Award />
       </section >
+
+     
 
       {/* section 3 drop message */}
       <ChairmanMessage/>

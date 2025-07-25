@@ -1,0 +1,13 @@
+.breaking-text{
+    animation: runText 30s linear infinite;
+}
+
+@keyframes runText{
+    0% {
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(-100%);
+    }
+
+}

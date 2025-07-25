@@ -1,5 +1,5 @@
-import { error } from 'console'
-import React from 'react'
+
+import { url } from '../about/AboutData';
 
 export interface InfoData {
   id: number;
@@ -31,11 +31,9 @@ export let siteLogo: string;
 export const InfoData = async () => {
 
   try {
-    const respons = await fetch(`${process.env.NEXT_PUBLIC_END_POINT}/getinfo`)
+    const respons = await fetch(`${url}/getinfo`)
     const result = await respons.json()
-    console.log(result)
     siteLogo = result.infoData.logo
-
     return result
   } catch (err) {
     console.log(err)

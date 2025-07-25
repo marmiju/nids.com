@@ -9,6 +9,7 @@ interface Props {
 }
 
 export const ContestTabs: React.FC<Props> = ({ contest }) => {
+  
   const [activeTab, setActiveTab] = useState(0);
   const [codes, setCodes] = useState<{ [key: number]: string }>({});
   const [outputs, setOutputs] = useState<{ [key: number]: string }>({});

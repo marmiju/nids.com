@@ -11,9 +11,9 @@ export type usertype = {
     role: string
     status: string
     semester: string
-    result: any
+    result: string
     contestPoints: number
-    rank: any
+    rank: string
     createdAt?: string
 }
 

@@ -1,20 +1,20 @@
+
 export interface Root {
   run?: Run
   language: string
   version: string
-  files? : any
 }
 
 export interface Run {
   stdout: string
   stderr: string
   code: number
-  signal: any
+  signal?: string
   output: string
 }
 
 
-export async function runOnPiston(req:any): Promise<any> {
+export async function runOnPiston(req:unknown){
   const res = await fetch("https://emkc.org/api/v2/piston/execute", {
     method: "POST",
     headers: { "Content-Type": "application/json" },

@@ -4,9 +4,11 @@ import React, { useEffect, useState } from "react";
 import { Props } from "@/lib/contest/Contest";
 import { Contest } from "../components/contest/Contest";
 import Link from "next/link";
+import Loading from "../loading";
 
 const Page = () => {
   const [contestData, setContestData] = useState<Props | null>(null);
+  console.log("contestData",contestData)
 
 
   useEffect(() => {
@@ -23,6 +25,7 @@ const Page = () => {
     fetchContest();
   }, [contestData]);
   console.log(contestData);
+ 
 
 
   return (
@@ -34,7 +37,7 @@ const Page = () => {
         <p className="w-[20%]"> Problems</p>
         <p className="w-[40%]">end_time</p>
       </div>
-      {contestData?.contests.map((contest) => {
+      {contestData ? contestData?.contests.map((contest) => {
         return (
           <Link key={contest.id} href={`compete/${contest.id}`}>
             <Contest
@@ -48,7 +51,7 @@ const Page = () => {
             />
           </Link>
         );
-      })}
+      }) : <Loading/>}
     </div>
   );
 };

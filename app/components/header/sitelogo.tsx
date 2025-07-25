@@ -1,5 +1,5 @@
 "use client";
-import store from "@/app/redux/store/Store";
+import  { RootType } from "@/app/redux/store/Store";
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -7,7 +7,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 export const Sitelogo = () => {
-  const info = useSelector(store.getState);
+  const info = useSelector((state:RootType) => state.info);
   const router = useRouter();
   return (
     <div className="hover:cursor-pointer" onClick={() => router.replace("/")}>
@@ -16,7 +16,7 @@ export const Sitelogo = () => {
         height={80}
         width={80}
         src={
-          info.info.siteLogo ||
+          info.siteLogo ||
           "https://i.ibb.co/zTXpfjr2/Chat-GPT-Image-May-9-2025-12-33-23-AM.png"
         }
         alt="SiteLogo"

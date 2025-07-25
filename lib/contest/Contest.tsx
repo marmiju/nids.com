@@ -25,7 +25,7 @@ export interface Props {
   contests: Contest[];
 }
 
-export const OneContest = async (id: string | number) => {
+export const OneContest = async (id:number) => {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_END_POINT}/onecontest`, {
       method: "POST",

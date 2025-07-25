@@ -1,13 +1,12 @@
 'use client'
 import { useAuth } from '@/utils/auth'
 import Link from 'next/link'
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import dotenv from 'dotenv'
 import toast, { Toaster } from 'react-hot-toast'
 dotenv.config()
 
 export default function RegisterPage() {
-    const modalRef = useRef<HTMLElement>(null)
     const isloged = useAuth(); // is auth
 
     // State variables

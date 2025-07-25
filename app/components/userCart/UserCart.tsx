@@ -2,7 +2,6 @@ import { usertype } from '@/lib/users/Users'
 import Image from 'next/image';
 import React from 'react'
 import avatar from '@/public/avatar.png'
-import { TbBackground } from 'react-icons/tb';
 
 
 interface UserCartProps {

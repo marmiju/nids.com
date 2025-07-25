@@ -33,8 +33,11 @@ export interface AboutUsData {
   goal: Goal[];
 }
 
+
+export const url = process.env.NEXT_PUBLIC_END_POINT || 'http://localhost:3000'
+
 export const AboutData = async () => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_END_POINT}/getabout`,{
+  const response = await fetch(`${url}/getabout`,{
     cache: "no-store",
   });
   if (!response.ok) {

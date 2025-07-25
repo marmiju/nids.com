@@ -4,13 +4,12 @@ import { Problem as ProblemType } from "@/lib/contest/Contest";
 import { runOnPiston } from "@/lib/Piston/Piston";
 import { runtimeMap } from "@/lib/compiler/runTimeLag/run_lan";
 import { Editor } from "@monaco-editor/react";
-import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { CodeSnipet } from "@/lib/compiler/lanSnipet/LanSnipet";
 import { submission } from "@/lib/Function/Submit";
 import { jwtDecode } from "jwt-decode";
 import { useSelector } from "react-redux";
 import { redirect } from "next/navigation";
+import { RootType } from "@/app/redux/store/Store";
 
 interface MyTokenPayload {
   userId: number;
@@ -50,19 +49,18 @@ export const Problem: React.FC<Props> = ({
   const [userId, setUserId] = useState<number>();
 
   // ===================
-  const userData = useSelector((state: any) =>
-    state.Problem.find((item: any) => item.user_id === userId)
-  );
+  const userData = useSelector((state: RootType) =>
+    state.Problem.find((item) => item.user_id === userId)
+  ) as { value: number[] } | undefined;
 
   // =======
   useEffect(() => {
     const token = localStorage.getItem("token");
-    if (!token) redirect("/login");
+    // if (!token) redirect("/login");
     const decoded_value = jwtDecode<MyTokenPayload>(token!);
     setUserId(decoded_value.userId);
   }, []);
 
-  const [color, setcolor] = useState<string>();
 
   // when language changes, update version
   useEffect(() => {
@@ -170,7 +168,7 @@ export const Problem: React.FC<Props> = ({
           <p className="text-gray-700 bg-gray-100 mr-2 p-2">
             {problem.description}
           </p>
-          <div className={` mr-2 text-${color} my-10 space-y-4 `}>
+          <div className={` mr-2 text-text my-10 space-y-4 `}>
             Input:
             <pre className="bg-gray-900 p-2 mb-2 rounded text-gray-200">
               3 <br></br>
@@ -184,13 +182,12 @@ export const Problem: React.FC<Props> = ({
             </pre>
             Expected Output:
             <pre
-              className={`bg-gray-900 p-2 mb-2  rounded ${
-                isAccepted === null
-                  ? "text-gray-200"
-                  : isAccepted
+              className={`bg-gray-900 p-2 mb-2  rounded ${isAccepted === null
+                ? "text-gray-200"
+                : isAccepted
                   ? "text-green-500"
                   : "text-red-500"
-              }`}
+                }`}
             >
               {problem.output
                 .replace(/\\n/g, "\n")
@@ -200,31 +197,29 @@ export const Problem: React.FC<Props> = ({
             </pre>
             {output && (
               <div
-                className={`${
-                  isAccepted === null
-                    ? "text-gray-800"
-                    : isAccepted
+                className={`${isAccepted === null
+                  ? "text-gray-800"
+                  : isAccepted
                     ? "text-green-500"
                     : "text-red-500"
-                }`}
+                  }`}
               >
                 Your Output:
                 <pre
-                  className={`bg-gray-900 p-2 rounded whitespace-pre-wrap ${
-                    isAccepted === null
-                      ? "text-gray-200"
-                      : isAccepted
+                  className={`bg-gray-900 p-2 rounded whitespace-pre-wrap ${isAccepted === null
+                    ? "text-gray-200"
+                    : isAccepted
                       ? "text-green-500"
                       : "text-red-500"
-                  }`}
+                    }`}
                 >
                   {outerror
                     ? outerror
                     : output
-                        .replace(/\\n/g, "\n")
-                        .split("\n") // Split lines
-                        .slice(0, 3) // Show only first 3 lines
-                        .join("\n")}
+                      .replace(/\\n/g, "\n")
+                      .split("\n") // Split lines
+                      .slice(0, 3) // Show only first 3 lines
+                      .join("\n")}
                 </pre>
               </div>
             )}
@@ -236,9 +231,8 @@ export const Problem: React.FC<Props> = ({
           <div className="">
             {isAccepted !== null && (
               <p
-                className={` rounded-md ${
-                  isAccepted ? "bg-green-500" : "bg-red-500"
-                } text-white p-2`}
+                className={` rounded-md ${isAccepted ? "bg-green-500" : "bg-red-500"
+                  } text-white p-2`}
               >
                 {isAccepted ? "Accepted" : "Rejected"}
               </p>
@@ -248,10 +242,10 @@ export const Problem: React.FC<Props> = ({
             <p className="bg-red-600 text-center text-white p-4">
               Oops! Contest Ended😔
               <br />
-              <span className="text-gray-300">You can't Run Code</span>
+              <span className="text-gray-300">{`You can't Run Code`}</span>
             </p>
           ) : isRunning ? (
-            <p className="text-white text-center">↻ Exucuting...</p>
+            <p className="text-white text-center">{`↻ Exucuting...`}</p>
           ) : (
             <div className="flex justify-center gap-1">
               <button
@@ -266,13 +260,12 @@ export const Problem: React.FC<Props> = ({
               >
                 ⇮ Submit
               </button>
-              {}
+              { }
             </div>
           )}
           <div
-            className={`flex items-center gap-2 ${
-              isAccepted ? "text-green-500" : "text-red-600"
-            }`}
+            className={`flex items-center gap-2 ${isAccepted ? "text-green-500" : "text-red-600"
+              }`}
           >
             <select
               className="text-white text-sm bg-[#1f1f1f] p-1 rounded"

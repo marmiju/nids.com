@@ -1,4 +1,4 @@
-import { ProgramItem, ProgramsData } from "@/lib/about/AboutData";
+import {  ProgramsData } from "@/lib/about/AboutData";
 import React from "react";
 import Singleprogram from "./program/SingleProgram";
 import { FaDownload } from "react-icons/fa6";

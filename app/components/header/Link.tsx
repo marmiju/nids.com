@@ -15,7 +15,7 @@ export const Links: React.FC<navprop> = ({ navs }) => {
             target={data.name == "Addmission" ? "_blank" : "_self"}
             className={`${
               data.path == path
-                ? "text-white bg-green-900 px-2 py-1 rounded-sm font-semibold"
+                ? "text-primary border-b px-2 py-1  font-semibold"
                 : ""
             }`}
             href={data.path}

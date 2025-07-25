@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import dotenv from 'dotenv'
 import Link from "next/link";
@@ -9,12 +9,14 @@ export default function Login() {
     const [email, setemail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [error, setError] = useState<string>("");
+    const [isLoading, setIsloading] = useState<boolean>(false)
     const router = useRouter();
 
-    const handleLogin = async (e: React.FormEvent) => {
+    const handleLogin = async (e:React.FormEvent) => {
         e.preventDefault();
+        setIsloading(true)
         setError("");
-       
+
         try {
             const response = await fetch(`${process.env.NEXT_PUBLIC_END_POINT}/login`, {
                 method: "POST",
@@ -32,8 +34,10 @@ export default function Login() {
             router.refresh()
 
 
-        } catch (error: any) {
-            setError(error.message);
+        } catch (err) {
+            console.log("error", err)
+        }finally{
+            setIsloading(false)
         }
     };
     return (
@@ -62,14 +66,16 @@ export default function Login() {
                             required
                         />
                     </div>
-                    <button
-                        type="submit"
-                        className="w-full bg-black text-white p-2 rounded hover:bg-emerald-900"
-                    >
-                        Login
-                    </button>
+                    {
+                        isLoading ? <p>wait...</p> : <button
+                            type="submit"
+                            className="w-full bg-black text-white p-2 rounded hover:bg-emerald-900"
+                        >
+                            Login
+                        </button>
+                    }
                 </form>
-                <h1 className='text-center mt-6 text-gray-600'>Oops! dan't have account don't Worry  <Link href={'register'} className='text-orange-700 rounded underline hover:cursor-pointer p-4'>Create New</Link></h1>
+                <h1 className='text-center mt-6 text-gray-600'>{`Oops! dan't have account don't Worry`}<Link href={'register'} className='text-orange-700 rounded underline hover:cursor-pointer p-4'>Create New</Link></h1>
             </div>
         </div>
     );

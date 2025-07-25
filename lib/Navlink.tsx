@@ -1,5 +1,4 @@
-import Link from "next/link";
-import React from "react";
+
 
 export type Navtype = nav[];
 
@@ -21,7 +20,8 @@ export const Navlink = () => {
     { path: "/teachers", name: "Teachers" },
     { path: "/notice", name: "Notice" },
     { path: "/ressearch", name: "Research" },
-    { path: "/contest", name: "contact" },
+    { path: "/contact", name: "contact" },
+    { path: "/compete", name: "contest" },
   ];
   return link;
 };

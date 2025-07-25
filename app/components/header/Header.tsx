@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 
 import { Mobile } from "./Mobile";
 import { MdManageAccounts, MdOutlineAccountCircle } from "react-icons/md";
@@ -10,7 +10,7 @@ import { Navlink } from "@/lib/Navlink";
 import { useRouter } from "next/navigation";
 import { DarkTogle } from "../darktoggle/DarkToggle";
 
-const header = () => {
+const Header = () => {
   const [isopen, setIsOpen] = useState(false);
   const router = useRouter();
   const islogged = useAuth();
@@ -49,7 +49,7 @@ const header = () => {
                 onClick={() => router.replace("/profile")}
                 className="backdrop-blur-md hover:cursor-pointer py-2 text-white bg-black px-4 block"
               >
-                U'r_Profile
+                {`U'r Profile`}
               </button>
               <div className=" hover:cursor-pointer bg-red-700 py-2 text-white px-4  block">
                 Log Out
@@ -77,4 +77,4 @@ const header = () => {
   );
 };
 
-export default header;
+export default Header;
