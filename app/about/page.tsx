@@ -22,6 +22,7 @@ const page = async () => {
     <div
       className="w-full ease-linear"
     >
+      <p>Ahha</p>
       {/* //hero */}
       <div className="relative  w-full h-[600px] md:h-screen">
         <Image
