@@ -32,8 +32,8 @@ export const SingleNotice: React.FC<Props> = ({ notice, idx }) => {
     <>
       <div
         className={`${
-          idx % 2 === 0 ? "bg-secondary" : " border-white"
-        } py-2 px-4 rounded-sm relative`}
+          idx % 2 === 0 ? "bg-text/20" : " border-white"
+        } py-2 px-4 rounded-sm relative `}
       >
         <div className="flex items-center justify-between">
           <div>

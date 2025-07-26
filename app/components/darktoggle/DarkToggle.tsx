@@ -11,7 +11,7 @@ export const DarkTogle = () => {
           setIsDark(!isDark);
           document.documentElement.classList.toggle("dark");
         }}
-        className=" border border-secondary shadow p-1 rounded-full hover:cursor-pointer "
+        className=" border border-primary text-primary shadow p-1 rounded-full hover:cursor-pointer "
       >
         {isDark ? <BiMoon /> : <BiSun />}
       </button>

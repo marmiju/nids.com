@@ -49,7 +49,7 @@ export const MobileHeader = () => {
                           : ""
                       }`}
                     >
-                      {link.name}
+                      <p className="flex gap-1 items-center">{link.icon} <span>{link.name}</span></p>
                     </Link>
                   ) : (
                     <span className="block py-2 px-4 rounded text-lg">

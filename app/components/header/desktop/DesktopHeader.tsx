@@ -29,11 +29,11 @@ export const DesktopHeader = () => {
                   href={link.href}
                   className={` ${
                     isActive(pathname, link.href)
-                      ? "underline font-semibold  text-background  p-2 rounded"
+                      ? "underline font-semibold  text-background  rounded block"
                       : ""
                   }`}
                 >
-                  {link.name}
+                  <p className="flex gap-1 items-center">{link.icon} <span>{link.name}</span></p>
                 </Link>
               ) : (
                 <span className="px-4 py-2 cursor-default">

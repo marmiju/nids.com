@@ -34,6 +34,7 @@ export const InfoData = async () => {
     const respons = await fetch(`${url}/getinfo`)
     const result = await respons.json()
     siteLogo = result.infoData.logo || null
+    console.log(siteLogo)
     return result
   } catch (err) {
     console.log(err)
