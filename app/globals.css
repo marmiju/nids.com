@@ -10,10 +10,10 @@
 }
 
 :root {
-  --background: #ffffff;
-  --primary: #1100ff;
-  --text: #2e2e2e;
-  --secondary: #f1f1f1;
+  --background: rgb(244, 248, 255);
+  --primary: #0400ff;
+  --text: #383838;
+  --secondary: #ffffff;
 }
 
 .dark {
@@ -26,4 +26,8 @@
 body {
   background-color: var(--background);
 }
+
+/* *{
+  border: 1px solid blue;
+} */
 

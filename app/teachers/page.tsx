@@ -1,12 +1,12 @@
 "use client";
 
-import { Users, usersType, usertype } from "@/lib/users/Users";
+import { Users,  usertype } from "@/lib/users/Users";
 import React, { useEffect, useState } from "react";
-import { UserCart } from "../components/userCart/UserCart";
 import StudentSearch from "../components/serchBar/StudentSearch";
+import TeacherCard from "../components/card/teachersCard/TeachersCard";
 
 const Page = () => {
-  const [userData, setUserData] = useState<usersType>([]);
+  const [userData, setUserData] = useState<usertype[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
@@ -27,10 +27,10 @@ const Page = () => {
     <div className="max-w-[1200px] mx-auto">
       <StudentSearch searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-[1200px] mx-auto gap-2">
+      <div className="max-w-[1280px] mx-auto flex flex-wrap  space-x-1 space-y-1">
         {filteredUsers.length > 0
           ? filteredUsers.map((data: usertype) => (
-            <UserCart key={data.id} data={data} />
+            <TeacherCard key={data.id} person={data}/>
           ))
           : " Not Found"}
       </div>

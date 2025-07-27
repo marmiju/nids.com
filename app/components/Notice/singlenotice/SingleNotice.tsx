@@ -32,26 +32,26 @@ export const SingleNotice: React.FC<Props> = ({ notice, idx }) => {
     <>
       <div
         className={`${
-          idx % 2 === 0 ? "bg-text/20" : " border-white"
-        } py-2 px-4 rounded-sm relative `}
+          idx % 2 === 0 ? "bg-text text-background" : " bg-text/50"
+        } py-2 px-4 relative `}
       >
         <div className="flex items-center justify-between">
           <div>
             <div className="flex items-center gap-x-2">
-              <p className="font-medium text-primary">{notice.title}</p>
+              <p className="font-medium ">{notice.title}</p>
               {isNew && (
-                <p className="text-sm bg-text/50 font-semibold text-white/50 text-center px-1 rounded-full">
+                <p className="text-sm bg-primary text-background font-semibold  text-center px-1 rounded px-2">
                   New
                 </p>
               )}
             </div>
-            <p className="text-slate-400">
+            <p className="text-white/80 text-sm">
               {notice.author + " | " + notice.date.slice(0, 10)}
             </p>
           </div>
 
           <button onClick={handleOpenModal}>
-            <BsEyeFill className="text-xl text-text hover:scale-150 hover:cursor-pointer transition-all duration-200" />
+            <BsEyeFill className="text-xl text-background hover:scale-150 hover:cursor-pointer transition-all duration-200" />
           </button>
         </div>
 

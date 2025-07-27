@@ -1,7 +1,7 @@
 // ✅ /lib/users/Users.ts
-export type usersType = usertype[]
 
-export type usertype = {
+
+export interface usertype  {
     id: number
     name: string
     username: string
@@ -17,9 +17,6 @@ export type usertype = {
     createdAt?: string
 }
 
-export type userprop = {
-    data: usersType
-}
 
 export const Users = async () => {
     const response = await fetch(`${process.env.NEXT_PUBLIC_END_POINT}/users`, {
@@ -35,5 +32,6 @@ export const Users = async () => {
     }
 
     const data = await response.json()
-    return data.result
+    const result:usertype[] = data.result
+    return result
 }
