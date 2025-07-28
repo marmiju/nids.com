@@ -13,7 +13,7 @@ export const ContestTabs: React.FC<Props> = ({ contest }) => {
   const [activeTab, setActiveTab] = useState(0);
   const [codes, setCodes] = useState<{ [key: number]: string }>({});
   const [outputs, setOutputs] = useState<{ [key: number]: string }>({});
-  const [errors, setErrors] = useState<{ [key: number]: string }>({});
+  const [errors, setErrors] = useState<{ [key: number]: string | null}>({});
 
   const now = new Date();
   const end = new Date(contest.end_time);
@@ -28,15 +28,15 @@ export const ContestTabs: React.FC<Props> = ({ contest }) => {
     console.log(output);
   };
 
-  const handleError = (index: number, error: string) => {
+  const handleError = (index: number, error: string | null) => {
     setErrors((prev) => ({ ...prev, [index]: error }));
   };
 
   return (
-    <div className="max-w-[1280px] mx-auto">
-      <div className=" bg-white shadow px-2 py-4 rounded-2xl">
+    <div className="max-w-[1280px] mx-auto p-6">
+      <div className=" bg-secondary text-text shadow px-2 py-4 rounded-2xl">
         <div className="text-center mb-4">
-          <h1 className="text-2xl font-semibold">{contest.title}</h1>
+          <h1 className="text-2xl text-primary font-semibold">{contest.title}</h1>
           <p>{contest.description}</p>
           <p className={`${isExpired ? "text-red-700" : "text-green-700"}`}>
             {" "}
@@ -58,8 +58,8 @@ export const ContestTabs: React.FC<Props> = ({ contest }) => {
               className={`transition-colors duration-300 py-1 px-2 rounded 
                             ${
                               activeTab === index
-                                ? "bg-black text-white"
-                                : "bg-gray-300 text-black"
+                                ? "bg-primary text-background"
+                                : "bg-text/20 text-text"
                             }
                             hover:cursor-pointer
                         `}
