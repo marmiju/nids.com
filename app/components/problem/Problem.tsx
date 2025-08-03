@@ -224,8 +224,15 @@ export const Problem: React.FC<Props> = ({
                 </pre>
               </div>
 
-            ) : <pre className="bg-text/10 w-full md:w-1/2 overflow-auto text-red-600">{outerror}</pre>}
-
+            ) : outerror && <div
+              >
+                Err:
+                <pre
+                  className={`bg-red-200 text-red-600 p-2 rounded whitespace-pre-wrap `}
+                >
+                  {outerror}
+                </pre>
+              </div>}
 
           </div>
         </div>

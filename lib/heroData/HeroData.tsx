@@ -1,9 +1,9 @@
 import { StaticImageData } from 'next/image';
+import gate from "@/public/gate.jpg"
+import lab from "@/public/lab.jpg"
+import classroom from "@/public/classroom.jpg"
+import campas from "@/public/campus.jpg"
 
-import gate from "@/public/gate.jpg";
-import classroom from "@/public/classroom.jpg";
-import lab from "@/public/lab.jpg";
-import techersroom from "@/public/techersroom.jpg";
 
 export interface HeroDataType {
     title: string;
@@ -25,28 +25,25 @@ export const HeroData = () => {
     const herodata:HeroDataType[] = [
         {
             image: gate,
-            title: "Northbengal Institute and Development Studies",
-            subtitle: "Empowering your future with nids we're here to help you. and we are always ready to help you",
-            link: "https://www.facebook.com/nidsnorthbengal"
+            title: "Welcome to NIDS",
+            subtitle: "We offer 4-year B.Sc honors programs in CSE and BBA, preparing students with the skills and knowledge for successful careers in technology and business.",
         },
         
         {
             image: lab,
             title: "Welcome to lab",
-            subtitle: "Empowering your future",
-            link: "https://www.facebook.com/nidsnorthbengal"
+            subtitle: "we provide our college lab to practice any time and work with with senior",
         },
         {
             image: classroom,
             title: "Our classroom",
             subtitle: "Empowering your future with nids we're here to help you. and we are always ready to help you and we are always ready to help you and we are always ready to help you and we are always ready to help you",
-            link: "https://www.facebook.com/nidsnorthbengal"
         }, 
         {
-            image: techersroom,
+            image: campas,
             title: "Teachers Roome",
             subtitle: "Empowering your future with nids we're here to help you. and we are always ready to help you",
-            link: "https://www.facebook.com/nidsnorthbengal"
+            link: "#"
         },
     ];
 

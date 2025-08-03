@@ -3,7 +3,7 @@ import React from "react";
 import VisMis from "../components/vis_mis/VisMis";
 import { Award } from "../components/award/Award";
 import Image from "next/image";
-import banner from "@/public/banner.png";
+import gate from "@/public/gate.jpg"
 import SingleCardWithTitle from "../components/singCardwithTitle&icon/SingleCartTitle";
 import { FaComputer, FaInternetExplorer, FaPeopleRoof, FaRankingStar } from "react-icons/fa6";
 import { IoLibrarySharp } from "react-icons/io5";
@@ -25,7 +25,7 @@ const page = async () => {
       {/* //hero */}
       <div className="relative  w-full h-[600px] md:h-screen">
         <Image
-          src={banner}
+          src={gate}
           alt="Hero Background"
           fill
           placeholder="blur"
