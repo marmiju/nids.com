@@ -17,7 +17,7 @@ export const LogoTitle = () => {
         <h1 className="text-md md:text-lg lg:text-2xl font-bold ">
           NIDS
         </h1>
-        <p className="">Since 2002</p>
+        <p className="">Since 2012</p>
       </div>
     </div>
   );

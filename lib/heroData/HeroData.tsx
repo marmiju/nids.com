@@ -36,13 +36,13 @@ export const HeroData = () => {
         },
         {
             image: classroom,
-            title: "Our classroom",
-            subtitle: "Empowering your future with nids we're here to help you. and we are always ready to help you and we are always ready to help you and we are always ready to help you and we are always ready to help you",
+            title: "NIDS classroom",
+            subtitle: "Our classrooms are well-ventilated, spacious, and equipped with modern teaching tools, creating a comfortable and interactive learning environment for students",
         }, 
         {
             image: campas,
-            title: "Teachers Roome",
-            subtitle: "Empowering your future with nids we're here to help you. and we are always ready to help you",
+            title: "Our Campus",
+            subtitle: "Our college campus offers a vibrant and student-friendly environment, equipped with modern classrooms, computer labs, a spacious library, and green open spaces — designed to inspire learning, innovation, and personal growth",
             link: "#"
         },
     ];

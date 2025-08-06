@@ -54,7 +54,7 @@ export const UserCart: React.FC<UserCartProps> = ({ data }) => {
             }
           </div>
           <p className='text-lg font-medium text-black'>{data.name}</p>
-          <h1>{data.semester}</h1>
+          <h1>{data.department}</h1>
         </div>
       </div>
       {/* second Section */}

@@ -9,8 +9,11 @@ export interface usertype  {
     phone: string
     password: string
     role: string
+    bio:string
     status: string
-    semester: string
+    designation: string
+    image:string
+    department:string
     result: string
     contestPoints: number
     rank: string
@@ -24,7 +27,7 @@ export const Users = async () => {
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify({ role: "student" }),
+        body: JSON.stringify({ role: "teachers" }),
     });
 
     if (!response.ok) {
@@ -32,6 +35,7 @@ export const Users = async () => {
     }
 
     const data = await response.json()
-    const result:usertype[] = data.result
-    return result
+    const user:usertype[] = data.user
+    
+    return user
 }

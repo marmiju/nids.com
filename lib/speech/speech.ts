@@ -14,7 +14,7 @@ export const speakerData: SpeechProps[] = [
         id: 1,
         name: "Dr. Syed Samsuzzaman",
         title: `Chairman and Former Executive Director,
-Northbengal Institute of Development Studies (NIDS)`,
+            Northbengal Institute of Development Studies (NIDS)`,
         speech: `Technology is more than code — it's a bridge between problems and solutions. I believe in building things that help people, scale with purpose, and grow with learning. As a lifelong student of code, I strive to solve real-world problems with clean, scalable, and human-centric software.`,
         imageUrl: chairmanSir, // make sure this image exists in your /public folder
     },

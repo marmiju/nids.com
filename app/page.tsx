@@ -9,12 +9,13 @@ import HeroCarousel from "./carosol/HeroCarosol";
 
 import { BreakingNews } from "./components/breakingNews/BrekingNews";
 import { Loading } from "./components/loading/Loading";
+import Link from "next/link";
 
 export default async function Home() {
   const [aboutData, herodata] = await Promise.all([AboutData(), HeroData()]);
 
 
-  if (!aboutData || !herodata  ) {
+  if (!aboutData || !herodata) {
     return <Loading />;
   }
 
@@ -25,7 +26,7 @@ export default async function Home() {
       importent from components/ breking news
       props lates notice
       */}
-        <BreakingNews/>
+      <BreakingNews />
 
       {/* starting of section 1 hero section */}
       <div className="relative">
@@ -46,11 +47,12 @@ export default async function Home() {
         {/* ending of vision mission */}
         <div className="col-span-1 md:col-span-4 lg:col-span-4 drop-shadow-md  rounded-sm select-secondary border  border-secondary p-2">
           <p className="py-2 text-text">Notice Board (Latest Fast) </p>
-          <div className="h-[400px] overflow-scroll ">
-            {/* <Link href="/notice" className="flex flex-col gap-2"> */}
+          <Link href={'/notice'}>
+            <div className="max-h-[400px] overflow-scroll ">
+              {/* <Link href="/notice" className="flex flex-col gap-2"> */}
               <Notice />
-            {/* </Link> */}
-          </div>
+              {/* </Link> */}
+            </div></Link>
         </div>
 
         {/* starting of Notice */}

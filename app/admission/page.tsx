@@ -5,6 +5,9 @@ import { IoLibrarySharp } from "react-icons/io5";
 import { GiFamilyHouse } from "react-icons/gi";
 import { BiCode } from "react-icons/bi";
 import { GrMore } from "react-icons/gr";
+import fees from '@/public/fees.png'
+import Image from "next/image";
+
 
 export default function AdmissionPage() {
   return (
@@ -48,8 +51,14 @@ export default function AdmissionPage() {
         <ul className="list-disc pl-6 mb-4 space-y-2">
           <li>Minimum GPA in SSC & HSC or equivalent</li>
           <li>Science background for CSE | Any background for BBA</li>
-        
         </ul>
+      </section>
+
+      <section id="coasting " className="grid justify-center max-w-[1280px] mx-auto my-10">
+       <h3 className="text-center text-xl text-primary p-4">academic cost of 4 Years</h3>
+       <Image alt="fees" src={fees}  />
+       <a href=""></a>
+
       </section>
 
       {/* Call to Action */}
@@ -57,7 +66,7 @@ export default function AdmissionPage() {
         <p className="text-xl font-semibold mb-4">Apply Now!</p>
         <p className="mb-2">💻 Online Application: <a href="#" className="text-blue-600 underline">Apply Here</a></p>
         <p className="mb-2">📞 Helpline: +8801XXXXXXXXX</p>
-        <p className="mb-2">📍 Campus Address: [Your College Address]</p>
+        <p className="mb-2">📍 Campus Address: darshona,lalbag,rangpur</p>
         <p className="text-red-600 font-bold mt-4">Seats are limited – Apply early!</p>
       </section>
 

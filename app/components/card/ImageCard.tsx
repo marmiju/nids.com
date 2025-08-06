@@ -13,7 +13,7 @@ const ImageCard = ({imageUrl,title,subTitle}:ImageCardProps) => {
     return (
         <div className='space-y-2 gap-2'>
             <Image
-                src={imageUrl || bg } // Provide a default image if none is passed
+                src={imageUrl || bg } 
                 alt={title || 'Image Card'}
                 width={200}
                 height={200}

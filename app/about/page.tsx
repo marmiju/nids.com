@@ -5,17 +5,18 @@ import { Award } from "../components/award/Award";
 import Image from "next/image";
 import gate from "@/public/gate.jpg"
 import SingleCardWithTitle from "../components/singCardwithTitle&icon/SingleCartTitle";
-import { FaComputer, FaInternetExplorer, FaPeopleRoof, FaRankingStar } from "react-icons/fa6";
+import { FaComputer, FaFacebook, FaInternetExplorer, FaPeopleRoof, FaRankingStar } from "react-icons/fa6";
 import { IoLibrarySharp } from "react-icons/io5";
 import { GiFamilyHouse } from "react-icons/gi";
 import { BiCode } from "react-icons/bi";
 import { GrMore } from "react-icons/gr";
 import { Loading } from "../components/loading/Loading";
+import Link from "next/link";
 
 const page = async () => {
   const aboutData: AboutUsData = await AboutData();
-  if(!aboutData){
-    return <Loading/>
+  if (!aboutData) {
+    return <Loading />
   }
 
   return (
@@ -63,12 +64,17 @@ const page = async () => {
           <SingleCardWithTitle title="Lab Facilities" icon={<FaComputer />} />
           <SingleCardWithTitle title="Library" icon={<IoLibrarySharp />} />
           <SingleCardWithTitle title="Internet Facilities" icon={<FaInternetExplorer />} />
-          <SingleCardWithTitle title="Hostel Facilities" icon={<GiFamilyHouse /> } />
-          <SingleCardWithTitle title="Tutorial" icon={<BiCode /> } />
-          <SingleCardWithTitle title="programming contest" icon={<FaRankingStar /> } />
+          <SingleCardWithTitle title="Hostel Facilities" icon={<GiFamilyHouse />} />
+          <SingleCardWithTitle title="Tutorial" icon={<BiCode />} />
+          <SingleCardWithTitle title="programming contest" icon={<FaRankingStar />} />
           <SingleCardWithTitle title="Student Colabration" icon={<FaPeopleRoof />} />
           <SingleCardWithTitle title="and more" icon={<GrMore />} />
 
+        </div>
+        <div className="py-10">
+          <h3 className="col-span-4  text-xl font-bold mt-10 text-secondary bg-primary pl-2">Affiliation</h3>
+          <p className="text-text bg-secondary p-2">{`
+            Northbengal Institute of Development Studies (NIDS) is affiliated to National University, Bangladesh in April 2014 as per letter memo no. 07(pro-1255 Jati: Bi/Ka:Pa:/9700 dated 15 April 2014) and will be run according to rules and regulations of National University, Bangladesh. Certificate will also be issued by National University, Bangladesh`}</p>
         </div>
 
         {/*Location  */}
@@ -82,6 +88,10 @@ const page = async () => {
             <p>Location: Darshana more, Rangpur</p>
             <p>Contact: +8801 8623476</p>
             <p>Facebook: Nids- northbengle institute and development institute</p>
+            <div className="mt-4 ">
+              <h3 className="font-medium text-primary">Join Our Community</h3>
+              <Link className="inline-flex items-center bg-primary text-secondary px-4 py-2 hover:scale-110 transition-all duration-300 gap-2 rounded-full" target="_blank" href={'https://www.facebook.com/groups/734459334408857'}><FaFacebook /> Facebook</Link>
+            </div>
           </div>
 
         </div>
