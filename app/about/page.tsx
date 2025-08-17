@@ -86,7 +86,7 @@ const page = async () => {
           </iframe>
           <div className="text-text">
             <p>Location: Darshana more, Rangpur</p>
-            <p>Contact: +8801 8623476</p>
+            <p>Contact: +880 18768-75853</p>
             <p>Facebook: Nids- northbengle institute and development institute</p>
             <div className="mt-4 ">
               <h3 className="font-medium text-primary">Join Our Community</h3>

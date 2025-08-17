@@ -20,7 +20,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${montserrat.className}`}>
+      <head>
+        <meta
+          name="google-site-verification"
+          content="KQ5MsI6-L1eux3fa4ML6VPeRY-lH_D6HZwqXmCSr7N0"
+        />
+      </head>
+      <body className={montserrat.className}>
         <ReduxProvider>
           <Header />
           {children}
@@ -31,3 +37,4 @@ export default function RootLayout({
     </html>
   );
 }
+
