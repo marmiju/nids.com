@@ -15,14 +15,15 @@ export const speakerData: SpeechProps[] = [
         name: "Dr. Syed Samsuzzaman",
         title: `Chairman and Former Executive Director,
             Northbengal Institute of Development Studies (NIDS)`,
-        speech: `Technology is more than code — it's a bridge between problems and solutions. I believe in building things that help people, scale with purpose, and grow with learning. As a lifelong student of code, I strive to solve real-world problems with clean, scalable, and human-centric software.`,
+        speech: `Welcome to Northbengal Institute of Development Studies (NIDS)! As you browse through this brochure I hope it will assist you making a choice and entering to a center of research, training and academic excellence. You will find a helpful environment and committed researchers, trainers, teachers and staff. NIDS through our collaborative efforts with similar other stakeholders will bring continuous improvements in our programs, in our learning facilities and resources so that you receive the best learning and experience a memorable life.
+`,
         imageUrl: chairmanSir, // make sure this image exists in your /public folder
     },
     {
         id: 1,
-        name: "Azizar Rahman",
-        title: "Junior Software Developer at Innovate Digital",
-        speech: ` problemsa bridge between problemsa bridge between problems and solutions. I believe in building things that help people, scale with purpose, and grow with learning. As a lifelong student of code, I strive to solve real-world problems with clean, scalable, and human-centric software.`,
+        name: "Faridul islam",
+        title: "lecturer at nids",
+        speech: `I graduated from Begum Rokeya University, Rangpur, in Electrical and Electronic Engineering. My goal is to spread quality education so that people can become skilled and contribute to the advancement of science and technology.`,
         imageUrl: faridsir, // make sure this image exists in your /public folder
     }
 ]

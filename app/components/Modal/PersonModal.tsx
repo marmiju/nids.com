@@ -6,7 +6,7 @@ import { usertype } from '@/lib/users/Users';
 const PersonalModal = ({ person, handlemodal }: { person: usertype, handlemodal: () => void }) => {
     return (
         <div className="fixed inset-0 z-50 bg-black/30 flex items-center justify-center">
-            <div className="relative max-w-5xl w-[90%] bg-background/80 backdrop-blur-sm border border-secondary rounded-2xl flex flex-wrap md:flex-nowrap p-6 2">
+            <div className="relative max-w-5xl w-[90%]  backdrop-blur-sm border-2 border-white/20 rounded-2xl flex flex-wrap md:flex-nowrap p-6 2">
 
                 {/* Close Button */}
                 <button
@@ -33,7 +33,7 @@ const PersonalModal = ({ person, handlemodal }: { person: usertype, handlemodal:
 
                 {/* Right Section: Bio */}
                 <div className="flex-1 overflow-auto max-h-[400px] p-4">
-                    <p className="text-text whitespace-pre-line break-words">
+                    <p className="text-white whitespace-pre-line break-words">
                         {person.bio}
                     </p>
                 </div>

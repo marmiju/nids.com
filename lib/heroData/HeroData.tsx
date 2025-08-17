@@ -26,6 +26,7 @@ export const HeroData = () => {
         {
             image: gate,
             title: "Welcome to NIDS",
+            link:"https://wa.me/+8801765903624",
             subtitle: "We offer 4-year B.Sc honors programs in CSE and BBA, preparing students with the skills and knowledge for successful careers in technology and business.",
         },
         
@@ -43,7 +44,7 @@ export const HeroData = () => {
             image: campas,
             title: "Our Campus",
             subtitle: "Our college campus offers a vibrant and student-friendly environment, equipped with modern classrooms, computer labs, a spacious library, and green open spaces — designed to inspire learning, innovation, and personal growth",
-            link: "#"
+            
         },
     ];
 

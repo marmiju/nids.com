@@ -12,7 +12,7 @@ export const developer = () => {
         {
             title: 'lkdin',
             icon:'https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg',
-            url:'https://linkedin.com/in/marmijudev'
+            url:'https://linkedin.com/in/mar-miju'
         },
         {
             title: 'fb',
@@ -27,7 +27,7 @@ export const developer = () => {
         {
             title: 'ltcd',
             icon:'https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png',
-            url:'https://leetcode.com/devmar'
+            url:'https://leetcode.com/marmiju'
         },
     ]
   return data

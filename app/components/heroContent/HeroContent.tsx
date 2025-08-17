@@ -11,12 +11,13 @@ export const HeroContent = ({ data }:{data:HeroDataType}) => {
         {data.title}
       </h1>}
       {data.subtitle && <h1 className="text-lg text-gray-200">{data.subtitle}</h1>}
-      {
+      <div className="max-w-64">{
         data.link &&
-        <Link href={data.link} className=" p-2 rounded-sm bg-white hover:bg-transparent text-black hover:text-white flex items-center gap-2  mt-2  hover:backdrop-blur-3xl transition-all duration-700 hover:shadow-2xl hove:mt-0  drop-shadow-sm cursor-pointer shadow-white">
+        <Link href={data.link} className="flex p-2 rounded-sm bg-white hover:bg-transparent text-black hover:text-white  items-center gap-2  mt-2  hover:backdrop-blur-3xl transition-all duration-700 hover:shadow-2xl hove:mt-0  drop-shadow-sm cursor-pointer shadow-white">
        <FaMessage/> Get Free Consultation
       </Link>
       }
+      </div>
     </div>
   );
 };
