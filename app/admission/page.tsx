@@ -64,9 +64,9 @@ export default function AdmissionPage() {
       {/* Call to Action */}
       <section className="text-center bg-secondary py-8 rounded-xl shadow">
         <p className="text-xl font-semibold mb-4">Apply Now!</p>
-        <p className="mb-2">💻 Online Application: <a href="#" className="text-blue-600 underline">Apply Here</a></p>
-        <p className="mb-2">📞 Helpline: +8801XXXXXXXXX</p>
-        <p className="mb-2">📍 Campus Address: darshona,lalbag,rangpur</p>
+        <p className="mb-2">💻 Online Application: <a href="https://docs.google.com/forms/d/1XWM5bb79yuwwh_dNpoSPwSyPW1kDtq_eThepq-GgUY4/viewform?edit_requested=true" className="text-blue-600 underline">Apply Here</a></p>
+        <p className="mb-2">📞 Helpline: +01876875853</p>
+        <p className="mb-2">📍 Campus Address: Darshana Mor, RK road rangpur</p>
         <p className="text-red-600 font-bold mt-4">Seats are limited – Apply early!</p>
       </section>
 
