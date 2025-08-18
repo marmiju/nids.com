@@ -11,6 +11,19 @@ import { BreakingNews } from "./components/breakingNews/BrekingNews";
 import { Loading } from "./components/loading/Loading";
 import Link from "next/link";
 
+export const Metadata = {
+  title: "Home | NIDS",
+  description: "North Bengal Institute and Development Society (NIDS) is a leading educational institution in Bangladesh, dedicated to providing quality education and fostering holistic development.",
+  keywords: [
+    "NIDS",
+    "North Bengal Institute",
+    "Development Society",
+    "education in Bangladesh",
+    "quality education",
+    "holistic development"
+  ],
+}
+
 export default async function Home() {
   const [aboutData, herodata] = await Promise.all([AboutData(), HeroData()]);
 
