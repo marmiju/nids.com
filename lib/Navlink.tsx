@@ -17,7 +17,7 @@ export type NavItem = {
 export const NavLinks: NavItem[] = [
   { href: "/", icon:<FaHome/>, name: "Home" },
   { href: "/about",icon:<BiDetail/>, name: "About" },
-  { href: "/admission",icon:<FaGraduationCap/>, name: "Addmission" },
+  { href: "/admission",icon:<FaGraduationCap/>, name: "Admission" },
   { href: "/programs",icon:<MdLocalOffer />, name: "Offer Programs" },
   { href: "/teachers",icon:<PiChalkboardTeacherFill />, name: "Teachers" },
   { href: "/notice",icon:<IoMdNotifications />, name: "Notice" },
